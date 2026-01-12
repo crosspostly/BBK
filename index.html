@@ -752,7 +752,32 @@
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">ББК</div>
+                <div class="logo">
+                    <svg width="60" height="30" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle;">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#9D4EDD;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#00F5FF;stop-opacity:1" />
+                            </linearGradient>
+                            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
+                                <feFlood flood-color="#9D4EDD" flood-opacity="0.8" result="glowColor"/>
+                                <feComposite in="glowColor" in2="blur" operator="in" result="glow"/>
+                                <feMerge>
+                                    <feMergeNode in="glow"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+                              font-family="'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
+                              font-size="48" font-weight="bold"
+                              fill="url(#logoGradient)"
+                              filter="url(#glow)" transform="scale(0.5)">
+                            ББК
+                        </text>
+                    </svg>
+                </div>
                 <nav class="nav">
                     <a href="#why">Почему ББК</a>
                     <a href="#compare">Vs Конкуренты</a>
