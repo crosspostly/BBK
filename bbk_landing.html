@@ -3,1134 +3,679 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:title" content="ББК — Локальные микроблогеры для вашего бизнеса">
-    <meta property="og:description" content="5–15 микроблогеров Кемерово, нативный контент, отзывы в картах. ROI 680–4100%. От 3,500 ₽.">
-    <title>ББК — Микроблогеры для локального бизнеса</title>
+    <title>ББК — Микроблогеры для вашего бизнеса</title>
     <style>
-        :root {
-            --color-primary: #9D4EDD;           /* Фиолетовый-неон */
-            --color-primary-dark: #6A0C80;      /* Фиолетовый темный */
-            --color-accent: #00F5FF;            /* Циан-неон */
-            --color-accent-light: #B537F2;      /* Фиолетовый светлый */
-            --color-success: #00FF41;           /* Зеленый неон */
-            --color-warning: #FFB70F;           /* Оранжевый неон */
-            --color-bg: #0a0a0a;                /* Черный */
-            --color-surface: #1a1a2e;           /* Темно-синий */
-            --color-surface-light: #252d3d;     /* Светлее */
-            --color-text: #f0f0f0;              /* Светло-серый */
-            --color-text-secondary: #a0a0a0;   /* Темный серый */
-            --color-border: rgba(157, 78, 221, 0.2);
-            
-            --spacing-xs: 8px;
-            --spacing-sm: 16px;
-            --spacing-md: 24px;
-            --spacing-lg: 40px;
-            --spacing-xl: 60px;
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, var(--color-bg) 0%, #1a1a3e 100%);
-            color: var(--color-text);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a0e27;
+            color: #e0e0e0;
             line-height: 1.6;
-            min-height: 100vh;
         }
-
-        nav {
+        
+        /* Нео-гоу эффекты */
+        .glow {
+            text-shadow: 0 0 20px #9D4EDD, 0 0 40px #9D4EDD;
+        }
+        
+        .glow-cyan {
+            text-shadow: 0 0 20px #00F5FF, 0 0 40px #00F5FF;
+        }
+        
+        .glow-green {
+            text-shadow: 0 0 20px #00FF41, 0 0 40px #00FF41;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+            border-bottom: 2px solid #9D4EDD;
+            padding: 20px;
             position: sticky;
             top: 0;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--color-border);
-            padding: var(--spacing-sm) var(--spacing-lg);
-            z-index: 1000;
+            z-index: 100;
         }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 800;
-            color: var(--color-accent);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: var(--spacing-md);
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--color-text);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--radius-sm);
-        }
-
-        nav a:hover {
-            color: var(--color-accent);
-        }
-
-        .nav-cta {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color: white !important;
-            padding: var(--spacing-sm) var(--spacing-md) !important;
-            border-radius: var(--radius-sm);
-            white-space: nowrap;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
-        }
-
-        .nav-cta:hover {
-            box-shadow: 0 0 30px rgba(157, 78, 221, 0.8);
-        }
-
-        .hero {
-            padding: var(--spacing-xl) var(--spacing-lg);
+        
+        header h1 {
+            color: #9D4EDD;
             text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero-subtitle {
-            font-size: 16px;
-            color: var(--color-accent);
-            font-weight: 700;
-            margin-bottom: var(--spacing-sm);
-            text-transform: uppercase;
+            font-size: 28px;
             letter-spacing: 2px;
-            animation: pulse-glow 2s ease-in-out infinite;
         }
-
-        @keyframes pulse-glow {
-            0%, 100% { text-shadow: 0 0 10px rgba(0, 245, 255, 0.5); }
-            50% { text-shadow: 0 0 20px rgba(0, 245, 255, 0.9); }
+        
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(157, 78, 221, 0.1) 0%, rgba(0, 245, 255, 0.05) 100%);
+            border-bottom: 2px solid #00F5FF;
         }
-
-        .hero h1 {
-            font-size: clamp(40px, 6vw, 80px);
-            font-weight: 900;
-            margin-bottom: var(--spacing-md);
-            background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 50%, var(--color-accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1.1;
-            text-shadow: 0 0 30px rgba(157, 78, 221, 0.3);
+        
+        .hero h2 {
+            font-size: 48px;
+            color: #9D4EDD;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
         }
-
+        
         .hero p {
             font-size: 20px;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--spacing-lg);
-            max-width: 700px;
+            color: #00F5FF;
+            margin-bottom: 40px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
-
-        .hero-cta {
-            display: inline-flex;
-            gap: var(--spacing-md);
-            align-items: center;
-            margin-top: var(--spacing-lg);
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 16px 40px;
+        
+        .cta-button {
+            background: linear-gradient(135deg, #9D4EDD, #00F5FF);
+            color: #000;
+            padding: 15px 40px;
+            font-size: 18px;
             border: none;
-            border-radius: var(--radius-md);
-            font-size: 16px;
-            font-weight: 600;
+            border-radius: 5px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 0 30px #9D4EDD;
+            transition: all 0.3s;
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color: white;
-            box-shadow: 0 0 20px rgba(157, 78, 221, 0.5);
+        
+        .cta-button:hover {
+            box-shadow: 0 0 50px #9D4EDD, 0 0 30px #00F5FF;
+            transform: scale(1.05);
         }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 40px rgba(157, 78, 221, 0.8);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--color-accent);
-            border: 2px solid var(--color-accent);
-            box-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(0, 245, 255, 0.1);
-            transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.6);
-        }
-
-        .section {
-            padding: var(--spacing-xl) var(--spacing-lg);
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 60px 20px;
         }
-
-        .section-title {
-            font-size: clamp(32px, 5vw, 56px);
-            font-weight: 900;
-            margin-bottom: var(--spacing-lg);
-            text-align: center;
-            color: var(--color-text);
-        }
-
-        .section-title span {
-            color: var(--color-accent);
-            text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: var(--spacing-lg);
-            margin: var(--spacing-xl) 0;
-        }
-
-        .stat-card {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--color-primary);
-            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.3);
-        }
-
-        .stat-number {
-            font-size: 36px;
-            font-weight: 900;
-            color: var(--color-accent);
-            margin-bottom: var(--spacing-sm);
-            text-shadow: 0 0 10px rgba(0, 245, 255, 0.3);
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--color-text-secondary);
-            font-weight: 500;
-        }
-
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
-        }
-
-        .problem-card {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-md);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .problem-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--color-warning), var(--color-accent));
-        }
-
-        .problem-card:hover {
-            border-color: var(--color-accent);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
-        }
-
-        .problem-icon {
+        
+        h3 {
+            color: #9D4EDD;
             font-size: 32px;
-            margin-bottom: var(--spacing-sm);
-            display: block;
+            margin-bottom: 40px;
+            text-align: center;
+            letter-spacing: 1px;
         }
-
-        .problem-card h3 {
-            font-size: 18px;
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-text);
-        }
-
-        .problem-card p {
-            color: var(--color-text-secondary);
-            font-size: 14px;
-            margin: 0;
-        }
-
-        .benefits-grid {
+        
+        /* ТАРИФЫ */
+        .pricing {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
+            gap: 30px;
+            margin-bottom: 60px;
         }
-
-        .benefit-block {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            transition: all 0.3s ease;
-        }
-
-        .benefit-block:hover {
-            border-color: var(--color-primary);
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
-        }
-
-        .benefit-block h4 {
-            color: var(--color-accent);
-            margin-bottom: var(--spacing-sm);
-            font-size: 18px;
-        }
-
-        .benefit-block p {
-            color: var(--color-text-secondary);
-            font-size: 14px;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: var(--spacing-xl) 0;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: var(--color-surface-light);
-            border: 1px solid var(--color-border);
-            padding: var(--spacing-md);
-            text-align: left;
-            font-weight: 700;
-            color: var(--color-accent);
-        }
-
-        .comparison-table td {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            padding: var(--spacing-md);
-            font-size: 14px;
-        }
-
-        .comparison-table tr:nth-child(even) td {
-            background: rgba(157, 78, 221, 0.05);
-        }
-
-        .bbk-winner {
-            background: rgba(0, 255, 65, 0.15) !important;
-            color: var(--color-success);
-            font-weight: 700;
-        }
-
-        .tiers-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-lg);
-            margin-top: var(--spacing-lg);
-        }
-
-        .tier-card {
-            background: var(--color-surface);
-            border: 2px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            transition: all 0.3s ease;
+        
+        .price-card {
+            background: linear-gradient(135deg, #1a1f3a 0%, #252d4a 100%);
+            border: 2px solid #9D4EDD;
+            border-radius: 10px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
             position: relative;
         }
-
-        .tier-card.featured {
-            border-color: var(--color-primary);
+        
+        .price-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 50px #9D4EDD;
+            border-color: #00F5FF;
+        }
+        
+        .price-card.featured {
+            border-color: #00FF41;
+            background: linear-gradient(135deg, #1a3a2a 0%, #252d4a 100%);
             transform: scale(1.05);
-            box-shadow: 0 20px 60px rgba(157, 78, 221, 0.4);
         }
-
-        .tier-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color: white;
-            padding: var(--spacing-xs) var(--spacing-sm);
-            border-radius: var(--radius-sm);
-            font-size: 12px;
-            font-weight: 700;
-            margin-bottom: var(--spacing-md);
-            text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(157, 78, 221, 0.5);
+        
+        .price-card h4 {
+            color: #00F5FF;
+            font-size: 24px;
+            margin-bottom: 15px;
         }
-
-        .tier-name {
-            font-size: 28px;
-            font-weight: 900;
-            margin-bottom: var(--spacing-sm);
-            color: var(--color-accent);
+        
+        .price-card .amount {
+            font-size: 48px;
+            color: #9D4EDD;
+            margin: 20px 0;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
-
-        .tier-price {
-            font-size: 32px;
-            color: var(--color-primary);
-            font-weight: 900;
-            margin: var(--spacing-md) 0;
-            text-shadow: 0 0 15px rgba(157, 78, 221, 0.4);
+        
+        .price-card .amount span {
+            font-size: 18px;
+            color: #00F5FF;
         }
-
-        .tier-desc {
-            color: var(--color-text-secondary);
-            font-size: 15px;
-            margin-bottom: var(--spacing-md);
-        }
-
-        .tier-benefits {
+        
+        .price-card ul {
             list-style: none;
-            margin: var(--spacing-md) 0;
+            text-align: left;
+            margin: 30px 0;
+            font-size: 16px;
         }
-
-        .tier-benefits li {
-            padding: var(--spacing-xs) 0;
-            font-size: 14px;
-            color: var(--color-text);
-            display: flex;
-            align-items: flex-start;
-            gap: var(--spacing-sm);
-            border-bottom: 1px solid var(--color-border);
+        
+        .price-card li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            color: #e0e0e0;
         }
-
-        .tier-benefits li:last-child {
+        
+        .price-card li:last-child {
             border-bottom: none;
         }
-
-        .tier-benefits li::before {
-            content: '✓';
-            color: var(--color-success);
-            font-weight: 900;
-            flex-shrink: 0;
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        
+        .price-card li::before {
+            content: "✓ ";
+            color: #00FF41;
+            font-weight: bold;
+            margin-right: 10px;
         }
-
-        .tier-note {
-            font-size: 12px;
-            color: var(--color-text-secondary);
-            margin-top: var(--spacing-md);
-            padding-top: var(--spacing-md);
-            border-top: 1px solid var(--color-border);
+        
+        .price-card button {
+            margin-top: 30px;
+            width: 100%;
+            padding: 12px;
+            background: #9D4EDD;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
         }
-
-        .roi-box {
-            background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(157, 78, 221, 0.1));
-            border: 2px solid rgba(0, 255, 65, 0.3);
-            padding: var(--spacing-lg);
-            border-radius: var(--radius-md);
-            margin: var(--spacing-xl) 0;
+        
+        .price-card button:hover {
+            background: #00F5FF;
+            box-shadow: 0 0 30px #00F5FF;
         }
-
-        .roi-title {
-            font-size: 24px;
-            font-weight: 900;
-            color: var(--color-success);
-            margin-bottom: var(--spacing-md);
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+        
+        /* FAQ */
+        .faq {
+            max-width: 900px;
+            margin: 0 auto;
         }
-
-        .faq-section {
-            margin-top: var(--spacing-xl);
-        }
-
+        
         .faq-item {
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            margin-bottom: var(--spacing-md);
+            background: linear-gradient(135deg, #1a1f3a 0%, #252d4a 100%);
+            border-left: 4px solid #9D4EDD;
+            margin-bottom: 20px;
+            border-radius: 5px;
             overflow: hidden;
-            transition: all 0.3s ease;
         }
-
-        .faq-item:hover {
-            border-color: var(--color-primary);
-            box-shadow: 0 10px 30px rgba(157, 78, 221, 0.2);
-        }
-
+        
         .faq-question {
-            padding: var(--spacing-lg);
+            padding: 20px;
+            background: linear-gradient(90deg, #1a1f3a 0%, #252d4a 100%);
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
-            color: var(--color-accent);
-            font-size: 16px;
             user-select: none;
+            transition: all 0.3s;
         }
-
+        
         .faq-question:hover {
-            background: rgba(157, 78, 221, 0.1);
+            background: linear-gradient(90deg, #252d4a 0%, #1a1f3a 100%);
+            border-left-color: #00F5FF;
         }
-
+        
+        .faq-question h4 {
+            color: #00F5FF;
+            font-size: 16px;
+            margin: 0;
+            text-align: left;
+        }
+        
         .faq-toggle {
-            font-size: 20px;
-            transition: transform 0.3s ease;
+            color: #9D4EDD;
+            font-size: 24px;
+            transition: transform 0.3s;
         }
-
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease;
-            background: rgba(157, 78, 221, 0.05);
+            color: #c0c0c0;
         }
-
-        .faq-answer.open {
-            max-height: 1000px;
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px;
+            border-top: 1px solid #333;
         }
-
-        .faq-answer-content {
-            padding: var(--spacing-lg);
-            color: var(--color-text-secondary);
-            font-size: 15px;
-            line-height: 1.7;
+        
+        .faq-answer p {
+            margin-bottom: 10px;
         }
-
-        .faq-item.open .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .contact-form {
-            background: var(--color-surface);
-            border: 2px solid var(--color-border);
-            border-radius: var(--radius-lg);
-            padding: var(--spacing-lg);
-            max-width: 500px;
-            margin: var(--spacing-xl) auto;
-        }
-
-        .contact-form input,
-        .contact-form select {
-            width: 100%;
-            padding: var(--spacing-sm);
-            margin-bottom: var(--spacing-md);
-            background: var(--color-surface-light);
-            border: 1px solid var(--color-border);
-            border-radius: var(--radius-sm);
-            color: var(--color-text);
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-form input:focus,
-        .contact-form select:focus {
-            outline: none;
-            border-color: var(--color-primary);
-            box-shadow: 0 0 10px rgba(157, 78, 221, 0.3);
-        }
-
-        .contact-form input::placeholder {
-            color: var(--color-text-secondary);
-        }
-
-        footer {
-            background: var(--color-surface);
-            border-top: 1px solid var(--color-border);
-            padding: var(--spacing-lg);
+        
+        /* КОНТАКТЫ */
+        .contacts {
+            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(0, 245, 255, 0.05) 100%);
+            padding: 60px 20px;
             text-align: center;
-            margin-top: var(--spacing-xl);
+            border: 2px solid #9D4EDD;
+            border-radius: 10px;
         }
-
-        .footer-text {
-            color: var(--color-text-secondary);
-            font-size: 12px;
+        
+        .contacts h3 {
+            margin-bottom: 30px;
         }
-
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
+        
+        .contact-item {
+            text-align: center;
+        }
+        
+        .contact-item label {
+            color: #00F5FF;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .contact-item a {
+            color: #9D4EDD;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: #00F5FF;
+        }
+        
+        .form {
+            max-width: 600px;
+            margin: 30px auto;
+            background: linear-gradient(135deg, #1a1f3a 0%, #252d4a 100%);
+            padding: 30px;
+            border: 2px solid #9D4EDD;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            color: #00F5FF;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: #0a0e27;
+            border: 1px solid #9D4EDD;
+            color: #e0e0e0;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #00F5FF;
+            box-shadow: 0 0 20px #00F5FF;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #9D4EDD, #00F5FF);
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .form button:hover {
+            box-shadow: 0 0 30px #9D4EDD;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: #0a0e27;
+            border-top: 2px solid #9D4EDD;
+            color: #909090;
+        }
+        
         @media (max-width: 768px) {
-            .tier-card.featured {
-                transform: scale(1.02);
+            .hero h2 {
+                font-size: 32px;
             }
-
-            nav ul {
-                flex-wrap: wrap;
-                gap: var(--spacing-sm);
+            
+            .hero p {
+                font-size: 16px;
             }
-
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
+            
+            .price-card.featured {
+                transform: scale(1);
+            }
+            
+            .contact-info {
+                gap: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="container">
-            <div class="logo">ББК</div>
-            <ul>
-                <li><a href="#market">Цифры</a></li>
-                <li><a href="#benefits">Выгоды</a></li>
-                <li><a href="#tariffs">Тарифы</a></li>
-                <li><a href="#faq">Вопросы</a></li>
-                <li><a href="#contact" class="nav-cta">Заказать</a></li>
-            </ul>
-        </div>
-    </nav>
-
+    <header>
+        <h1>ББК — МИКРОБЛОГЕРЫ ДЛЯ ВАШЕГО БИЗНЕСА</h1>
+    </header>
+    
     <section class="hero">
-        <div class="hero-subtitle">Кемерово • Локальные микроблогеры • Живой контент</div>
-        <h1>5–15 микроблогеров — нативный контент и результаты</h1>
-        <p>Волны контента, отзывы в картах, каскадный эффект. ROI 680–4100%. От 3,500 ₽.</p>
-        <div class="hero-cta">
-            <button class="btn btn-primary" onclick="scrollToSection('contact')">Заказать проект</button>
-            <button class="btn btn-secondary" onclick="scrollToSection('tariffs')">Смотреть тарифы</button>
-        </div>
+        <h2 class="glow">5–15 блогеров = волна клиентов</h2>
+        <p class="glow-cyan">Нативный контент, который работает. Первые клиенты за 3–7 дней.</p>
+        <button class="cta-button" onclick="scrollToForm()">Узнать подробнее</button>
     </section>
-
-    <section id="market" class="section">
-        <h2 class="section-title">Цифры <span>ББК</span></h2>
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">5–15</div>
-                <div class="stat-label">Микроблогеров в проекте</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">200k+</div>
-                <div class="stat-label">Локальной аудитории</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">7k–100k</div>
-                <div class="stat-label">Охват по тарифам</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">82%</div>
-                <div class="stat-label">Доверие аудитории</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">24–72 ч</div>
-                <div class="stat-label">Запуск проекта</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">680%+</div>
-                <div class="stat-label">ROI в среднем</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="problems" class="section">
-        <h2 class="section-title">Где бизнес <span>тратит впустую</span></h2>
-        <p style="text-align: center; color: var(--color-text-secondary); max-width: 800px; margin: 0 auto var(--spacing-lg); font-size: 16px;">
-            Стандартные каналы неэффективны для локального бизнеса. Вот почему:
-        </p>
-        <div class="problem-grid">
-            <div class="problem-card">
-                <span class="problem-icon">💸</span>
-                <h3>Высокая цена клиента</h3>
-                <p>Яндекс, VK реклама: 500–1500 ₽ за клиента. ББК: 150–300 ₽</p>
-            </div>
-            <div class="problem-card">
-                <span class="problem-icon">🎯</span>
-                <h3>Перепокрытие аудитории</h3>
-                <p>Реклама показывается всем подряд. ТВ реакл деньги на людей вне города</p>
-            </div>
-            <div class="problem-card">
-                <span class="problem-icon">😐</span>
-                <h3>Люди не верят объявлениям</h3>
-                <p>Доверие объявлениям: 23%. Доверие микроблогерам: 82%</p>
-            </div>
-            <div class="problem-card">
-                <span class="problem-icon">📉</span>
-                <h3>Баннеры — фон, не контент</h3>
-                <p>Человек листает и не замечает. Видео блогера смотрит и вовлекается</p>
-            </div>
-            <div class="problem-card">
-                <span class="problem-icon">⏰</span>
-                <h3>Долгие сроки запуска</h3>
-                <p>Агентство: 2–3 недели на брифы и настройку. ББК: 24–48 часов</p>
-            </div>
-            <div class="problem-card">
-                <span class="problem-icon">❓</span>
-                <h3>Нет контроля процесса</h3>
-                <p>Платишь деньги — результаты неясны. Кто отвечает? Непонятно</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="benefits" class="section">
-        <h2 class="section-title">Почему ББК <span>выигрывает</span></h2>
+    
+    <!-- ТАРИФЫ -->
+    <section class="container">
+        <h3 class="glow">Три простых тарифа</h3>
         
-        <div class="benefits-grid">
-            <div class="benefit-block">
-                <h4>Нативный контент</h4>
-                <p>Не реклама, а рекомендация. Блогер показывает как обычно, люди смотрят, верят и идут к вам.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Каскадный эффект</h4>
-                <p>5–15 блогеров постят в волне. Люди видят от разных источников → FOMO → идут.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Долгоживущий контент</h4>
-                <p>Видео работает 2–6 месяцев. Реклама работает пока платишь. Контент блогера — вечный актив.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Двойное касание доверия</h4>
-                <p>Вижу видео в соцсетях → ищу в картах → вижу свежие отзывы от тех же людей → верю.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Синергия микроблогеров</h4>
-                <p>Один блогер = 1 точка. 5–15 блогеров с пересекающимися аудиториями = экспоненциальный охват.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Быстрый запуск</h4>
-                <p>24–48 часов от "да" до первого видео. В 5–10 раз быстрее чем агентства.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Экономия времени</h4>
-                <p>Не ищете блогеров, не договариваетесь, не следите. Мы все это делаем. Вы занимаетесь бизнесом.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Отзывы в Яндекс/2ГИС</h4>
-                <p>В Стандарте и Эксклюзиве — живые отзывы от всех блогеров. Это долгосрочный актив доверия.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Гибкий под любую нишу</h4>
-                <p>Одна схема работает для кафе, салонов, фитнеса, магазинов, курсов, услуг. Подбираем блогеров под вашу нишу.</p>
-            </div>
-            <div class="benefit-block">
-                <h4>Контролируемый процесс</h4>
-                <p>Брифы, предпросмотр, синхронизация, аналитика. Это не "надеюсь и жду", это система.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="comparison" class="section">
-        <h2 class="section-title">Сравнение с <span>конкурентами</span></h2>
-        <table class="comparison-table">
-            <tr>
-                <th>Метрика</th>
-                <th>Яндекс.Карты</th>
-                <th>Агентство</th>
-                <th style="color: var(--color-success);">ББК</th>
-            </tr>
-            <tr>
-                <td><strong>Стартовый бюджет</strong></td>
-                <td>50–80 тыс ₽</td>
-                <td>50–100 тыс ₽</td>
-                <td class="bbk-winner">3,500–50 тыс ₽</td>
-            </tr>
-            <tr>
-                <td><strong>CPA (цена клиента)</strong></td>
-                <td>800–1500 ₽</td>
-                <td>600–1200 ₽</td>
-                <td class="bbk-winner">150–300 ₽</td>
-            </tr>
-            <tr>
-                <td><strong>Доверие аудитории</strong></td>
-                <td>45%</td>
-                <td>35%</td>
-                <td class="bbk-winner">82%</td>
-            </tr>
-            <tr>
-                <td><strong>Запуск (дни)</strong></td>
-                <td>7–14</td>
-                <td>14–21</td>
-                <td class="bbk-winner">1–3</td>
-            </tr>
-            <tr>
-                <td><strong>Долгосрочный эффект</strong></td>
-                <td>Только пока платишь</td>
-                <td>1–2 месяца</td>
-                <td class="bbk-winner">2–6 месяцев</td>
-            </tr>
-            <tr>
-                <td><strong>ROI</strong></td>
-                <td>42%</td>
-                <td>50–100%</td>
-                <td class="bbk-winner">680–4100%</td>
-            </tr>
-        </table>
-    </section>
-
-    <section id="tariffs" class="section">
-        <h2 class="section-title">Пакеты для <span>бизнеса</span></h2>
-        
-        <div class="tiers-grid">
-            <div class="tier-card">
-                <div class="tier-badge">СТАРТ</div>
-                <h3 class="tier-name">Старт</h3>
-                <div class="tier-price">3,500 ₽</div>
-                <p class="tier-desc">Универсальный пакет — попробуй формат</p>
-                <ul class="tier-benefits">
-                    <li>5 микроблогеров (любые ниши)</li>
-                    <li>1 нативное видео от каждого</li>
-                    <li>2 нативные истории от каждого</li>
-                    <li>Охват: 7,500–13,000 просмотров</li>
+        <div class="pricing">
+            <!-- СТАРТ -->
+            <div class="price-card">
+                <h4>СТАРТ</h4>
+                <div class="amount">7 500 <span>₽</span></div>
+                <ul>
+                    <li>5 блогеров</li>
+                    <li>1 видео от каждого</li>
+                    <li>2–3 истории</li>
+                    <li>Охват 10–20k</li>
+                    <li>Запуск за 48–72ч</li>
                     <li>Первые клиенты: 3–7 дней</li>
-                    <li>Срок запуска: 24–48 часов</li>
                 </ul>
-                <p class="tier-note">Расходники (продукты/услуги для блогеров) оговариваются индивидуально по нише</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);" onclick="scrollToSection('contact')">Заказать</button>
+                <p style="font-size: 14px; color: #909090;">+ расходники (еда, услуги): 1–2k ₽</p>
+                <button onclick="contactUs('Старт')">Заказать</button>
             </div>
-
-            <div class="tier-card featured">
-                <div class="tier-badge">СТАНДАРТ</div>
-                <h3 class="tier-name">Стандарт</h3>
-                <div class="tier-price">12,500 ₽</div>
-                <p class="tier-desc">Волна контента — видимый результат</p>
-                <ul class="tier-benefits">
-                    <li>10 микроблогеров (подобраны под нишу)</li>
-                    <li>Минимум 2 нативных видео от каждого</li>
-                    <li>Несколько прогревающих историй</li>
-                    <li>1 трендовое/виральное видео</li>
-                    <li>Отзывы на Яндекс и 2ГИС</li>
-                    <li>Охват: 25,000–40,000 просмотров</li>
+            
+            <!-- СТАНДАРТ -->
+            <div class="price-card featured">
+                <h4>СТАНДАРТ ⭐</h4>
+                <div class="amount">12 500 <span>₽</span></div>
+                <ul>
+                    <li>10 блогеров (подобраны под нишу)</li>
+                    <li>2+ видео от каждого</li>
                     <li>Волна контента 2–3 недели</li>
+                    <li>Отзывы в Яндекс.Картах и 2ГИС</li>
+                    <li>Охват 25–40k</li>
                     <li>Аналитика + советы</li>
                 </ul>
-                <p class="tier-note">Расходники (продукты/услуги для блогеров) оговариваются индивидуально по нише</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);" onclick="scrollToSection('contact')">Выбрать</button>
+                <p style="font-size: 14px; color: #00FF41;">+ расходники: 2–4k ₽</p>
+                <button onclick="contactUs('Стандарт')">Заказать</button>
             </div>
-
-            <div class="tier-card">
-                <div class="tier-badge">ЭКСКЛЮЗИВ</div>
-                <h3 class="tier-name">Эксклюзив</h3>
-                <div class="tier-price">30,000+ ₽</div>
-                <p class="tier-desc">Медийный охват — ваш бренд везде</p>
-                <ul class="tier-benefits">
-                    <li>15+ микроблогеров (специализация под нишу)</li>
+            
+            <!-- ЭКСКЛЮЗИВ -->
+            <div class="price-card">
+                <h4>ЭКСКЛЮЗИВ</h4>
+                <div class="amount">от 50 000 <span>₽</span></div>
+                <ul>
+                    <li>15+ блогеров</li>
                     <li>Контент-план на 3–5 недель</li>
-                    <li>3–4 волны контента (история, качество, атмосфера, результат)</li>
-                    <li>2+ трендовых видео</li>
-                    <li>Поиск партнёров и дополнительных блогеров</li>
-                    <li>Отзывы на Яндекс и 2ГИС</li>
-                    <li>Охват: 60,000–100,000+ просмотров</li>
-                    <li>Полная аналитика + долгосроч стратегия</li>
+                    <li>3–4 волны контента</li>
+                    <li>Поиск дополнительных партнеров</li>
+                    <li>Охват 60–100k+</li>
+                    <li>Глубокая аналитика</li>
                 </ul>
-                <p class="tier-note">Расходники индивидуально. Подбираем формат под ваш бюджет и цели</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);" onclick="scrollToSection('contact')">Уточнить</button>
+                <p style="font-size: 14px; color: #909090;">+ расходники: индивидуально</p>
+                <button onclick="contactUs('Эксклюзив')">Обсудить</button>
             </div>
-
-            <div class="tier-card">
-                <div class="tier-badge">КОНСУЛЬТАЦИЯ</div>
-                <h3 class="tier-name">Аудит</h3>
-                <div class="tier-price">Бесплатно</div>
-                <p class="tier-desc">Посмотрим, подойдет ли ББК вашему бизнесу</p>
-                <ul class="tier-benefits">
-                    <li>Анализ вашей ниши</li>
-                    <li>Какие возможности для вас</li>
-                    <li>Рекомендация по тарифу</li>
-                    <li>Примеры блогеров</li>
-                    <li>Ответы на вопросы</li>
-                </ul>
-                <p class="tier-note">Полчаса разговора. Без обязательств.</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: var(--spacing-md);" onclick="scrollToSection('contact')">Записаться</button>
-            </div>
-        </div>
-
-        <div class="roi-box">
-            <div class="roi-title">Вложил 12,500 ₽ — получил 100–200+ клиентов</div>
-            <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-lg);">Реальный расчет (зависит от среднего чека, цены и сервиса)</p>
-            <table class="comparison-table" style="margin: 0;">
-                <tr>
-                    <td><strong>Охват</strong></td>
-                    <td class="bbk-winner">25–40k</td>
-                    <td><strong>CTR 2–4%</strong></td>
-                    <td class="bbk-winner">500–1,600 контактов</td>
-                </tr>
-                <tr>
-                    <td><strong>Ваша конверсия</strong></td>
-                    <td class="bbk-winner">10–20%</td>
-                    <td><strong>Итого</strong></td>
-                    <td class="bbk-winner">50–320 клиентов</td>
-                </tr>
-            </table>
         </div>
     </section>
-
-    <section id="faq" class="section faq-section">
-        <h2 class="section-title">Вопросы и <span>ответы</span></h2>
+    
+    <!-- FAQ -->
+    <section class="container">
+        <h3 class="glow-cyan">Ответы на вопросы</h3>
         
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>1. Почему микроблогеры работают лучше "звезд" и обычной рекламы?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Крупные блогеры и классическая реклама воспринимаются как "работа" — люди знают, что это интеграции, и пролистывают. Микроблогеры — это реальные люди с живой аудиторией, где большинство подписчиков — их знакомые и люди, которым они лично нравятся.</p>
-                    <p style="margin-top: 12px;">Рекомендация от микроблогера воспринимается ближе к совету друга, чем к рекламному объявлению. Исследования показывают: микроблогеры дают в 6,7 раз больше вовлеченности на вложенный рубль. Люди верят им на 82%, а объявлениям — на 23%.</p>
+        <div class="faq">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Как вы подбираете блогеров?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Мы подбираем блогеров под вашу нишу (фуд, бьюти, спорт, lifestyle и т.д.). Проверяем, что они регулярно постят, контент нативный, аудитория реальная. На тестирование: случайные из наших (Старт). На Стандарт+: специализированные.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>2. Что такое "нативный контент" и почему это важно?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Нативный контент — это когда блогер не "читает рекламный текст", а органично вплетает ваш бизнес в свою обычную жизнь. Это может быть: день из жизни, поход в кафе с друзьями, честный обзор процедуры, история "почему я сюда вернулся".</p>
-                    <p style="margin-top: 12px;">Такой контент не выглядит как баннер — человек видит привычный стиль любимого блогера, его шутки, манеру говорить. Это ключевой эффект: человек досматривает видео, а не пролистывает. Нативный контент собирает в 4–5 раз больше engagement, чем очевидная реклама.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Откуда идут новые клиенты?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Люди видят видео блогера в ленте → переходят в профиль/ссылку → приходят к вам. Плюс отзывы в Яндекс.Картах (если Стандарт+) помогают в поиске. Люди говорят: "видел у такого блогера" или "видел в картах отзыв".</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>3. Какие охваты реально получу и сколько это клиентов?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p><strong>Старт:</strong> 7,500–13,000 просмотров → примерно 150–520 контактов (CTR 2–4%).</p>
-                    <p><strong>Стандарт:</strong> 25,000–40,000 просмотров → примерно 500–1,600 контактов.</p>
-                    <p><strong>Эксклюзив:</strong> 60,000–100,000+ просмотров → примерно 1,200–4,000 контактов.</p>
-                    <p style="margin-top: 12px;">Дальше цифры зависят уже от вас: какой средний чек, цена услуги, как быстро отвечаете, качество сервиса. Мы даем реалистичные охваты и CTR, а конверсия в клиентов — это ваша воронка продаж.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Сколько клиентов реально придет?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Зависит от ниши, цены, сезона. Примерный расчет: охват 10k → 2–4% контактов → ваша конверсия. Для кафе: обычно 30–100 новых клиентов. Для салона: 20–80 клиентов. На Аудите обсудим конкретную цифру.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>4. Что если я сам договорюсь с блогерами напрямую?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Технически — можно. Но вот что произойдет: вы пишете десяткам блогеров, ответит четверть, договориться получится с половиной. Это 10–20 часов переписки, объяснения задач, торговли цены.</p>
-                    <p style="margin-top: 12px;">Далее вы следите, кто когда выложит, не забудет ли, согласует ли текст. Один плохой контент — вся волна не работает. Нет синергии, потому что видео постятся вразброс, люди не видят эффект "все говорят об этом".</p>
-                    <p style="margin-top: 12px;">Итого: потратили 10–20 часов вашего времени (это 5–10k ₽ стоимости, если считать ставку владельца), нервы, и результат неясен. С ББК: вы платите, мы подбираем, синхронизируем, контролируем, отчитываемся. Вы занимаетесь бизнесом.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Что такое "расходники"?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Это реальные товары/услуги, которые потребляют блогеры. Для кафе — еда (обед для 5–10 блогеров). Для салона — процедуры. Блогер должен честно попробовать, тогда контент будет искренний. Это инвестиция в честность контента.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>5. Чем вы отличаетесь от маркетингового агентства?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Агентство — это универсальный подрядчик: таргет, креатив, баннеры, иногда блогеры. Они делают всё понемногу. ББК — это узкий фокус: локальные микроблогеры и их сообщество.</p>
-                    <p style="margin-top: 12px;">Если вам нужен полный стек маркетинга и бюджет 50–100k+ — агентство полезно. Если вам нужен быстрый результат за вменяемые деньги и вы хотите "включить локальное сарафанное радио" — ББК часто эффективнее и честнее по цифрам.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Гарантируете ли вы результат?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Гарантируем: качественный контент, охват, публикацию вовремя. Результат зависит от вашего бизнеса (цена, локация, сезон, конкуренция). Если результат ниже ожиданий — разбираемся и делаем доработку.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>6. Нужно ли мне отдельно платить блогерам?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Нет. Вы работаете с одной стороной — с нами. Все расчеты с блогерами и их мотивация — наша зона ответственности.</p>
-                    <p style="margin-top: 12px;">С вашей стороны два типа вложений: (1) оплата проекта по тарифу, (2) расходники — реальные услуги/продукты, которые блогеры пробуют (еда, процедуры, товары). Объем расходников мы обсуждаем индивидуально, чтобы не ломать вам экономику.</p>
-                    <p style="margin-top: 12px;">Это просто и прозрачно: платите один счет, не переводите деньги десяткам людей, не подписываете договоры с каждым блогером.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Какой тариф выбрать?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Старт:</strong> первый раз, хотите тест, маленький бюджет.</p>
+                    <p><strong>Стандарт:</strong> серьезно хотите результат, нужны отзывы в картах, готовы к волне контента.</p>
+                    <p><strong>Эксклюзив:</strong> хотите максимальный охват и долгосроч результат.</p>
+                    <p>На Аудите поможем выбрать (бесплатно).</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>7. Как вы гарантируете качество контента?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>У нас несколько уровней защиты: (1) отбор блогеров — работаем с теми, кто уже показывает хороший контент, (2) подбор по нише — фуд-блогеры к кафе, бьюти-блогеры к салонам, чтобы было естественно, (3) брифы — каждый получает четкие рамки.</p>
-                    <p style="margin-top: 12px;">(4) Предпросмотр — смотрим контент до публикации, можем попросить переснять, (5) синергия — мы всегда работаем группой, так что даже если один ролик средний, остальные вытянут волну.</p>
-                    <p style="margin-top: 12px;">Если контент объективно не удался — мы договариваемся о переработке. Мы инвестированы в результат, потому что плохой контент = плохие отзывы о ББК.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Сколько времени займет проект?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Подготовка:</strong> 3–5 дней (брифинг, согласование).</p>
+                    <p><strong>Съемка:</strong> 3–7 дней (блогеры снимают).</p>
+                    <p><strong>Публикация:</strong> 1–2 дня (видео выходят).</p>
+                    <p><strong>Результаты:</strong> видны за 3–7 дней, формируются за 2–3 недели.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>8. Что такое отзывы в Яндекс.Картах и 2ГИС — почему это важно?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>В Стандарте и Эксклюзиве мы договариваемся, чтобы после реального посещения блогеры оставляли живые отзывы в Яндекс.Картах и 2ГИС. Это создает двойное касание доверия: человек видит видео в соцсетях, потом ищет вас в картах и видит свежие отзывы от тех же людей.</p>
-                    <p style="margin-top: 12px;">Отзывы в картах работают месяцами и месяцами — это долгосрочный актив. Плюс они повышают рейтинг вашего бизнеса в поиске, так что люди видят вас выше конкурентов. Это не просто "звезды", это доказательство качества от реальных людей.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Можно ли выбрать конкретных блогеров?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>На Стандарт+ можете смотреть на варианты и говорить "да, нравятся" или "поменяйте 2–3 человека". На Старт мы подбираем сами (это экономнее для вас).</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>9. В каких городах вы работаете?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Сейчас основной фокус — Кемерово, потому что здесь у нас сформированное сообщество блогеров. Модель при этом строится так, чтобы её можно было переносить на другие города.</p>
-                    <p style="margin-top: 12px;">Если вы из Нижнего Новгорода, Екатеринбурга или другого города — мы готовы обсудить пилот: либо подключить вас к уже запускающимся направлениям, либо обсудить запуск комьюнити под вашу локацию.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Как вы считаете ROI?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>ROI = (выручка от новых клиентов - инвестиция) / инвестиция × 100%</p>
+                    <p><strong>Пример:</strong> инвестировали 20k ₽, привели 50 клиентов × 1k ₽ = 50k ₽ выручки. ROI = 150%.</p>
+                    <p>Средний ROI на ББК: 400–800% (намного выше чем реклама).</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>10. Могу ли я выбрать конкретных блогеров или формат контента?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Да. На аудите или брифе мы обсуждаем, какой стиль контента вам нравится, какие форматы видно хорошо работают. Мы показываем примеры блогеров и говорим, почему они подойдут именно для вас.</p>
-                    <p style="margin-top: 12px;">Вы можете сказать: "мне нравится вот эта стилистика" или "я хочу больше видео про процесс, меньше про готовый результат" — мы учитываем это при подборе и брифах.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Что если мне не понравится результат?</h4>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Говорите нам. Смотрим, почему произошло. Если проблема в нашей стороне (низкое качество, плохой подбор блогеров) — предлагаем доработку или добавление контента. Это долгосроч партнерство, не одноразовая сделка.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>11. Как долго работает контент после публикации?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Видео и посты блогеров работают 2–6 месяцев. Люди смотрят старые посты через поиск, находят вас через рекомендации, сохраняют видео. Это в отличие от классической рекламы, которая работает только пока вы платите.</p>
-                    <p style="margin-top: 12px;">Плюс контент индексируется в поиске, так что спустя месяцы люди могут найти видео про ваш кафе/салон через Гугл и перейти к вам. Это долгосрочный актив, а не один-день-работает.</p>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <h4>Как связаться?</h4>
+                    <span class="faq-toggle">▼</span>
                 </div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <div class="faq-question" onclick="toggleFAQ(this)">
-                <span>12. Что, если результаты не совпадут с прогнозом?</span>
-                <span class="faq-toggle">▼</span>
-            </div>
-            <div class="faq-answer">
-                <div class="faq-answer-content">
-                    <p>Мы даем реалистичные прогнозы по охватам и CTR, а не "рисуем красивые цифры". Если охваты не совпадают с прогнозом — мы разбираемся: может быть, формат не зашел, может быть, нужен другой стиль блогеров.</p>
-                    <p style="margin-top: 12px;">Если результат не совпадает — мы либо добавляем контента, либо корректируем стратегию. Главное: мы не говорим "подожди раньше, результат еще придет", мы смотрим на цифры и действуем.</p>
+                <div class="faq-answer">
+                    <p>📱 <strong>Telegram:</strong> @bbk_kemerovo</p>
+                    <p>📧 <strong>Email:</strong> bbk@kemerovo.ru</p>
+                    <p>Ответим в течение 2 часов. Предложим бесплатный Аудит (30 минут без обязательств).</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Заказать <span>проект</span></h2>
-        <p style="text-align: center; color: var(--color-text-secondary); margin-bottom: var(--spacing-lg); font-size: 16px;">
-            Заполни форму или напиши в Telegram. Обсудим вашу нишу и подберем тариф.
-        </p>
-        
-        <div class="contact-form">
-            <form onsubmit="handleSubmit(event)">
-                <input type="text" placeholder="Название бизнеса" required>
-                <select required>
-                    <option value="">Выберите нишу</option>
-                    <option value="cafe">Кафе / ресторан</option>
-                    <option value="salon">Салон красоты / парикмахерская</option>
-                    <option value="fitness">Фитнес клуб</option>
-                    <option value="yoga">Йога / спа / массаж</option>
-                    <option value="retail">Магазин / retail</option>
-                    <option value="education">Образование / курсы</option>
-                    <option value="other">Другое</option>
-                </select>
-                <input type="text" placeholder="Ваше имя" required>
-                <input type="text" placeholder="Телефон или Telegram" required>
-                <input type="email" placeholder="Email" required>
-                <select required>
-                    <option value="">Выберите пакет</option>
-                    <option value="start">Старт (3,500 ₽)</option>
-                    <option value="standard">Стандарт (12,500 ₽)</option>
-                    <option value="premium">Эксклюзив (30,000+ ₽)</option>
-                    <option value="audit">Аудит (бесплатно)</option>
-                </select>
-                <input type="text" placeholder="Средний чек в вашем бизнесе (₽)" required>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
-            </form>
+    
+    <!-- КОНТАКТЫ И ФОРМА -->
+    <section class="container">
+        <div class="contacts">
+            <h3 class="glow">Давайте обсудим ваш проект</h3>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <label>💬 Telegram</label>
+                    <a href="https://t.me/bbk_kemerovo" target="_blank">@bbk_kemerovo</a>
+                </div>
+                <div class="contact-item">
+                    <label>📧 Email</label>
+                    <a href="mailto:bbk@kemerovo.ru">bbk@kemerovo.ru</a>
+                </div>
+                <div class="contact-item">
+                    <label>⏰ Ответ</label>
+                    <p style="color: #00F5FF;">в течение 2 часов</p>
+                </div>
+            </div>
+            
+            <div class="form" id="contactForm">
+                <h4 style="color: #9D4EDD; margin-bottom: 20px; text-align: center;">Быстрая заявка</h4>
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" placeholder="Иван" id="name">
+                </div>
+                <div class="form-group">
+                    <label>Телефон или Telegram</label>
+                    <input type="text" placeholder="+7 900 123-45-67 или @username" id="contact">
+                </div>
+                <div class="form-group">
+                    <label>Ваш бизнес</label>
+                    <input type="text" placeholder="Кафе, салон, фитнес..." id="business">
+                </div>
+                <div class="form-group">
+                    <label>Интересующий тариф</label>
+                    <select id="tariff" style="width: 100%; padding: 12px; background: #0a0e27; border: 1px solid #9D4EDD; color: #e0e0e0; border-radius: 5px;">
+                        <option value="Аудит (бесплатно)">Сначала Аудит (бесплатно)</option>
+                        <option value="Старт 7,500 ₽">Старт (7,500 ₽)</option>
+                        <option value="Стандарт 12,500 ₽">Стандарт (12,500 ₽)</option>
+                        <option value="Эксклюзив от 50,000 ₽">Эксклюзив (от 50,000 ₽)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Сообщение</label>
+                    <textarea id="message" placeholder="Расскажите о вашем бизнесе и что вам нужно..."></textarea>
+                </div>
+                <button type="button" onclick="submitForm()">Отправить заявку</button>
+            </div>
         </div>
-
-        <p style="text-align: center; color: var(--color-text-secondary); font-size: 14px; margin-top: var(--spacing-lg);">
-            Ответим в течение 2 часов. Либо напишите напрямую: <strong>telegram (@bbk_kemerovo)</strong>
-        </p>
     </section>
-
+    
     <footer>
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div style="font-size: 32px; font-weight: 900; color: var(--color-accent); margin-bottom: var(--spacing-md); text-shadow: 0 0 15px rgba(0, 245, 255, 0.3);">ББК</div>
-            <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-md); font-size: 15px;">
-                Сообщество микроблогеров Кемерово для локального бизнеса. Нативный контент. Живой результат.
-            </p>
-            <div class="footer-text">
-                © 2026 ББК • Микроблогеры • Локальная аудитория • Результаты
-            </div>
-        </div>
+        <p>© 2026 ББК — Микроблогеры для вашего бизнеса</p>
+        <p style="font-size: 12px; margin-top: 10px;">Кемерово | @bbk_kemerovo | bbk@kemerovo.ru</p>
     </footer>
-
+    
     <script>
-        function scrollToSection(id) {
-            const element = document.getElementById(id);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        function toggleFaq(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+        
+        function scrollToForm() {
+            document.getElementById('contactForm').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function contactUs(tariff) {
+            document.getElementById('tariff').value = tariff;
+            scrollToForm();
+        }
+        
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const contact = document.getElementById('contact').value;
+            const business = document.getElementById('business').value;
+            const tariff = document.getElementById('tariff').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !contact || !business) {
+                alert('Заполните хотя бы имя, контакт и вид бизнеса');
+                return;
             }
-        }
-
-        function toggleFAQ(element) {
-            const faqItem = element.parentElement;
-            const answer = faqItem.querySelector('.faq-answer');
-            faqItem.classList.toggle('open');
-            answer.classList.toggle('open');
-        }
-
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const business = form.children[0].value;
-            const niche = form.children[1].value;
-            const name = form.children[2].value;
-            const contact = form.children[3].value;
-            const email = form.children[4].value;
-            const package = form.children[5].value;
-            const check = form.children[6].value;
-
-            alert(`✓ Спасибо!\n\nВаша заявка получена:\n\nБизнес: ${business}\nНиша: ${niche}\nИмя: ${name}\nКонтакт: ${contact}\nEmail: ${email}\nПакет: ${package}\nСредний чек: ${check} ₽\n\nМы свяжемся с вами в течение 2 часов!\n\n📱 Telegram: @bbk_kemerovo`);
-            form.reset();
+            
+            const text = `Новая заявка:\n\n👤 Имя: ${name}\n📱 Контакт: ${contact}\n🏢 Бизнес: ${business}\n💼 Тариф: ${tariff}\n💬 Сообщение: ${message}`;
+            const telegramUrl = `https://t.me/bbk_kemerovo`;
+            
+            alert('Спасибо! Отправляем в Telegram: @bbk_kemerovo\n\nИли скопируй в Telegram:\n\n' + text);
+            
+            window.open(telegramUrl, '_blank');
+            
+            // Очистка формы
+            document.getElementById('contactForm').reset();
         }
     </script>
 </body>
