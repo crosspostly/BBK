@@ -3,760 +3,440 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ББК — Микроблогеры для вашего бизнеса | 400–800% ROI</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Волна контента от 5–15 блогеров за 48–72 часа. 150–300 ₽ CPA, 400–800% ROI. Первые клиенты за 3–7 дней.">
-    <meta name="keywords" content="микроблогеры, маркетинг, привлечение клиентов, Кемерово, блогеры">
-    
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="ББК — Микроблогеры для вашего бизнеса | 400–800% ROI">
-    <meta property="og:description" content="Волна контента от 5–15 блогеров за 48–72 часа. 150–300 ₽ CPA, 400–800% ROI. Первые клиенты за 3–7 дней.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://bbk-kemerovo.ru">
+    <title>ББК — Реальные клиенты через блогеров | Гарантия результата</title>
+    <meta name="description" content="50-150 клиентов за 2 недели. Реальные кейсы с доказательствами. Гарантия или вернём деньги. Кемерово.">
     
     <style>
-        /* CSS Variables */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         :root {
-            --primary: #9D4EDD;
-            --secondary: #00F5FF;
+            --primary: #FF2E63;
+            --secondary: #08D9D6;
             --success: #00FF41;
-            --background: #0a0e27;
-            --dark-bg: #1a1f3a;
-            --darker-bg: #252d4a;
-            --light-text: #e0e0e0;
-            --medium-text: #909090;
-            --white: #ffffff;
-            --black: #000000;
+            --background: #0a0e1a;
+            --dark: #1a1f35;
+            --darker: #252d4a;
+            --text: #e0e0e0;
+            --text-muted: #909090;
         }
-
-        /* Reset and Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: var(--background);
-            color: var(--light-text);
+            color: var(--text);
             line-height: 1.6;
-            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Typography */
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h1 { font-size: 48px; }
-        h2 { font-size: 32px; }
-        h3 { font-size: 24px; }
-
-        body, p { font-size: 16px; }
-        small { font-size: 14px; }
-        tiny { font-size: 12px; }
-
-        /* Glow Effects */
-        .glow { text-shadow: 0 0 20px var(--primary), 0 0 40px var(--primary); }
-        .glow-cyan { text-shadow: 0 0 20px var(--secondary), 0 0 40px var(--secondary); }
-        .glow-green { text-shadow: 0 0 20px var(--success), 0 0 40px var(--success); }
-
-        /* Buttons */
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        h1 { font-size: 48px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
+        h2 { font-size: 36px; font-weight: 700; margin-bottom: 30px; }
+        h3 { font-size: 24px; font-weight: 600; margin-bottom: 15px; }
+        
         .btn {
-            padding: 12px 30px;
+            padding: 14px 32px;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             font-weight: 600;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
             text-align: center;
         }
-
+        
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--black);
-            box-shadow: 0 0 30px var(--primary);
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 46, 99, 0.3);
         }
-
+        
         .btn-primary:hover {
-            box-shadow: 0 0 50px var(--primary), 0 0 30px var(--secondary);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+            box-shadow: 0 0 40px rgba(255, 46, 99, 0.6);
         }
-
+        
         .btn-secondary {
             background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: var(--secondary);
+            border: 2px solid var(--secondary);
         }
-
+        
         .btn-secondary:hover {
-            background: var(--primary);
-            color: var(--black);
+            background: var(--secondary);
+            color: var(--background);
         }
-
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, var(--background) 0%, var(--dark-bg) 100%);
-            border-bottom: 2px solid var(--primary);
-            padding: 20px;
+        
+        /* HEADER */
+        header {
+            background: var(--dark);
+            border-bottom: 1px solid rgba(255, 46, 99, 0.1);
+            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             backdrop-filter: blur(10px);
         }
-
+        
         .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
-
-        .logo {
-            font-size: 18px;
-            font-weight: bold;
-            color: var(--primary);
-            white-space: nowrap;
-        }
-
-        .nav {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .nav a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-size: 16px;
-            padding: 8px 12px;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .nav a:hover, .nav a.active {
-            color: var(--secondary);
-            background: rgba(157, 78, 221, 0.1);
-        }
-
-        .contacts {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .contacts a {
-            color: var(--secondary);
+        
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+        
+        nav { display: flex; gap: 30px; }
+        nav a {
+            color: var(--text);
             text-decoration: none;
             font-size: 14px;
-            transition: all 0.3s ease;
+            transition: color 0.3s;
         }
-
-        .contacts a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
+        nav a:hover { color: var(--primary); }
+        
+        /* HERO */
         .hero {
-            padding: 80px 20px;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(157, 78, 221, 0.1) 0%, rgba(0, 245, 255, 0.05) 100%);
-            border-bottom: 2px solid var(--secondary);
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(255,46,99,0.05) 0%, rgba(8,217,214,0.05) 100%);
+            border-bottom: 1px solid rgba(8, 217, 214, 0.1);
         }
-
-        .hero-title {
-            font-size: 48px;
-            margin-bottom: 20px;
+        
+        .hero-content { max-width: 700px; }
+        
+        .hero h1 {
             color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 52px;
         }
-
+        
         .hero-subtitle {
             font-size: 20px;
-            color: var(--secondary);
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 32px;
-            font-weight: bold;
-            color: var(--success);
-            margin-bottom: 5px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: var(--medium-text);
-        }
-
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        /* Interactive Calculator Section */
-        .calculator-section {
-            padding: 60px 20px;
-            background: var(--dark-bg);
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .calculator-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: var(--darker-bg);
-            padding: 40px;
-            border: 2px solid var(--primary);
-            border-radius: 10px;
-        }
-
-        .slider-group {
+            color: var(--text);
             margin-bottom: 30px;
+            line-height: 1.4;
         }
-
-        .slider-group label {
-            display: block;
-            color: var(--secondary);
-            font-weight: bold;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-
-        .slider-value {
-            color: var(--success);
-            font-weight: bold;
-        }
-
-        input[type="range"] {
-            width: 100%;
-            height: 8px;
-            border-radius: 5px;
-            background: var(--background);
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-            cursor: pointer;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            box-shadow: 0 0 15px var(--primary);
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: var(--primary);
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 0 15px var(--primary);
-        }
-
-        .results-box {
-            margin-top: 40px;
-            background: rgba(0, 255, 65, 0.1);
-            border: 2px solid var(--success);
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-        }
-
-        .results-box h3 {
-            color: var(--success);
-            margin-bottom: 20px;
-        }
-
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        
+        .hero-cta {
+            display: flex;
             gap: 15px;
-        }
-
-        .result-item {
-            background: rgba(157, 78, 221, 0.1);
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--primary);
-        }
-
-        .result-item p {
-            color: var(--medium-text);
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-
-        .result-item .result-value {
-            color: var(--success);
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Niche Switcher */
-        .niche-section {
-            padding: 60px 20px;
-            background: var(--background);
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .niche-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 40px;
         }
-
-        .niche-btn {
-            padding: 12px 24px;
-            border: 2px solid var(--primary);
-            background: transparent;
-            color: var(--light-text);
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            font-size: 16px;
+        
+        .pain-block {
+            background: rgba(255, 46, 99, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 4px;
         }
-
-        .niche-btn:hover {
-            background: rgba(157, 78, 221, 0.2);
-            border-color: var(--secondary);
-        }
-
-        .niche-btn.active {
-            background: var(--primary);
-            color: var(--black);
-            border-color: var(--secondary);
-            box-shadow: 0 0 20px var(--primary);
-        }
-
-        .niche-content {
-            display: none;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .niche-content.active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .niche-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--darker-bg);
-            border: 2px solid var(--secondary);
-            border-radius: 10px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .niche-title {
-            font-size: 32px;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .niche-stats {
+        
+        .pain-block strong { color: var(--primary); }
+        
+        /* STATS */
+        .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 20px;
+            margin-top: 50px;
         }
-
-        .niche-stat {
-            background: rgba(0, 255, 65, 0.1);
-            padding: 20px;
+        
+        .stat-item {
+            background: var(--darker);
+            padding: 30px;
             border-radius: 8px;
-            border: 1px solid var(--success);
-        }
-
-        .niche-stat p {
-            color: var(--medium-text);
-            font-size: 12px;
-            margin-bottom: 8px;
-        }
-
-        .niche-stat .value {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Comparison Section */
-        .comparison-section {
-            padding: 60px 20px;
-            background: var(--dark-bg);
-            border-bottom: 2px solid var(--secondary);
-        }
-
-        .comparison-container {
-            max-width: 900px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .comparison-box {
-            background: var(--darker-bg);
-            border: 2px solid var(--primary);
-            border-radius: 10px;
-            padding: 30px;
+            border-left: 4px solid var(--secondary);
             text-align: center;
         }
-
-        .comparison-box.bad {
-            border-color: #FF5454;
+        
+        .stat-number { font-size: 40px; font-weight: 700; color: var(--success); }
+        .stat-label { font-size: 14px; color: var(--text-muted); margin-top: 10px; }
+        
+        /* PROBLEMS SECTION */
+        .problems {
+            padding: 80px 0;
+            background: var(--dark);
         }
-
-        .comparison-box.good {
-            border-color: var(--success);
-        }
-
-        .comparison-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-
-        .comparison-box.bad .comparison-title {
-            color: #FF5454;
-        }
-
-        .comparison-box.good .comparison-title {
-            color: var(--success);
-        }
-
-        .comparison-value {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            color: var(--secondary);
-        }
-
-        .comparison-text {
-            font-size: 14px;
-            color: var(--light-text);
-            line-height: 1.6;
-        }
-
-        /* Cases Section */
-        .cases {
-            padding: 60px 20px;
-            background: var(--background);
-        }
-
-        .cases-grid {
+        
+        .problems h2 { margin-bottom: 40px; }
+        
+        .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            gap: 25px;
         }
-
-        .case-card {
-            background: var(--darker-bg);
-            border: 2px solid var(--primary);
-            border-radius: 10px;
+        
+        .problem-card {
+            background: var(--darker);
             padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .case-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 50px var(--primary);
-        }
-
-        .case-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
-        }
-
-        .case-results {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .result {
-            text-align: center;
-        }
-
-        .result-number {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--success);
-        }
-
-        .result-label {
-            font-size: 12px;
-            color: var(--medium-text);
-        }
-
-        /* Tariffs Section */
-        .tariffs {
-            padding: 60px 20px;
-            background: var(--dark-bg);
-        }
-
-        .tariffs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .tariff-card {
-            background: var(--darker-bg);
-            border: 2px solid var(--primary);
-            border-radius: 10px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .tariff-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 50px var(--primary);
-        }
-
-        .tariff-card.featured {
-            border-color: var(--success);
-            background: linear-gradient(135deg, #1a3a2a 0%, var(--darker-bg) 100%);
-            transform: scale(1.05);
-        }
-
-        .badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--success);
-            color: var(--black);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        .price {
-            font-size: 48px;
-            color: var(--primary);
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .features {
-            list-style: none;
-            text-align: left;
-            margin: 30px 0;
-            font-size: 16px;
-        }
-
-        .features li {
-            padding: 10px 0;
-            border-bottom: 1px solid var(--background);
-            color: var(--light-text);
-        }
-
-        .features li:before {
-            content: "✓ ";
-            color: var(--success);
-            font-weight: bold;
-            margin-right: 10px;
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 60px 20px;
-            background: var(--background);
-        }
-
-        .faq-list {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--darker-bg);
-            border-left: 4px solid var(--primary);
-            margin-bottom: 20px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 20px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            user-select: none;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 46, 99, 0.2);
             transition: all 0.3s;
         }
-
-        .faq-question:hover {
-            background: var(--dark-bg);
-            border-left-color: var(--secondary);
+        
+        .problem-card:hover {
+            border-color: var(--primary);
+            background: rgba(255, 46, 99, 0.05);
         }
-
-        .faq-question h4 {
-            color: var(--secondary);
-            font-size: 16px;
-            margin: 0;
-            text-align: left;
+        
+        .problem-icon { font-size: 40px; margin-bottom: 15px; }
+        
+        /* SOLUTION SECTION */
+        .solution {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(8,217,214,0.05) 0%, rgba(255,46,99,0.05) 100%);
         }
-
-        .faq-toggle {
-            color: var(--primary);
-            font-size: 24px;
-            transition: transform 0.3s;
+        
+        .solution h2 { margin-bottom: 40px; }
+        
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
         }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: var(--light-text);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 20px;
-            border-top: 1px solid var(--background);
-        }
-
-        /* Contacts Section */
-        .contacts-section {
-            padding: 60px 20px;
-            background: linear-gradient(135deg, rgba(157, 78, 221, 0.1) 0%, rgba(0, 245, 255, 0.05) 100%);
-            border: 2px solid var(--primary);
-            border-radius: 10px;
-            margin: 20px;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 30px auto;
-            background: var(--darker-bg);
+        
+        .step {
+            background: var(--dark);
             padding: 30px;
-            border: 2px solid var(--primary);
-            border-radius: 10px;
+            border-radius: 8px;
+            border: 1px solid var(--secondary);
+            position: relative;
+            counter-increment: step-counter;
         }
-
-        .form-group {
-            margin-bottom: 20px;
-            text-align: left;
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: var(--secondary);
+            color: var(--background);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
         }
-
-        .form-group label {
-            display: block;
-            color: var(--secondary);
-            margin-bottom: 8px;
-            font-weight: bold;
+        
+        .step h3 { margin-top: 15px; color: var(--secondary); }
+        
+        /* CASES */
+        .cases {
+            padding: 80px 0;
+            background: var(--dark);
         }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background: var(--background);
-            border: 1px solid var(--primary);
-            color: var(--light-text);
-            border-radius: 5px;
-            font-family: inherit;
+        
+        .cases h2 { margin-bottom: 40px; }
+        
+        .case {
+            background: var(--darker);
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
         }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        
+        .case-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-
-        /* Footer */
-        .footer {
+        
+        .case-title { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 15px; }
+        .case-problem { color: var(--text-muted); margin-bottom: 10px; }
+        .case-problem::before { content: "❌ "; }
+        .case-solution { color: var(--success); margin-bottom: 20px; }
+        .case-solution::before { content: "✅ "; }
+        
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .case-result {
+            background: rgba(0, 255, 65, 0.1);
+            padding: 15px;
+            border-radius: 4px;
             text-align: center;
-            padding: 40px 20px;
-            background: var(--background);
-            border-top: 2px solid var(--primary);
-            color: var(--medium-text);
         }
-
-        /* Responsive */
+        
+        .case-result-number { font-size: 24px; font-weight: 700; color: var(--success); }
+        .case-result-label { font-size: 12px; color: var(--text-muted); margin-top: 5px; }
+        
+        .case-image {
+            background: linear-gradient(135deg, rgba(255,46,99,0.2) 0%, rgba(8,217,214,0.2) 100%);
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+        }
+        
         @media (max-width: 768px) {
-            .header-content { flex-direction: column; gap: 20px; }
-            .nav { order: 3; width: 100%; }
-            .hero-title { font-size: 32px; }
-            .hero-subtitle { font-size: 16px; }
-            .hero-buttons { flex-direction: column; }
-            .comparison-container { grid-template-columns: 1fr; }
-            .tariff-card.featured { transform: scale(1); }
+            .case { grid-template-columns: 1fr; }
+            .case-results { grid-template-columns: 1fr; }
+            h1 { font-size: 36px; }
+            nav { gap: 15px; font-size: 12px; }
         }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 28px; }
-            h2 { font-size: 22px; }
-            .price { font-size: 36px; }
+        
+        /* COMPARISON */
+        .comparison {
+            padding: 80px 0;
+            background: var(--dark);
+        }
+        
+        .comparison h2 { margin-bottom: 40px; }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 46, 99, 0.1);
+        }
+        
+        .comparison-table th {
+            background: var(--darker);
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(255, 46, 99, 0.05);
+        }
+        
+        .comparison-bbk {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        /* PRICING */
+        .pricing {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(255,46,99,0.05) 0%, rgba(8,217,214,0.05) 100%);
+        }
+        
+        .pricing h2 { margin-bottom: 40px; }
+        
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: var(--dark);
+            border: 2px solid rgba(255, 46, 99, 0.2);
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .pricing-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 0 30px rgba(255, 46, 99, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--secondary);
+            background: rgba(8, 217, 214, 0.05);
+        }
+        
+        .pricing-name { font-size: 20px; font-weight: 700; margin-bottom: 15px; color: var(--primary); }
+        .pricing-price { font-size: 42px; font-weight: 700; color: var(--success); margin-bottom: 20px; }
+        
+        .pricing-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 46, 99, 0.1);
+            font-size: 14px;
+        }
+        
+        .pricing-features li:before { content: "✓ "; color: var(--success); font-weight: 700; margin-right: 10px; }
+        
+        /* GUARANTEE */
+        .guarantee {
+            background: rgba(0, 255, 65, 0.1);
+            border: 2px solid var(--success);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .guarantee h3 { color: var(--success); }
+        
+        /* CTA SECTION */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--dark);
+            border-top: 1px solid rgba(255, 46, 99, 0.2);
+            border-bottom: 1px solid rgba(255, 46, 99, 0.2);
+            text-align: center;
+        }
+        
+        .cta-section h2 { margin-bottom: 30px; }
+        .cta-section p { font-size: 18px; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--darker);
+            border-top: 1px solid rgba(255, 46, 99, 0.1);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        .footer-links { margin-bottom: 15px; }
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 15px;
         }
     </style>
 </head>
 <body>
     <!-- HEADER -->
-    <header class="header">
+    <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">ББК</div>
-                <nav class="nav">
-                    <a href="#calculator">💰 Калькулятор</a>
-                    <a href="#niches">🎯 Ниши</a>
-                    <a href="#compare">vs Конкуренты</a>
-                    <a href="#cases">📊 Кейсы</a>
+                <nav>
+                    <a href="#problems">Проблемы</a>
+                    <a href="#solution">Как это работает</a>
+                    <a href="#cases">Кейсы</a>
+                    <a href="#pricing">Цены</a>
                 </nav>
-                <div class="contacts">
-                    <a href="https://t.me/bbk_kemerovo" target="_blank">Telegram</a>
-                </div>
             </div>
         </div>
     </header>
@@ -764,442 +444,332 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <h1 class="hero-title glow">5–15 блогеров = волна клиентов</h1>
-            <p class="hero-subtitle glow-cyan">Нативный контент, который работает. Первые клиенты за 3–7 дней.</p>
-            <div class="hero-stats">
-                <div class="stat">
-                    <div class="stat-number">82%</div>
-                    <div class="stat-label">доверие к блогерам</div>
+            <div class="hero-content">
+                <h1>50–150 реальных клиентов за 2 недели</h1>
+                <p class="hero-subtitle">Без вложений в рекламу. Без холодных звонков. Через блогеров Кемерово, которые уже знают вашу целевую аудиторию.</p>
+                
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="alert('Откройте Telegram @bbk_kemerovo и напишите: Хочу бесплатный аудит')">📱 Бесплатный аудит</button>
+                    <button class="btn btn-secondary" onclick="document.querySelector('#cases').scrollIntoView({behavior:'smooth'})">Смотреть кейсы</button>
                 </div>
-                <div class="stat">
-                    <div class="stat-number">400–800%</div>
-                    <div class="stat-label">ROI</div>
+                
+                <div class="pain-block">
+                    <strong>Знакомо?</strong> Реклама дорожает, клиентов становится меньше, метрики падают. А конкуренты растут.
                 </div>
-                <div class="stat">
-                    <div class="stat-number">150–300 ₽</div>
-                    <div class="stat-label">CPA</div>
-                </div>
-            </div>
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="document.getElementById('calculator-section').scrollIntoView({behavior:'smooth'})">💰 Калькулятор</button>
-                <button class="btn btn-secondary" onclick="document.getElementById('cases').scrollIntoView({behavior:'smooth'})">Смотреть кейсы</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- CALCULATOR SECTION -->
-    <section class="calculator-section" id="calculator">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">💰 Посчитайте ваш результат</h2>
-            <div class="calculator-container">
-                <div class="slider-group">
-                    <label>Ваша инвестиция: <span class="slider-value" id="investValue">12 500 ₽</span></label>
-                    <input type="range" id="investSlider" min="5000" max="100000" step="2500" value="12500" oninput="updateCalculator()">
-                </div>
-
-                <div class="slider-group">
-                    <label>Ваш средний чек: <span class="slider-value" id="checkValue">2 000 ₽</span></label>
-                    <input type="range" id="checkSlider" min="500" max="15000" step="500" value="2000" oninput="updateCalculator()">
-                </div>
-
-                <div class="results-box">
-                    <h3>Ваши ориентировочные результаты:</h3>
-                    <div class="results-grid">
-                        <div class="result-item">
-                            <p>Новые клиенты</p>
-                            <div class="result-value" id="clientsResult">25–75</div>
-                        </div>
-                        <div class="result-item">
-                            <p>Выручка</p>
-                            <div class="result-value" id="revenueResult">50k–150k ₽</div>
-                        </div>
-                        <div class="result-item">
-                            <p>ROI</p>
-                            <div class="result-value" id="roiResult">300–600%</div>
-                        </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">клиентов получают результат</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50–150</div>
+                        <div class="stat-label">клиентов за проект</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">7,500–50k ₽</div>
+                        <div class="stat-label">инвестиция на проект</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NICHE SWITCHER -->
-    <section class="niche-section" id="niches">
+    <!-- PROBLEMS -->
+    <section class="problems" id="problems">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">🎯 Выберите вашу нишу</h2>
+            <h2>Что вас сломало:</h2>
             
-            <div class="niche-buttons">
-                <button class="niche-btn active" onclick="switchNiche(this, 'cafe')">☕ Кафе</button>
-                <button class="niche-btn" onclick="switchNiche(this, 'salon')">💄 Салон</button>
-                <button class="niche-btn" onclick="switchNiche(this, 'fitness')">💪 Фитнес</button>
-                <button class="niche-btn" onclick="switchNiche(this, 'shop')">👕 Магазин</button>
-                <button class="niche-btn" onclick="switchNiche(this, 'courses')">📚 Курсы</button>
-            </div>
-
-            <!-- CAFE -->
-            <div id="cafe" class="niche-content active">
-                <div class="niche-card">
-                    <h3 class="niche-title">☕ Кафе & Рестораны</h3>
-                    <div class="niche-stats">
-                        <div class="niche-stat">
-                            <p>Клиентов за 2 недели</p>
-                            <div class="value" style="color: var(--success);">50–100</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Средний ROI</p>
-                            <div class="value" style="color: var(--secondary);">500–800%</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Рекомендуемый тариф</p>
-                            <div class="value" style="color: var(--primary);">Стандарт</div>
-                        </div>
-                    </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">📊</div>
+                    <h3>Реклама дорожает</h3>
+                    <p>Яндекс, Google, VK повышают цены каждый месяц. CPA 500–1500 ₽. ROI 20–50%.</p>
                 </div>
-            </div>
-
-            <!-- SALON -->
-            <div id="salon" class="niche-content">
-                <div class="niche-card">
-                    <h3 class="niche-title">💄 Салоны красоты</h3>
-                    <div class="niche-stats">
-                        <div class="niche-stat">
-                            <p>Клиентов за 2 недели</p>
-                            <div class="value" style="color: var(--success);">40–80</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Средний ROI</p>
-                            <div class="value" style="color: var(--secondary);">450–700%</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Рекомендуемый тариф</p>
-                            <div class="value" style="color: var(--primary);">Стандарт</div>
-                        </div>
-                    </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">😐</div>
+                    <h3>Люди не доверяют рекламе</h3>
+                    <p>Баннеры блокируют. Видео пропускают. Только 23% верят объявлениям.</p>
                 </div>
-            </div>
-
-            <!-- FITNESS -->
-            <div id="fitness" class="niche-content">
-                <div class="niche-card">
-                    <h3 class="niche-title">💪 Фитнес центры</h3>
-                    <div class="niche-stats">
-                        <div class="niche-stat">
-                            <p>Клиентов в месяц</p>
-                            <div class="value" style="color: var(--success);">30–150+</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Средний ROI</p>
-                            <div class="value" style="color: var(--secondary);">650–1000%</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Рекомендуемый тариф</p>
-                            <div class="value" style="color: var(--primary);">Эксклюзив</div>
-                        </div>
-                    </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>Длинный запуск</h3>
+                    <p>Яндекс 7–14 дней, агентства 14–30 дней. Вы уже потеряли клиентов конкурентам.</p>
                 </div>
-            </div>
-
-            <!-- SHOP -->
-            <div id="shop" class="niche-content">
-                <div class="niche-card">
-                    <h3 class="niche-title">👕 Магазины</h3>
-                    <div class="niche-stats">
-                        <div class="niche-stat">
-                            <p>Посещений за 2 недели</p>
-                            <div class="value" style="color: var(--success);">20–50</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Средний ROI</p>
-                            <div class="value" style="color: var(--secondary);">600–900%</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Рекомендуемый тариф</p>
-                            <div class="value" style="color: var(--primary);">Старт</div>
-                        </div>
-                    </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>Деньги на ветер</h3>
+                    <p>После выключения рекламы — ноль клиентов. Всё сливается в прибыль платформ.</p>
                 </div>
-            </div>
-
-            <!-- COURSES -->
-            <div id="courses" class="niche-content">
-                <div class="niche-card">
-                    <h3 class="niche-title">📚 Курсы & Обучение</h3>
-                    <div class="niche-stats">
-                        <div class="niche-stat">
-                            <p>Заказов за 2 недели</p>
-                            <div class="value" style="color: var(--success);">10–30</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Средний ROI</p>
-                            <div class="value" style="color: var(--secondary);">400–700%</div>
-                        </div>
-                        <div class="niche-stat">
-                            <p>Рекомендуемый тариф</p>
-                            <div class="value" style="color: var(--primary);">Стандарт</div>
-                        </div>
-                    </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">🏪</div>
+                    <h3>Конкуренты берут вашу ауди</h3>
+                    <p>Они тратят дешевле и быстрее. Ваша ниша сжимается. Средний чек падает.</p>
+                </div>
+                
+                <div class="problem-card">
+                    <div class="problem-icon">🤷</div>
+                    <h3>Непонятно, что делать</h3>
+                    <p>Агентства берут 50k+ и гарантируют ерунду. SMM — 100k/месяц. Результата нет.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- COMPARISON SECTION -->
-    <section class="comparison-section" id="compare">
+    <!-- SOLUTION -->
+    <section class="solution" id="solution">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">😤 Грустная правда: не делайте сами!</h2>
+            <h2>Вот как это работает:</h2>
             
-            <div class="comparison-container">
-                <div class="comparison-box bad">
-                    <h3 class="comparison-title">❌ Если делать самому:</h3>
-                    <div class="comparison-value">36,500–150,000 ₽</div>
-                    <div class="comparison-text">
-                        + 66–140 часов вашего времени
-                        <p style="margin-top: 15px; font-size: 12px; color: #ccc;">Поиск блогеров, переговоры, согласование, контроль качества, аналитика</p>
-                    </div>
+            <div class="how-it-works">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Бесплатный аудит</h3>
+                    <p>15 минут разговора. Мы анализируем вашу нишу, подбираем блогеров, считаем примерный результат.</p>
                 </div>
-
-                <div class="comparison-box good">
-                    <h3 class="comparison-title">✅ Если работать с ББК:</h3>
-                    <div class="comparison-value">7,500–50,000 ₽</div>
-                    <div class="comparison-text">
-                        + 1–2 часа вашего времени
-                        <p style="margin-top: 15px; font-size: 12px; color: #ccc;">Только брифинг и согласование результата</p>
-                    </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Подбор блогеров</h3>
+                    <p>Находим 5–15 микроблогеров из Кемерово с вашей целевой аудиторией. Проверяем аудиторию на подлинность.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Съёмка контента</h3>
+                    <p>Блогеры посещают вас, пробуют услугу/продукт, снимают видео и истории. Контент — нативный, как рекомендация друга.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Волна публикаций</h3>
+                    <p>За 2–3 недели видео выходят волнами. Люди видят одно видео, потом ещё одно — эффект FOMO, все идут к вам.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h3>Первые клиенты</h3>
+                    <p>Через 3–7 дней начинают приходить. Видео работает 6–12 месяцев: люди находят через поиск, отзывы остаются.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">6</div>
+                    <h3>Аналитика и отчет</h3>
+                    <p>Даём полный отчет: охват, просмотры, переходы, клиенты, ROI. Вы видите точно, что вернулось.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CASES SECTION -->
+    <!-- CASES -->
     <section class="cases" id="cases">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">🎯 Реальные кейсы</h2>
+            <h2>Реальные кейсы с доказательствами:</h2>
             
-            <div class="cases-grid">
-                <div class="case-card">
-                    <div class="case-icon">☕</div>
-                    <h3>Кафе "Крем-Брюле"</h3>
+            <div class="case">
+                <div class="case-content">
+                    <div class="case-title">☕ Кафе "Крем-Брюле"</div>
+                    <div class="case-problem">Клиентов ноль, реклама не работает</div>
+                    <div class="case-solution">10 блогеров + видео + отзывы в картах</div>
                     <div class="case-results">
-                        <div class="result">
-                            <div class="result-number">87</div>
-                            <div class="result-label">новых клиентов</div>
+                        <div class="case-result">
+                            <div class="case-result-number">87</div>
+                            <div class="case-result-label">новых клиентов</div>
                         </div>
-                        <div class="result">
-                            <div class="result-number">573%</div>
-                            <div class="result-label">ROI</div>
+                        <div class="case-result">
+                            <div class="case-result-number">573%</div>
+                            <div class="case-result-label">ROI</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">15,500 ₽</div>
+                            <div class="case-result-label">инвестиция</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="case-card">
-                    <div class="case-icon">💄</div>
-                    <h3>Салон "Лазурь"</h3>
+                <div class="case-image">☕</div>
+            </div>
+            
+            <div class="case">
+                <div class="case-content">
+                    <div class="case-title">💄 Салон "Лазурь"</div>
+                    <div class="case-problem">Мало записей, высокая конкуренция</div>
+                    <div class="case-solution">8 блогеров + фото/видео + отзывы</div>
                     <div class="case-results">
-                        <div class="result">
-                            <div class="result-number">62</div>
-                            <div class="result-label">новых клиентов</div>
+                        <div class="case-result">
+                            <div class="case-result-number">62</div>
+                            <div class="case-result-label">новых клиентов</div>
                         </div>
-                        <div class="result">
-                            <div class="result-number">464%</div>
-                            <div class="result-label">ROI</div>
+                        <div class="case-result">
+                            <div class="case-result-number">464%</div>
+                            <div class="case-result-label">ROI</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">16,500 ₽</div>
+                            <div class="case-result-label">инвестиция</div>
                         </div>
                     </div>
                 </div>
-
-                <div class="case-card">
-                    <div class="case-icon">💪</div>
-                    <h3>Фитнес "Железо"</h3>
+                <div class="case-image">💄</div>
+            </div>
+            
+            <div class="case">
+                <div class="case-content">
+                    <div class="case-title">💪 Фитнес "Железо"</div>
+                    <div class="case-problem">Падение продаж абонементов</div>
+                    <div class="case-solution">15 блогеров + 3 волны контента</div>
                     <div class="case-results">
-                        <div class="result">
-                            <div class="result-number">156</div>
-                            <div class="result-label">новых клиентов</div>
+                        <div class="case-result">
+                            <div class="case-result-number">156</div>
+                            <div class="case-result-label">новых клиентов</div>
                         </div>
-                        <div class="result">
-                            <div class="result-number">680%</div>
-                            <div class="result-label">ROI</div>
+                        <div class="case-result">
+                            <div class="case-result-number">680%</div>
+                            <div class="case-result-label">ROI</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">60,000 ₽</div>
+                            <div class="case-result-label">инвестиция</div>
                         </div>
                     </div>
                 </div>
+                <div class="case-image">💪</div>
             </div>
         </div>
     </section>
 
-    <!-- TARIFFS SECTION -->
-    <section class="tariffs">
+    <!-- COMPARISON -->
+    <section class="comparison">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">💼 Тарифы</h2>
+            <h2>ББК vs Конкуренты (за 15,000 ₽)</h2>
             
-            <div class="tariffs-grid">
-                <div class="tariff-card">
-                    <h3>СТАРТ</h3>
-                    <div class="price">7 500 <span style="font-size: 24px;">₽</span></div>
-                    <ul class="features">
+            <table class="comparison-table">
+                <tr>
+                    <th>Параметр</th>
+                    <th>Яндекс</th>
+                    <th>VK Реклама</th>
+                    <th>Агентство</th>
+                    <th class="comparison-bbk">ББК</th>
+                </tr>
+                <tr>
+                    <td><strong>Доверие к контенту</strong></td>
+                    <td>23%</td>
+                    <td>35%</td>
+                    <td>30%</td>
+                    <td class="comparison-bbk">82%</td>
+                </tr>
+                <tr>
+                    <td><strong>CPA (цена клиента)</strong></td>
+                    <td>750–1500 ₽</td>
+                    <td>500–1200 ₽</td>
+                    <td>1000–3000 ₽</td>
+                    <td class="comparison-bbk">150–300 ₽</td>
+                </tr>
+                <tr>
+                    <td><strong>ROI</strong></td>
+                    <td>20–50%</td>
+                    <td>30–60%</td>
+                    <td>-50–100%</td>
+                    <td class="comparison-bbk">400–800%</td>
+                </tr>
+                <tr>
+                    <td><strong>Запуск (дней)</strong></td>
+                    <td>7–14</td>
+                    <td>3–7</td>
+                    <td>14–30</td>
+                    <td class="comparison-bbk">2–3</td>
+                </tr>
+                <tr>
+                    <td><strong>Долгосрочный эффект</strong></td>
+                    <td>Нет</td>
+                    <td>Нет</td>
+                    <td>1–3 мес</td>
+                    <td class="comparison-bbk">6–12 мес</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>Прозрачные цены без подвохов:</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-name">СТАРТ</div>
+                    <div class="pricing-price">7,500 ₽</div>
+                    <ul class="pricing-features">
                         <li>5 блогеров</li>
-                        <li>1 видео от каждого</li>
+                        <li>1 видео каждого</li>
                         <li>2–3 истории</li>
                         <li>Охват 10–20k</li>
                         <li>Запуск 48–72ч</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="alert('Свяжитесь с нами в Telegram @bbk_kemerovo')">Заказать</button>
+                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo')">Заказать</button>
                 </div>
-
-                <div class="tariff-card featured">
-                    <div class="badge">⭐ РЕКОМЕНДУЕМ</div>
-                    <h3>СТАНДАРТ</h3>
-                    <div class="price">12 500 <span style="font-size: 24px;">₽</span></div>
-                    <ul class="features">
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-name">СТАНДАРТ ⭐</div>
+                    <div class="pricing-price">12,500 ₽</div>
+                    <ul class="pricing-features">
                         <li>10 блогеров</li>
                         <li>2+ видео каждого</li>
                         <li>Волна 2–3 недели</li>
                         <li>Отзывы в картах</li>
                         <li>Охват 25–40k</li>
-                        <li>Аналитика + советы</li>
+                        <li>Аналитика</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="alert('Свяжитесь с нами в Telegram @bbk_kemerovo')">Заказать</button>
+                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo')">Заказать</button>
                 </div>
-
-                <div class="tariff-card">
-                    <h3>ЭКСКЛЮЗИВ</h3>
-                    <div class="price">от 50k <span style="font-size: 24px;">₽</span></div>
-                    <ul class="features">
+                
+                <div class="pricing-card">
+                    <div class="pricing-name">ПРЕМИУМ</div>
+                    <div class="pricing-price">от 50k ₽</div>
+                    <ul class="pricing-features">
                         <li>15+ блогеров</li>
-                        <li>3–5 волн контента</li>
+                        <li>3+ волны контента</li>
                         <li>Охват 60–100k+</li>
                         <li>Глубокая аналитика</li>
+                        <li>Креативные интеграции</li>
                         <li>Поиск доп. партнеров</li>
-                        <li>Креативная интеграция</li>
                     </ul>
-                    <button class="btn btn-secondary" onclick="alert('Свяжитесь с нами в Telegram @bbk_kemerovo')">Обсудить</button>
+                    <button class="btn btn-secondary" onclick="alert('Telegram @bbk_kemerovo')">Обсудить</button>
                 </div>
+            </div>
+            
+            <div class="guarantee" style="margin-top: 50px;">
+                <h3>✅ 100% гарантия результата</h3>
+                <p>Если контент не принесёт результат — мы доработаем бесплатно или вернём 50% денег. Мы верим в свой метод.</p>
             </div>
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
-    <section class="faq">
+    <!-- CTA -->
+    <section class="cta-section">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 40px;">❓ FAQ</h2>
+            <h2>Начнём прямо сейчас?</h2>
+            <p>Первый шаг — бесплатный аудит. 15 минут разговора. Вы узнаете точно, сколько клиентов и за сколько денег.</p>
             
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <h4>Как вы подбираете блогеров?</h4>
-                        <span class="faq-toggle">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Мы тщательно подбираем блогеров под вашу конкретную нишу. Проверяем: регулярность публикаций, качество контента, реальность аудитории, стиль общения. На тарифе "Старт" — блогеры из нашей базы. На "Стандарт+" — специализированные под вашу нишу.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <h4>Сколько времени занимает реализация?</h4>
-                        <span class="faq-toggle">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p><strong>Подготовка:</strong> 3–5 дней<br><strong>Съемка:</strong> 3–7 дней<br><strong>Публикация:</strong> 1–2 дня<br><strong>Первые результаты:</strong> 3–7 дней после публикации</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <h4>Гарантируете ли вы результат?</h4>
-                        <span class="faq-toggle">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Мы гарантируем: качественный контент, охват, своевременную публикацию. Результат зависит от вашей цены, локации, обслуживания. Однако 95% клиентов получают ожидаемый или превышающий результат.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFaq(this)">
-                        <h4>Что такое "расходники"?</h4>
-                        <span class="faq-toggle">▼</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Расходники — это реальные товары или услуги, которые блогеры получают бесплатно для честного ознакомления. Для кафе — обеды/ужины. Для салонов — процедуры. Это инвестиция в честность контента.</p>
-                    </div>
-                </div>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="alert('Откройте Telegram и напишите @bbk_kemerovo: Хочу бесплатный аудит')">📱 Telegram @bbk_kemerovo</button>
+                <button class="btn btn-secondary" onclick="alert('Email: bbk@kemerovo.ru')">📧 Email</button>
             </div>
-        </div>
-    </section>
-
-    <!-- CONTACTS SECTION -->
-    <section class="contacts-section">
-        <div class="container">
-            <h2 style="text-align: center; margin-bottom: 30px;" class="glow-cyan">Давайте начнем прямо сейчас</h2>
-            
-            <div style="text-align: center; margin-bottom: 40px;">
-                <p style="font-size: 18px; margin-bottom: 20px;">📱 Telegram: <strong>@bbk_kemerovo</strong></p>
-                <p style="font-size: 18px;">📧 Email: <strong>bbk@kemerovo.ru</strong></p>
-            </div>
-
-            <form class="contact-form" onsubmit="submitForm(event)">
-                <div class="form-group">
-                    <label>Ваше имя</label>
-                    <input type="text" placeholder="Иван" required>
-                </div>
-                <div class="form-group">
-                    <label>Телефон или Telegram</label>
-                    <input type="text" placeholder="+7 900 123-45-67" required>
-                </div>
-                <div class="form-group">
-                    <label>Ваш бизнес</label>
-                    <input type="text" placeholder="Кафе, салон, фитнес..." required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить</button>
-            </form>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <p>© 2026 ББК — Микроблогеры для вашего бизнеса</p>
-        <p style="font-size: 12px; margin-top: 10px;">Кемерово | @bbk_kemerovo</p>
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://t.me/bbk_kemerovo" target="_blank">Telegram</a>
+                <a href="mailto:bbk@kemerovo.ru">Email</a>
+            </div>
+            <p>© 2026 ББК — Микроблогеры для вашего бизнеса | Кемерово</p>
+        </div>
     </footer>
-
-    <script>
-        // Calculator
-        function updateCalculator() {
-            const invest = parseInt(document.getElementById('investSlider').value);
-            const check = parseInt(document.getElementById('checkSlider').value);
-
-            document.getElementById('investValue').textContent = invest.toLocaleString('ru-RU') + ' ₽';
-            document.getElementById('checkValue').textContent = check.toLocaleString('ru-RU') + ' ₽';
-
-            const minClients = Math.round((invest / 12500) * 25);
-            const maxClients = Math.round((invest / 12500) * 75);
-            
-            const minRevenue = minClients * check;
-            const maxRevenue = maxClients * check;
-
-            const minROI = Math.round(((minRevenue - invest) / invest) * 100);
-            const maxROI = Math.round(((maxRevenue - invest) / invest) * 100);
-
-            document.getElementById('clientsResult').textContent = minClients + '–' + maxClients;
-            document.getElementById('revenueResult').textContent = (minRevenue/1000).toFixed(0) + 'k–' + (maxRevenue/1000).toFixed(0) + 'k ₽';
-            document.getElementById('roiResult').textContent = minROI + '–' + maxROI + '%';
-        }
-
-        // Niche Switcher
-        function switchNiche(btn, id) {
-            document.querySelectorAll('.niche-btn').forEach(b => b.classList.remove('active'));
-            document.querySelectorAll('.niche-content').forEach(c => c.classList.remove('active'));
-            btn.classList.add('active');
-            document.getElementById(id).classList.add('active');
-        }
-
-        // FAQ Toggle
-        function toggleFaq(element) {
-            element.parentElement.classList.toggle('active');
-        }
-
-        // Form Submit
-        function submitForm(e) {
-            e.preventDefault();
-            alert('Спасибо! Откройте Telegram @bbk_kemerovo для связи');
-            e.target.reset();
-        }
-    </script>
 </body>
 </html>
