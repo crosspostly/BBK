@@ -251,27 +251,23 @@
         }
         
         .case-title { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 15px; }
-        .case-problem { color: var(--text-muted); margin-bottom: 10px; }
+        .case-problem { color: var(--text-muted); margin-bottom: 10px; font-size: 16px; }
         .case-problem::before { content: "❌ "; }
-        .case-solution { color: var(--success); margin-bottom: 20px; }
+        .case-solution { color: var(--success); margin-bottom: 20px; font-size: 16px; }
         .case-solution::before { content: "✅ "; }
         
-        .case-results {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
+        .case-result-big {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--success);
             margin-top: 20px;
         }
         
-        .case-result {
-            background: rgba(0, 255, 65, 0.1);
-            padding: 15px;
-            border-radius: 4px;
-            text-align: center;
+        .case-result-label {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-top: 5px;
         }
-        
-        .case-result-number { font-size: 24px; font-weight: 700; color: var(--success); }
-        .case-result-label { font-size: 12px; color: var(--text-muted); margin-top: 5px; }
         
         .case-image {
             background: linear-gradient(135deg, rgba(255,46,99,0.2) 0%, rgba(8,217,214,0.2) 100%);
@@ -284,7 +280,6 @@
         
         @media (max-width: 768px) {
             .case { grid-template-columns: 1fr; }
-            .case-results { grid-template-columns: 1fr; }
             h1 { font-size: 36px; }
             nav { gap: 15px; font-size: 12px; }
         }
@@ -297,32 +292,34 @@
         
         .comparison h2 { margin-bottom: 40px; }
         
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
+        .comparison-blocks {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
         
-        .comparison-table th,
-        .comparison-table td {
-            padding: 15px 20px;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 46, 99, 0.1);
-        }
-        
-        .comparison-table th {
+        .comparison-block {
             background: var(--darker);
-            font-weight: 600;
-            color: var(--text);
+            border: 1px solid rgba(255, 46, 99, 0.2);
+            padding: 30px;
+            border-radius: 8px;
         }
         
-        .comparison-table tr:hover {
+        .comparison-block.bad {
+            border-color: #FF2E63;
             background: rgba(255, 46, 99, 0.05);
         }
         
-        .comparison-bbk {
-            color: var(--success);
-            font-weight: 600;
+        .comparison-block.good {
+            border-color: var(--success);
+            background: rgba(0, 255, 65, 0.05);
         }
+        
+        .comparison-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; }
+        .comparison-block.bad .comparison-title { color: #FF2E63; }
+        .comparison-block.good .comparison-title { color: var(--success); }
+        
+        .comparison-info { font-size: 14px; line-height: 1.8; }
         
         /* PRICING */
         .pricing {
@@ -433,7 +430,7 @@
                 <nav>
                     <a href="#problems">Проблемы</a>
                     <a href="#solution">Как это работает</a>
-                    <a href="#cases">Кейсы</a>
+                    <a href="#cases">Результаты</a>
                     <a href="#pricing">Цены</a>
                 </nav>
             </div>
@@ -444,16 +441,16 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>50–150 реальных клиентов за 2 недели</h1>
-                <p class="hero-subtitle">Без вложений в рекламу. Без холодных звонков. Через блогеров Кемерово, которые уже знают вашу целевую аудиторию.</p>
+                <h1>50–150 новых клиентов за 2 недели</h1>
+                <p class="hero-subtitle">Через реальных блогеров Кемерово, которые уже знают вашу аудиторию.</p>
                 
                 <div class="hero-cta">
-                    <button class="btn btn-primary" onclick="alert('Откройте Telegram @bbk_kemerovo и напишите: Хочу бесплатный аудит')">📱 Бесплатный аудит</button>
-                    <button class="btn btn-secondary" onclick="document.querySelector('#cases').scrollIntoView({behavior:'smooth'})">Смотреть кейсы</button>
+                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo\n\nНапишите: Хочу бесплатный аудит')">📱 Бесплатный аудит</button>
+                    <button class="btn btn-secondary" onclick="document.querySelector('#cases').scrollIntoView({behavior:'smooth'})">Смотреть результаты</button>
                 </div>
                 
                 <div class="pain-block">
-                    <strong>Знакомо?</strong> Реклама дорожает, клиентов становится меньше, метрики падают. А конкуренты растут.
+                    <strong>Проблема:</strong> Реклама дорожает каждый месяц, клиентов меньше, деньги уходят впустую. Конкуренты уже взяли вашу аудиторию.
                 </div>
                 
                 <div class="stats">
@@ -466,8 +463,8 @@
                         <div class="stat-label">клиентов за проект</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">7,500–50k ₽</div>
-                        <div class="stat-label">инвестиция на проект</div>
+                        <div class="stat-number">7,500–50k</div>
+                        <div class="stat-label">стоимость проекта</div>
                     </div>
                 </div>
             </div>
@@ -477,43 +474,43 @@
     <!-- PROBLEMS -->
     <section class="problems" id="problems">
         <div class="container">
-            <h2>Что вас сломало:</h2>
+            <h2>Почему реклама больше не работает:</h2>
             
             <div class="problem-grid">
                 <div class="problem-card">
-                    <div class="problem-icon">📊</div>
-                    <h3>Реклама дорожает каждый месяц</h3>
-                    <p>Яндекс, Google, VK повышают цены. Вы платите 500–1500 ₽ за одного клиента. Половину денег берут платформы.</p>
+                    <div class="problem-icon">📈</div>
+                    <h3>Реклама дорожает</h3>
+                    <p>Яндекс, Google, VK повышают цены каждый месяц. Вы платите больше, клиентов приходит меньше.</p>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">😒</div>
-                    <h3>Люди не доверяют объявлениям</h3>
-                    <p>Баннеры блокируют. Видео пропускают. Только 23% верят объявлениям. А рекомендациям друзей верят 82%.</p>
+                    <div class="problem-icon">🙅</div>
+                    <h3>Люди не верят объявлениям</h3>
+                    <p>Баннеры блокируют, видео пропускают. Люди верят рекомендациям друзей, а не объявлениям в интернете.</p>
                 </div>
                 
                 <div class="problem-card">
                     <div class="problem-icon">⏰</div>
                     <h3>Долгий запуск</h3>
-                    <p>Яндекс ждёт 7–14 дней, агентства 14–30 дней. Вы уже потеряли клиентов конкурентам.</p>
+                    <p>Яндекс ждёт неделю, агентства месяц. Пока вы ждёте, конкуренты уже занимают ваше место.</p>
                 </div>
                 
                 <div class="problem-card">
-                    <div class="problem-icon">💸</div>
-                    <h3>Деньги на ветер</h3>
-                    <p>После выключения рекламы — ноль клиентов. Всё слилось в прибыль платформе. Завтра начинаешь с нуля.</p>
+                    <div class="problem-icon">💨</div>
+                    <h3>Результат улетучивается</h3>
+                    <p>Когда вы выключаете рекламу — клиентов больше нет. Завтра начинаешь сначала. Деньги просто потрачены.</p>
                 </div>
                 
                 <div class="problem-card">
                     <div class="problem-icon">🏪</div>
-                    <h3>Конкуренты берут вашу аудиторию</h3>
-                    <p>Они тратят дешевле и быстрее. Ваша ниша сжимается. Средний чек падает. Люди уходят к ним.</p>
+                    <h3>Конкуренты занимают вашу нишу</h3>
+                    <p>Они рекламируются дешевле и вашу аудиторию тоже видят. Люди уходят к ним. Ваша ниша сжимается.</p>
                 </div>
                 
                 <div class="problem-card">
                     <div class="problem-icon">🤷</div>
-                    <h3>Непонятно, что делать</h3>
-                    <p>Агентства берут 50k+ и гарантируют ерунду. SMM — 100k/месяц. Результата нет, а деньги потрачены.</p>
+                    <h3>Неясно, что действительно работает</h3>
+                    <p>Агентства берут 50k+ и ничего не гарантируют. SMM — 100k в месяц. Результата нет, деньги потрачены.</p>
                 </div>
             </div>
         </div>
@@ -522,43 +519,43 @@
     <!-- SOLUTION -->
     <section class="solution" id="solution">
         <div class="container">
-            <h2>Вот как это работает:</h2>
+            <h2>Как мы привозим клиентов:</h2>
             
             <div class="how-it-works">
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Бесплатный аудит</h3>
-                    <p>15 минут разговора. Мы анализируем вашу нишу, подбираем блогеров, считаем примерный результат.</p>
+                    <p>15 минут разговора. Мы понимаем вашу нишу, смотрим конкурентов, считаем примерный результат.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Подбор блогеров</h3>
-                    <p>Находим 5–15 микроблогеров из Кемерово с вашей целевой аудиторией. Проверяем аудиторию на подлинность.</p>
+                    <h3>Подбираем блогеров</h3>
+                    <p>Находим 5–15 блогеров из Кемерово с вашей аудиторией. Проверяем, что это реальные люди, не боты.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Съёмка контента</h3>
-                    <p>Блогеры посещают вас, пробуют услугу/продукт, снимают видео и истории. Контент — натнивный, как рекомендация друга.</p>
+                    <h3>Блогеры снимают контент</h3>
+                    <p>Они приходят к вам, пробуют вашу услугу или товар, снимают видео и истории. Как рекомендация подруги.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Волна публикаций</h3>
-                    <p>За 2–3 недели видео выходят волнами. Люди видят одно видео, потом ещё одно — эффект FOMO, все идут к вам.</p>
+                    <h3>Публикуем волнами</h3>
+                    <p>За 2–3 недели видео выходят волнами. Люди видят одно видео, потом ещё одно — эффект снежного кома.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">5</div>
                     <h3>Первые клиенты</h3>
-                    <p>Через 3–7 дней начинают приходить. Видео работает 6–12 месяцев: люди находят через поиск, отзывы остаются.</p>
+                    <p>За 3–7 дней начинают приходить. Видео работает 6–12 месяцев: люди ищут через поиск, читают отзывы.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">6</div>
                     <h3>Полный отчёт</h3>
-                    <p>Даём отчёт: сколько просмотров, переходов, клиентов пришло, сколько денег вернулось. Видите точно, что работает.</p>
+                    <p>Вы видите: сколько просмотров, переходов, клиентов пришло. Ровно то, что нужно для решения.</p>
                 </div>
             </div>
         </div>
@@ -572,22 +569,10 @@
             <div class="case">
                 <div class="case-content">
                     <div class="case-title">☕ Кафе "Крем-Брюле"</div>
-                    <div class="case-problem">Клиентов ноль, реклама не работает</div>
-                    <div class="case-solution">10 блогеров + видео + отзывы в картах</div>
-                    <div class="case-results">
-                        <div class="case-result">
-                            <div class="case-result-number">87</div>
-                            <div class="case-result-label">новых клиентов</div>
-                        </div>
-                        <div class="case-result">
-                            <div class="case-result-number">15,500 ₽</div>
-                            <div class="case-result-label">инвестировали</div>
-                        </div>
-                        <div class="case-result">
-                            <div class="case-result-number">~100 ₽</div>
-                            <div class="case-result-label">на одного клиента</div>
-                        </div>
-                    </div>
+                    <div class="case-problem">Клиентов нет, реклама не работает</div>
+                    <div class="case-solution">10 блогеров + видео + отзывы</div>
+                    <div class="case-result-big">87 клиентов</div>
+                    <div class="case-result-label">Стоимость: 15,500₽</div>
                 </div>
                 <div class="case-image">☕</div>
             </div>
@@ -597,20 +582,8 @@
                     <div class="case-title">💄 Салон "Лазурь"</div>
                     <div class="case-problem">Мало записей, высокая конкуренция</div>
                     <div class="case-solution">8 блогеров + фото/видео + отзывы</div>
-                    <div class="case-results">
-                        <div class="case-result">
-                            <div class="case-result-number">62</div>
-                            <div class="case-result-label">новых клиента</div>
-                        </div>
-                        <div class="case-result">
-                            <div class="case-result-number">16,500 ₽</div>
-                            <div class="case-result-label">инвестировали</div>
-                        </div>
-                        <div class="case-result">
-                            <div class="case-result-number">~265 ₽</div>
-                            <div class="case-result-label">на одного клиента</div>
-                        </div>
-                    </div>
+                    <div class="case-result-big">62 клиента</div>
+                    <div class="case-result-label">Стоимость: 16,500₽</div>
                 </div>
                 <div class="case-image">💄</div>
             </div>
@@ -620,20 +593,8 @@
                     <div class="case-title">💪 Фитнес "Железо"</div>
                     <div class="case-problem">Падение продаж абонементов</div>
                     <div class="case-solution">15 блогеров + 3 волны контента</div>
-                    <div class="case-results">
-                        <div class="case-result">
-                            <div class="case-result-number">156</div>
-                            <div class="case-result-label">новых клиентов</div>
-                        </div>
-                        <div class="case-result">
-                            <div class="case-result-number">60,000 ₽</div>
-                            <div class="case-result-label">инвестировали</div>
-                        </div>
-                        <div class="case-result">
-                            <div class="case-result-number">~385 ₽</div>
-                            <div class="case-result-label">на одного клиента</div>
-                        </div>
-                    </div>
+                    <div class="case-result-big">156 клиентов</div>
+                    <div class="case-result-label">Стоимость: 60,000₽</div>
                 </div>
                 <div class="case-image">💪</div>
             </div>
@@ -643,52 +604,50 @@
     <!-- COMPARISON -->
     <section class="comparison">
         <div class="container">
-            <h2>ББК vs Другие способы за 15,000 ₽</h2>
+            <h2>ББК vs Остальное:</h2>
             
-            <table class="comparison-table">
-                <tr>
-                    <th>Что важно</th>
-                    <th>Яндекс Директ</th>
-                    <th>VK Реклама</th>
-                    <th>Агентство</th>
-                    <th class="comparison-bbk">ББК</th>
-                </tr>
-                <tr>
-                    <td><strong>Люди верят?</strong></td>
-                    <td>23% верят объявлениям</td>
-                    <td>35% верят объявлениям</td>
-                    <td>30% верят объявлениям</td>
-                    <td class="comparison-bbk">82% верят рекомендациям</td>
-                </tr>
-                <tr>
-                    <td><strong>Цена на клиента</strong></td>
-                    <td>750–1500 ₽</td>
-                    <td>500–1200 ₽</td>
-                    <td>1000–3000 ₽</td>
-                    <td class="comparison-bbk">100–400 ₽</td>
-                </tr>
-                <tr>
-                    <td><strong>Сколько получите клиентов</strong></td>
-                    <td>10–20 клиентов</td>
-                    <td>12–25 клиентов</td>
-                    <td>5–15 клиентов</td>
-                    <td class="comparison-bbk">40–150 клиентов</td>
-                </tr>
-                <tr>
-                    <td><strong>Быстрый запуск</strong></td>
-                    <td>7–14 дней</td>
-                    <td>3–7 дней</td>
-                    <td>14–30 дней</td>
-                    <td class="comparison-bbk">2–3 дня</td>
-                </tr>
-                <tr>
-                    <td><strong>Как долго работает</strong></td>
-                    <td>Только когда платите</td>
-                    <td>Только когда платите</td>
-                    <td>1–3 месяца</td>
-                    <td class="comparison-bbk">6–12 месяцев</td>
-                </tr>
-            </table>
+            <div class="comparison-blocks">
+                <div class="comparison-block bad">
+                    <div class="comparison-title">❌ Яндекс Директ</div>
+                    <div class="comparison-info">
+                        <p>✓ Быстрый запуск</p>
+                        <p>✗ Дорого (500–1500₽ за клиента)</p>
+                        <p>✗ Люди не доверяют объявлениям</p>
+                        <p>✗ Когда выключите — нет клиентов</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-block bad">
+                    <div class="comparison-title">❌ VK Реклама</div>
+                    <div class="comparison-info">
+                        <p>✓ Быстрее чем агентства</p>
+                        <p>✗ Цены растут каждый месяц</p>
+                        <p>✗ Люди скрывают рекламу</p>
+                        <p>✗ Долго видео работает (месяц)</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-block bad">
+                    <div class="comparison-title">❌ Агентство</div>
+                    <div class="comparison-info">
+                        <p>✗ Дорого (50k+)</p>
+                        <p>✗ Долгий запуск (14–30 дней)</p>
+                        <p>✗ Никаких гарантий</p>
+                        <p>✗ Результат 1–3 месяца</p>
+                    </div>
+                </div>
+                
+                <div class="comparison-block good">
+                    <div class="comparison-title">✅ ББК</div>
+                    <div class="comparison-info">
+                        <p>✓ Люди верят на 82%</p>
+                        <p>✓ Дешево (100–400₽ за клиента)</p>
+                        <p>✓ Запуск за 2–3 дня</p>
+                        <p>✓ Работает 6–12 месяцев</p>
+                        <p>✓ Гарантия результата</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -751,10 +710,10 @@
     <section class="cta-section">
         <div class="container">
             <h2>Начнём прямо сейчас?</h2>
-            <p>Первый шаг — бесплатный аудит. 15 минут разговора. Вы узнаете точно, сколько клиентов и за сколько денег.</p>
+            <p>Первый шаг — бесплатный аудит. 15 минут разговора. Вы узнаёте точно, сколько клиентов и за сколько денег.</p>
             
             <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="alert('Откройте Telegram и напишите @bbk_kemerovo: Хочу бесплатный аудит')">📱 Telegram @bbk_kemerovo</button>
+                <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo\n\nНапишите: Хочу бесплатный аудит')">📱 Telegram @bbk_kemerovo</button>
                 <button class="btn btn-secondary" onclick="alert('Email: bbk@kemerovo.ru')">📧 Email</button>
             </div>
         </div>
