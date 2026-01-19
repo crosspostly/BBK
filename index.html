@@ -3,40 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ББК — Реальные клиенты через блогеров | Гарантия результата</title>
-    <meta name="description" content="50-150 клиентов за 2 недели. Реальные кейсы с доказательствами. Гарантия или вернём деньги. Кемерово.">
-    
+    <title>ББК — Микробл​огеры для привлечения клиентов</title>
+    <meta name="description" content="50–150 новых клиентов за 2 недели через микроблогеров Кемерово. ROI 400–800%. Гарантия или вернём деньги.">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
-            --primary: #FF2E63;
-            --secondary: #08D9D6;
-            --success: #00FF41;
-            --background: #0a0e1a;
-            --dark: #1a1f35;
-            --darker: #252d4a;
+            --primary: #9D4EDD;
+            --secondary: #00F5FF;
+            --accent: #00FF41;
+            --dark1: #0a0e27;
+            --dark2: #1a1f3a;
+            --dark3: #252d4a;
             --text: #e0e0e0;
             --text-muted: #909090;
         }
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: var(--background);
+            background: var(--dark1);
             color: var(--text);
             line-height: 1.6;
         }
         
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
-        h1 { font-size: 48px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
-        h2 { font-size: 36px; font-weight: 700; margin-bottom: 30px; }
+        h1 { font-size: 52px; font-weight: 700; line-height: 1.1; margin-bottom: 20px; }
+        h2 { font-size: 40px; font-weight: 700; margin-bottom: 30px; }
         h3 { font-size: 24px; font-weight: 600; margin-bottom: 15px; }
         
         .btn {
             padding: 14px 32px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-weight: 600;
             font-size: 16px;
             cursor: pointer;
@@ -49,29 +48,18 @@
         .btn-primary {
             background: var(--primary);
             color: white;
-            box-shadow: 0 0 20px rgba(255, 46, 99, 0.3);
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.4);
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 40px rgba(255, 46, 99, 0.6);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            color: var(--secondary);
-            border: 2px solid var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--secondary);
-            color: var(--background);
+            box-shadow: 0 0 40px rgba(157, 78, 221, 0.8);
         }
         
         /* HEADER */
         header {
-            background: var(--dark);
-            border-bottom: 1px solid rgba(255, 46, 99, 0.1);
+            background: var(--dark2);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.1);
             padding: 20px 0;
             position: sticky;
             top: 0;
@@ -85,37 +73,53 @@
             align-items: center;
         }
         
-        .logo { font-size: 24px; font-weight: 700; color: var(--primary); }
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         
-        nav { display: flex; gap: 30px; }
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
         nav a {
             color: var(--text);
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s;
         }
-        nav a:hover { color: var(--primary); }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
         
         /* HERO */
         .hero {
             padding: 100px 0;
-            background: linear-gradient(135deg, rgba(255,46,99,0.05) 0%, rgba(8,217,214,0.05) 100%);
-            border-bottom: 1px solid rgba(8, 217, 214, 0.1);
+            background: linear-gradient(135deg, rgba(157,78,221,0.05) 0%, rgba(0,245,255,0.05) 100%);
+            border-bottom: 1px solid rgba(0, 245, 255, 0.1);
         }
         
-        .hero-content { max-width: 700px; }
+        .hero-content { max-width: 750px; }
         
         .hero h1 {
-            color: var(--primary);
+            background: linear-gradient(135deg, #00FF41 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 20px;
-            font-size: 52px;
         }
         
         .hero-subtitle {
             font-size: 20px;
             color: var(--text);
             margin-bottom: 30px;
-            line-height: 1.4;
+            line-height: 1.5;
         }
         
         .hero-cta {
@@ -126,7 +130,7 @@
         }
         
         .pain-block {
-            background: rgba(255, 46, 99, 0.1);
+            background: rgba(157, 78, 221, 0.1);
             border-left: 4px solid var(--primary);
             padding: 20px;
             margin-top: 30px;
@@ -135,7 +139,6 @@
         
         .pain-block strong { color: var(--primary); }
         
-        /* STATS */
         .stats {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -144,62 +147,44 @@
         }
         
         .stat-item {
-            background: var(--darker);
+            background: var(--dark3);
             padding: 30px;
             border-radius: 8px;
             border-left: 4px solid var(--secondary);
             text-align: center;
         }
         
-        .stat-number { font-size: 40px; font-weight: 700; color: var(--success); }
+        .stat-number { font-size: 40px; font-weight: 700; color: var(--accent); }
         .stat-label { font-size: 14px; color: var(--text-muted); margin-top: 10px; }
         
-        /* PROBLEMS SECTION */
-        .problems {
+        /* WHAT IS BBK */
+        .what-is-bbk {
             padding: 80px 0;
-            background: var(--dark);
+            background: var(--dark2);
         }
         
-        .problems h2 { margin-bottom: 40px; }
+        .what-is-bbk h2 { margin-bottom: 40px; }
         
-        .problem-grid {
+        .definition {
+            background: var(--dark3);
+            border: 1px solid var(--primary);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        .definition strong { color: var(--accent); }
+        
+        .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
         }
         
-        .problem-card {
-            background: var(--darker);
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 46, 99, 0.2);
-            transition: all 0.3s;
-        }
-        
-        .problem-card:hover {
-            border-color: var(--primary);
-            background: rgba(255, 46, 99, 0.05);
-        }
-        
-        .problem-icon { font-size: 40px; margin-bottom: 15px; }
-        
-        /* SOLUTION SECTION */
-        .solution {
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(8,217,214,0.05) 0%, rgba(255,46,99,0.05) 100%);
-        }
-        
-        .solution h2 { margin-bottom: 40px; }
-        
-        .how-it-works {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
         .step {
-            background: var(--dark);
+            background: var(--dark3);
             padding: 30px;
             border-radius: 8px;
             border: 1px solid var(--secondary);
@@ -211,7 +196,7 @@
             top: -15px;
             left: 20px;
             background: var(--secondary);
-            color: var(--background);
+            color: var(--dark1);
             width: 40px;
             height: 40px;
             border-radius: 50%;
@@ -223,108 +208,100 @@
         }
         
         .step h3 { margin-top: 15px; color: var(--secondary); }
-        
-        /* CASES */
-        .cases {
-            padding: 80px 0;
-            background: var(--dark);
-        }
-        
-        .cases h2 { margin-bottom: 40px; }
-        
-        .case {
-            background: var(--darker);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 8px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-        
-        .case-content {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .case-title { font-size: 28px; font-weight: 700; color: var(--primary); margin-bottom: 15px; }
-        .case-problem { color: var(--text-muted); margin-bottom: 10px; font-size: 16px; }
-        .case-problem::before { content: "❌ "; }
-        .case-solution { color: var(--success); margin-bottom: 20px; font-size: 16px; }
-        .case-solution::before { content: "✅ "; }
-        
-        .case-result-big {
-            font-size: 48px;
-            font-weight: 700;
-            color: var(--success);
-            margin-top: 20px;
-        }
-        
-        .case-result-label {
-            font-size: 16px;
-            color: var(--text-muted);
-            margin-top: 5px;
-        }
-        
-        .case-image {
-            background: linear-gradient(135deg, rgba(255,46,99,0.2) 0%, rgba(8,217,214,0.2) 100%);
-            padding: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
-        }
-        
-        @media (max-width: 768px) {
-            .case { grid-template-columns: 1fr; }
-            h1 { font-size: 36px; }
-            nav { gap: 15px; font-size: 12px; }
-        }
+        .step p { font-size: 15px; }
         
         /* COMPARISON */
         .comparison {
             padding: 80px 0;
-            background: var(--dark);
+            background: var(--dark1);
         }
         
-        .comparison h2 { margin-bottom: 40px; }
+        .comparison h2 { margin-bottom: 40px; color: var(--accent); }
         
-        .comparison-blocks {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
         }
         
-        .comparison-block {
-            background: var(--darker);
-            border: 1px solid rgba(255, 46, 99, 0.2);
-            padding: 30px;
+        .comparison-table th,
+        .comparison-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(157, 78, 221, 0.1);
+        }
+        
+        .comparison-table th {
+            background: var(--dark3);
+            font-weight: 600;
+            color: var(--text);
+        }
+        
+        .comparison-table tr:hover {
+            background: rgba(157, 78, 221, 0.05);
+        }
+        
+        .bbk-cell {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* CASES */
+        .cases {
+            padding: 80px 0;
+            background: var(--dark2);
+        }
+        
+        .cases h2 { margin-bottom: 40px; color: var(--accent); }
+        
+        .case {
+            background: var(--dark3);
+            border: 1px solid rgba(0, 255, 65, 0.2);
             border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            padding: 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
         
-        .comparison-block.bad {
-            border-color: #FF2E63;
-            background: rgba(255, 46, 99, 0.05);
+        .case-content h3 { color: var(--primary); margin-bottom: 20px; font-size: 28px; }
+        .case-problem { color: var(--text-muted); margin-bottom: 15px; }
+        .case-problem::before { content: "❌ "; }
+        .case-solution { color: var(--accent); margin-bottom: 25px; }
+        .case-solution::before { content: "✅ "; }
+        
+        .case-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
         }
         
-        .comparison-block.good {
-            border-color: var(--success);
-            background: rgba(0, 255, 65, 0.05);
+        .case-result {
+            background: rgba(0, 255, 65, 0.1);
+            border: 1px solid rgba(0, 255, 65, 0.3);
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
         }
         
-        .comparison-title { font-size: 18px; font-weight: 600; margin-bottom: 15px; }
-        .comparison-block.bad .comparison-title { color: #FF2E63; }
-        .comparison-block.good .comparison-title { color: var(--success); }
+        .case-result-number { font-size: 32px; font-weight: 700; color: var(--accent); }
+        .case-result-label { font-size: 12px; color: var(--text-muted); margin-top: 10px; }
         
-        .comparison-info { font-size: 14px; line-height: 1.8; }
+        .case-icon { font-size: 60px; text-align: center; }
+        
+        @media (max-width: 768px) {
+            .case { grid-template-columns: 1fr; }
+            .case-results { grid-template-columns: 1fr; }
+            h1 { font-size: 36px; }
+        }
         
         /* PRICING */
         .pricing {
             padding: 80px 0;
-            background: linear-gradient(135deg, rgba(255,46,99,0.05) 0%, rgba(8,217,214,0.05) 100%);
+            background: var(--dark1);
         }
         
         .pricing h2 { margin-bottom: 40px; }
@@ -336,8 +313,8 @@
         }
         
         .pricing-card {
-            background: var(--dark);
-            border: 2px solid rgba(255, 46, 99, 0.2);
+            background: var(--dark2);
+            border: 2px solid var(--secondary);
             border-radius: 8px;
             padding: 40px;
             text-align: center;
@@ -346,17 +323,17 @@
         
         .pricing-card:hover {
             border-color: var(--primary);
-            box-shadow: 0 0 30px rgba(255, 46, 99, 0.2);
+            box-shadow: 0 0 30px rgba(157, 78, 221, 0.2);
             transform: translateY(-5px);
         }
         
         .pricing-card.featured {
-            border-color: var(--secondary);
-            background: rgba(8, 217, 214, 0.05);
+            border-color: var(--accent);
+            background: rgba(0, 255, 65, 0.05);
         }
         
         .pricing-name { font-size: 20px; font-weight: 700; margin-bottom: 15px; color: var(--primary); }
-        .pricing-price { font-size: 42px; font-weight: 700; color: var(--success); margin-bottom: 20px; }
+        .pricing-price { font-size: 42px; font-weight: 700; color: var(--accent); margin-bottom: 20px; }
         
         .pricing-features {
             list-style: none;
@@ -366,34 +343,33 @@
         
         .pricing-features li {
             padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 46, 99, 0.1);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.1);
             font-size: 14px;
         }
         
-        .pricing-features li:before { content: "✓ "; color: var(--success); font-weight: 700; margin-right: 10px; }
+        .pricing-features li:before { content: "✓ "; color: var(--accent); font-weight: 700; margin-right: 10px; }
         
-        /* GUARANTEE */
         .guarantee {
             background: rgba(0, 255, 65, 0.1);
-            border: 2px solid var(--success);
+            border: 2px solid var(--accent);
             border-radius: 8px;
             padding: 30px;
-            margin-bottom: 30px;
+            margin-top: 50px;
             text-align: center;
         }
         
-        .guarantee h3 { color: var(--success); }
+        .guarantee h3 { color: var(--accent); margin-bottom: 15px; }
         
-        /* CTA SECTION */
+        /* CTA */
         .cta-section {
             padding: 80px 0;
-            background: var(--dark);
-            border-top: 1px solid rgba(255, 46, 99, 0.2);
-            border-bottom: 1px solid rgba(255, 46, 99, 0.2);
+            background: var(--dark2);
+            border-top: 1px solid rgba(157, 78, 221, 0.2);
+            border-bottom: 1px solid rgba(157, 78, 221, 0.2);
             text-align: center;
         }
         
-        .cta-section h2 { margin-bottom: 30px; }
+        .cta-section h2 { margin-bottom: 20px; }
         .cta-section p { font-size: 18px; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
         
         .cta-buttons {
@@ -405,8 +381,8 @@
         
         /* FOOTER */
         footer {
-            background: var(--darker);
-            border-top: 1px solid rgba(255, 46, 99, 0.1);
+            background: var(--dark3);
+            border-top: 1px solid rgba(157, 78, 221, 0.1);
             padding: 40px 0;
             text-align: center;
             color: var(--text-muted);
@@ -419,6 +395,8 @@
             text-decoration: none;
             margin: 0 15px;
         }
+        
+        .highlight { color: var(--accent); font-weight: 700; }
     </style>
 </head>
 <body>
@@ -428,9 +406,9 @@
             <div class="header-content">
                 <div class="logo">ББК</div>
                 <nav>
-                    <a href="#problems">Проблемы</a>
-                    <a href="#solution">Как это работает</a>
-                    <a href="#cases">Результаты</a>
+                    <a href="#what">Что это</a>
+                    <a href="#comparison">Сравнение</a>
+                    <a href="#cases">Кейсы</a>
                     <a href="#pricing">Цены</a>
                 </nav>
             </div>
@@ -442,15 +420,16 @@
         <div class="container">
             <div class="hero-content">
                 <h1>50–150 новых клиентов за 2 недели</h1>
-                <p class="hero-subtitle">Через реальных блогеров Кемерово, которые уже знают вашу аудиторию.</p>
+                <p class="hero-subtitle">Через микроблогеров Кемерово, которые рекомендуют вас своим подписчикам как друзья, а не как реклама.</p>
                 
                 <div class="hero-cta">
-                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo\n\nНапишите: Хочу бесплатный аудит')">📱 Бесплатный аудит</button>
-                    <button class="btn btn-secondary" onclick="document.querySelector('#cases').scrollIntoView({behavior:'smooth'})">Смотреть результаты</button>
+                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo\n\nНапишите: Хочу узнать про ББК')">
+                        📱 Написать в Telegram
+                    </button>
                 </div>
                 
                 <div class="pain-block">
-                    <strong>Проблема:</strong> Реклама дорожает каждый месяц, клиентов меньше, деньги уходят впустую. Конкуренты уже взяли вашу аудиторию.
+                    <strong>Ситуация:</strong> Реклама в Яндекс/VK/Instagram дорожает каждый месяц. Клиентов становится меньше. Конкуренты уже используют блогеров. Вы теряете время и деньги.
                 </div>
                 
                 <div class="stats">
@@ -459,194 +438,193 @@
                         <div class="stat-label">клиентов получают результат</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">50–150</div>
-                        <div class="stat-label">клиентов за проект</div>
+                        <div class="stat-number">400–800%</div>
+                        <div class="stat-label">ROI (return on investment)</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">7,500–50k</div>
-                        <div class="stat-label">стоимость проекта</div>
+                        <div class="stat-number">3–7 дней</div>
+                        <div class="stat-label">до первых клиентов</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PROBLEMS -->
-    <section class="problems" id="problems">
+    <!-- WHAT IS BBK -->
+    <section class="what-is-bbk" id="what">
         <div class="container">
-            <h2>Почему реклама больше не работает:</h2>
+            <h2>Что такое ББК</h2>
             
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">📈</div>
-                    <h3>Реклама дорожает</h3>
-                    <p>Яндекс, Google, VK повышают цены каждый месяц. Вы платите больше, клиентов приходит меньше.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">🙅</div>
-                    <h3>Люди не верят объявлениям</h3>
-                    <p>Баннеры блокируют, видео пропускают. Люди верят рекомендациям друзей, а не объявлениям в интернете.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">⏰</div>
-                    <h3>Долгий запуск</h3>
-                    <p>Яндекс ждёт неделю, агентства месяц. Пока вы ждёте, конкуренты уже занимают ваше место.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">💨</div>
-                    <h3>Результат улетучивается</h3>
-                    <p>Когда вы выключаете рекламу — клиентов больше нет. Завтра начинаешь сначала. Деньги просто потрачены.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">🏪</div>
-                    <h3>Конкуренты занимают вашу нишу</h3>
-                    <p>Они рекламируются дешевле и вашу аудиторию тоже видят. Люди уходят к ним. Ваша ниша сжимается.</p>
-                </div>
-                
-                <div class="problem-card">
-                    <div class="problem-icon">🤷</div>
-                    <h3>Неясно, что действительно работает</h3>
-                    <p>Агентства берут 50k+ и ничего не гарантируют. SMM — 100k в месяц. Результата нет, деньги потрачены.</p>
-                </div>
+            <div class="definition">
+                <p>ББК — это сервис привлечения клиентов через <strong>5–15 локальных микроблогеров</strong> Кемерово. Они снимают <strong>честный контент</strong> (как рекомендация друга), публикуют его волнами, люди видят и начинают приходить к вам.</p>
             </div>
-        </div>
-    </section>
-
-    <!-- SOLUTION -->
-    <section class="solution" id="solution">
-        <div class="container">
-            <h2>Как мы привозим клиентов:</h2>
             
-            <div class="how-it-works">
+            <h3 style="margin-top: 50px; margin-bottom: 30px;">Как это работает в 5 шагов:</h3>
+            
+            <div class="steps-grid">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Бесплатный аудит</h3>
-                    <p>15 минут разговора. Мы понимаем вашу нишу, смотрим конкурентов, считаем примерный результат.</p>
+                    <h3>Подбираем блогеров</h3>
+                    <p>5–15 микроблогеров (1.5–5k подписчиков) из вашей ниши. Фуд-блогеры для кафе, бьюти-блогеры для салона.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3>Подбираем блогеров</h3>
-                    <p>Находим 5–15 блогеров из Кемерово с вашей аудиторией. Проверяем, что это реальные люди, не боты.</p>
+                    <h3>Они приходят к вам</h3>
+                    <p>Блогер посещает ваш бизнес, пробует услугу/товар честно. Может потратить час на съемку.</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3>Блогеры снимают контент</h3>
-                    <p>Они приходят к вам, пробуют вашу услугу или товар, снимают видео и истории. Как рекомендация подруги.</p>
+                    <h3>Они снимают контент</h3>
+                    <p>Видео, фото, истории в их естественном стиле. Никаких скриптов — просто "вот я была, мне понравилось".</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3>Публикуем волнами</h3>
-                    <p>За 2–3 недели видео выходят волнами. Люди видят одно видео, потом ещё одно — эффект снежного кома.</p>
+                    <h3>Волна публикаций</h3>
+                    <p>5 блогеров публикуют одновременно. Эффект FOMO: люди видят от разных источников → думают "все туда ходят".</p>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">5</div>
-                    <h3>Первые клиенты</h3>
-                    <p>За 3–7 дней начинают приходить. Видео работает 6–12 месяцев: люди ищут через поиск, читают отзывы.</p>
+                    <h3>Люди приходят</h3>
+                    <p>За 3–7 дней начинаются первые клиенты. За 2 недели получаете 50–150 новых клиентов.</p>
                 </div>
                 
                 <div class="step">
-                    <div class="step-number">6</div>
-                    <h3>Полный отчёт</h3>
-                    <p>Вы видите: сколько просмотров, переходов, клиентов пришло. Ровно то, что нужно для решения.</p>
+                    <div class="step-number">+</div>
+                    <h3>Долгосроч актив</h3>
+                    <p>Видео работает 6–12 месяцев. Отзывы в Яндекс.Картах остаются месяцами. Работает даже после окончания проекта.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <h2>Почему ББК работает лучше других методов</h2>
+            
+            <table class="comparison-table">
+                <tr>
+                    <th>Параметр</th>
+                    <th>Яндекс</th>
+                    <th>VK Реклама</th>
+                    <th>Агентство</th>
+                    <th class="bbk-cell">ББК</th>
+                </tr>
+                <tr>
+                    <td><strong>Доверие аудитории</strong></td>
+                    <td>23%</td>
+                    <td>35%</td>
+                    <td>30%</td>
+                    <td class="bbk-cell">82%</td>
+                </tr>
+                <tr>
+                    <td><strong>Цена за клиента</strong></td>
+                    <td>750–1500₽</td>
+                    <td>500–1200₽</td>
+                    <td>1000–3000₽</td>
+                    <td class="bbk-cell">150–300₽</td>
+                </tr>
+                <tr>
+                    <td><strong>Клиентов за 15k₽</strong></td>
+                    <td>10–30</td>
+                    <td>12–30</td>
+                    <td>5–15</td>
+                    <td class="bbk-cell">50–150</td>
+                </tr>
+                <tr>
+                    <td><strong>Запуск (дней)</strong></td>
+                    <td>7–14</td>
+                    <td>3–7</td>
+                    <td>14–30</td>
+                    <td class="bbk-cell">1–3</td>
+                </tr>
+                <tr>
+                    <td><strong>Результат работает</strong></td>
+                    <td>Только когда платите</td>
+                    <td>Только когда платите</td>
+                    <td>1–3 месяца</td>
+                    <td class="bbk-cell">6–12 месяцев</td>
+                </tr>
+            </table>
         </div>
     </section>
 
     <!-- CASES -->
     <section class="cases" id="cases">
         <div class="container">
-            <h2>Реальные результаты:</h2>
+            <h2>Реальные результаты</h2>
             
             <div class="case">
                 <div class="case-content">
-                    <div class="case-title">☕ Кафе "Крем-Брюле"</div>
-                    <div class="case-problem">Клиентов нет, реклама не работает</div>
-                    <div class="case-solution">10 блогеров + видео + отзывы</div>
-                    <div class="case-result-big">87 клиентов</div>
-                    <div class="case-result-label">Стоимость: 15,500₽</div>
+                    <h3>☕ Кафе "Крем-Брюле"</h3>
+                    <div class="case-problem">Клиентов нет, реклама неработает</div>
+                    <div class="case-solution">10 блогеров + волна контента + отзывы в картах</div>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <div class="case-result-number">87</div>
+                            <div class="case-result-label">новых клиентов</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">15,500₽</div>
+                            <div class="case-result-label">инвестировано</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">573%</div>
+                            <div class="case-result-label">ROI</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="case-image">☕</div>
+                <div class="case-icon">☕</div>
             </div>
             
             <div class="case">
                 <div class="case-content">
-                    <div class="case-title">💄 Салон "Лазурь"</div>
+                    <h3>💄 Салон "Лазурь"</h3>
                     <div class="case-problem">Мало записей, высокая конкуренция</div>
                     <div class="case-solution">8 блогеров + фото/видео + отзывы</div>
-                    <div class="case-result-big">62 клиента</div>
-                    <div class="case-result-label">Стоимость: 16,500₽</div>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <div class="case-result-number">62</div>
+                            <div class="case-result-label">новых записей</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">16,500₽</div>
+                            <div class="case-result-label">инвестировано</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">464%</div>
+                            <div class="case-result-label">ROI</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="case-image">💄</div>
+                <div class="case-icon">💄</div>
             </div>
             
             <div class="case">
                 <div class="case-content">
-                    <div class="case-title">💪 Фитнес "Железо"</div>
-                    <div class="case-problem">Падение продаж абонементов</div>
-                    <div class="case-solution">15 блогеров + 3 волны контента</div>
-                    <div class="case-result-big">156 клиентов</div>
-                    <div class="case-result-label">Стоимость: 60,000₽</div>
-                </div>
-                <div class="case-image">💪</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPARISON -->
-    <section class="comparison">
-        <div class="container">
-            <h2>ББК vs Остальное:</h2>
-            
-            <div class="comparison-blocks">
-                <div class="comparison-block bad">
-                    <div class="comparison-title">❌ Яндекс Директ</div>
-                    <div class="comparison-info">
-                        <p>✓ Быстрый запуск</p>
-                        <p>✗ Дорого (500–1500₽ за клиента)</p>
-                        <p>✗ Люди не доверяют объявлениям</p>
-                        <p>✗ Когда выключите — нет клиентов</p>
+                    <h3>💪 Фитнес "Железо"</h3>
+                    <div class="case-problem">Падение продаж, новый конкурент</div>
+                    <div class="case-solution">15 блогеров + 3 волны + большой охват</div>
+                    <div class="case-results">
+                        <div class="case-result">
+                            <div class="case-result-number">156</div>
+                            <div class="case-result-label">новых абонементов</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">60,000₽</div>
+                            <div class="case-result-label">инвестировано</div>
+                        </div>
+                        <div class="case-result">
+                            <div class="case-result-number">680%</div>
+                            <div class="case-result-label">ROI</div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="comparison-block bad">
-                    <div class="comparison-title">❌ VK Реклама</div>
-                    <div class="comparison-info">
-                        <p>✓ Быстрее чем агентства</p>
-                        <p>✗ Цены растут каждый месяц</p>
-                        <p>✗ Люди скрывают рекламу</p>
-                        <p>✗ Долго видео работает (месяц)</p>
-                    </div>
-                </div>
-                
-                <div class="comparison-block bad">
-                    <div class="comparison-title">❌ Агентство</div>
-                    <div class="comparison-info">
-                        <p>✗ Дорого (50k+)</p>
-                        <p>✗ Долгий запуск (14–30 дней)</p>
-                        <p>✗ Никаких гарантий</p>
-                        <p>✗ Результат 1–3 месяца</p>
-                    </div>
-                </div>
-                
-                <div class="comparison-block good">
-                    <div class="comparison-title">✅ ББК</div>
-                    <div class="comparison-info">
-                        <p>✓ Люди верят на 82%</p>
-                        <p>✓ Дешево (100–400₽ за клиента)</p>
-                        <p>✓ Запуск за 2–3 дня</p>
-                        <p>✓ Работает 6–12 месяцев</p>
-                        <p>✓ Гарантия результата</p>
-                    </div>
-                </div>
+                <div class="case-icon">💪</div>
             </div>
         </div>
     </section>
@@ -654,54 +632,55 @@
     <!-- PRICING -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2>Прозрачные цены:</h2>
+            <h2>Выберите ваш тариф</h2>
             
             <div class="pricing-cards">
                 <div class="pricing-card">
                     <div class="pricing-name">СТАРТ</div>
-                    <div class="pricing-price">7,500 ₽</div>
+                    <div class="pricing-price">7,500₽</div>
                     <ul class="pricing-features">
-                        <li>5 блогеров</li>
+                        <li>5 микроблогеров</li>
                         <li>1 видео от каждого</li>
                         <li>2–3 истории</li>
-                        <li>Охват 10–20k человек</li>
-                        <li>Запуск за 48–72 часа</li>
+                        <li>Охват 10–20k</li>
+                        <li>Запуск 48–72 часа</li>
+                        <li>~10–50 клиентов</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo')">Заказать</button>
+                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo')">Выбрать</button>
                 </div>
                 
                 <div class="pricing-card featured">
                     <div class="pricing-name">СТАНДАРТ ⭐</div>
-                    <div class="pricing-price">12,500 ₽</div>
+                    <div class="pricing-price">12,500₽</div>
                     <ul class="pricing-features">
-                        <li>10 блогеров</li>
-                        <li>2+ видео от каждого</li>
+                        <li>10 микроблогеров (под вашу нишу!)</li>
+                        <li>2–3 видео от каждого</li>
                         <li>Волна 2–3 недели</li>
                         <li>Отзывы в картах</li>
-                        <li>Охват 25–40k человек</li>
-                        <li>Полный отчёт</li>
+                        <li>Охват 25–40k</li>
+                        <li>~50–150 клиентов</li>
                     </ul>
-                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo')">Заказать</button>
+                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo')">Выбрать</button>
                 </div>
                 
                 <div class="pricing-card">
-                    <div class="pricing-name">ПРЕМИУМ</div>
-                    <div class="pricing-price">от 50k ₽</div>
+                    <div class="pricing-name">ЭКСКЛЮЗИВ</div>
+                    <div class="pricing-price">от 50k₽</div>
                     <ul class="pricing-features">
-                        <li>15+ блогеров</li>
-                        <li>3+ волны контента</li>
-                        <li>Охват 60–100k+</li>
+                        <li>15+ микроблогеров</li>
+                        <li>3–4 волны контента</li>
+                        <li>Тематический контент-план</li>
+                        <li>Максимальный охват 60–100k+</li>
                         <li>Глубокая аналитика</li>
-                        <li>Креативные интеграции</li>
-                        <li>Поиск доп. партнёров</li>
+                        <li>~100–300+ клиентов</li>
                     </ul>
-                    <button class="btn btn-secondary" onclick="alert('Telegram @bbk_kemerovo')">Обсудить</button>
+                    <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo')">Обсудить</button>
                 </div>
             </div>
             
-            <div class="guarantee" style="margin-top: 50px;">
-                <h3>✅ 100% гарантия результата</h3>
-                <p>Если контент не принесёт результат — мы доработаем бесплатно или вернём 50% денег. Мы верим в свой метод.</p>
+            <div class="guarantee">
+                <h3>100% гарантия результата</h3>
+                <p>Если контент не принесет результат — мы доработаем бесплатно или вернём 50% денег. Мы верим в свой метод.</p>
             </div>
         </div>
     </section>
@@ -709,12 +688,13 @@
     <!-- CTA -->
     <section class="cta-section">
         <div class="container">
-            <h2>Начнём прямо сейчас?</h2>
-            <p>Первый шаг — бесплатный аудит. 15 минут разговора. Вы узнаёте точно, сколько клиентов и за сколько денег.</p>
+            <h2>Готовы начать?</h2>
+            <p>Первый шаг — <span class="highlight">бесплатный Аудит</span>. 30 минут разговора, где мы анализируем вашу нишу, показываем примеры блогеров и даём рекомендации.</p>
             
             <div class="cta-buttons">
-                <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo\n\nНапишите: Хочу бесплатный аудит')">📱 Telegram @bbk_kemerovo</button>
-                <button class="btn btn-secondary" onclick="alert('Email: bbk@kemerovo.ru')">📧 Email</button>
+                <button class="btn btn-primary" onclick="alert('Telegram @bbk_kemerovo\n\nНапишите: Хочу бесплатный аудит')">
+                    📱 Telegram @bbk_kemerovo
+                </button>
             </div>
         </div>
     </section>
@@ -726,7 +706,7 @@
                 <a href="https://t.me/bbk_kemerovo" target="_blank">Telegram</a>
                 <a href="mailto:bbk@kemerovo.ru">Email</a>
             </div>
-            <p>© 2026 ББК — Микроблогеры для вашего бизнеса | Кемерово</p>
+            <p>© 2026 ББК — Микроблогеры для привлечения клиентов | Кемерово</p>
         </div>
     </footer>
 </body>
