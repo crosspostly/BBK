@@ -62,7 +62,7 @@ export const CTA: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
          <img 
-            src="https://images.unsplash.com/photo-1517248135467-4c7ed9081f6b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" 
+            src="/images/cta_bg.jpg" 
             alt="Busy restaurant" 
             className="w-full h-full object-cover opacity-30"
           />
