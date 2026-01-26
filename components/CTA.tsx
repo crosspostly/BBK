@@ -5,13 +5,56 @@ import { content } from '../constants';
 import { FadeIn } from './ui/FadeIn';
 
 export const CTA: React.FC = () => {
-  const { cta } = content;
+  const { cta, settings } = content as any;
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      phone: formData.get('phone'),
+      social: formData.get('social') || 'Не указана',
+    };
+
+    // 1. Отправка в Telegram
+    const { botToken, chatId } = settings.notifications.telegram;
+    if (botToken && botToken !== 'YOUR_BOT_TOKEN') {
+      const message = `🚀 *Новая заявка ББК*\n\n👤 Имя: ${data.name}\n📞 Тел: ${data.phone}\n🔗 Соцсеть: ${data.social}`;
+      try {
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'Markdown',
+          }),
+        });
+      } catch (err) {
+        console.error('Telegram send error:', err);
+      }
+    }
+
+    // 2. Отправка на Email (shekhovpavel@gmail.com) через Formspree
+    try {
+      await fetch(`https://formspree.io/f/${settings.notifications.email}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Новая заявка ББК',
+          ...data
+        }),
+      });
+    } catch (err) {
+      console.error('Email send error:', err);
+    }
+
+    setLoading(false);
     setSubmitted(true);
-    // Logic to send data would go here
   };
 
   return (
@@ -71,8 +114,8 @@ export const CTA: React.FC = () => {
                   />
                 </div>
                 
-                <Button fullWidth type="submit" className="text-lg uppercase">
-                  {cta.btnText}
+                <Button fullWidth type="submit" className="text-lg uppercase" disabled={loading}>
+                  {loading ? 'Отправка...' : cta.btnText}
                 </Button>
                 <p className="mt-4 text-xs text-textSec opacity-60">
                   {cta.disclaimer}
