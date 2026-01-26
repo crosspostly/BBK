@@ -25,8 +25,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="font-display font-bold text-xl tracking-tighter">
-          БАНДА<span className="text-primary">.</span>
-        </div>
+                      ББК<span className="text-primary">.</span>        </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-textSec">
           <button onClick={() => scrollTo('cases')} className="hover:text-white transition-colors">Кейсы</button>

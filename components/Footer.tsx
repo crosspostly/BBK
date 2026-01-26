@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
                     <div>
-                        <div className="font-display font-bold text-xl mb-2">БАНДА.</div>
+                        <div className="font-display font-bold text-xl mb-2">ББК.</div>
                         <p className="text-xs text-textSec opacity-50 max-w-xs">
                             {legal.name}<br/>
                             ИНН {legal.inn}
@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
                         <button onClick={() => setIsModalOpen(true)} className="hover:text-white transition-colors underline decoration-dotted">
                             Политика конфиденциальности
                         </button>
-                        <span>© 2024 Все права защищены.</span>
+                        <span>© 2026 Все права защищены.</span>
                     </div>
                 </div>
             </div>
