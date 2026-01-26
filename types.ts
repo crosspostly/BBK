@@ -160,4 +160,13 @@ export interface ContentConfig {
     disclaimer: string;
   };
   legal: LegalInfo;
+  settings: {
+    notifications: {
+      email: string;
+      telegram: {
+        botToken: string;
+        chatId: string;
+      };
+    };
+  };
 }

@@ -5,7 +5,7 @@ import { content } from '../constants';
 import { FadeIn } from './ui/FadeIn';
 
 export const CTA: React.FC = () => {
-  const { cta, settings } = content as any;
+  const { cta, settings } = content;
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
