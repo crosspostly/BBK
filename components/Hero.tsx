@@ -17,9 +17,12 @@ export const Hero: React.FC = () => {
                  <img 
                     src="https://images.unsplash.com/photo-1552566586-0f4c503a295e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" 
                     alt="Restaurant ambiance" 
-                    className="w-full h-full object-cover opacity-60"
-                  />        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-bg/40" />
-        <div className="absolute inset-0 bg-noise opacity-20 mix-blend-overlay"></div>
+                    className="w-full h-full object-cover opacity-40 scale-105"
+                  />        
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/20 via-bg/60 to-bg" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg via-transparent to-bg/40" />
+        <div className="absolute inset-0 bg-noise opacity-[0.15] brightness-50 mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-primary/5 mix-blend-color" />
       </div>
 
       <div className="container mx-auto px-4 md:px-6 relative z-10 pt-20">
