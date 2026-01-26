@@ -14,12 +14,11 @@ export const Hero: React.FC = () => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://picsum.photos/id/431/1920/1080" 
-          alt="Restaurant ambiance" 
-          className="w-full h-full object-cover opacity-60"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-bg/40" />
+                 <img 
+                    src="https://images.unsplash.com/photo-1552566586-0f4c503a295e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80" 
+                    alt="Restaurant ambiance" 
+                    className="w-full h-full object-cover opacity-60"
+                  />        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/80 to-bg/40" />
         <div className="absolute inset-0 bg-noise opacity-20 mix-blend-overlay"></div>
       </div>
 
@@ -27,8 +26,6 @@ export const Hero: React.FC = () => {
         <div className="max-w-4xl">
           <div className="flex items-center gap-2 mb-6 text-sm md:text-base font-bold tracking-widest text-textSec uppercase">
             <span className="text-primary">📍</span>
-            <span>{hero.city}</span>
-            <span className="text-white/20">|</span>
             <span>{hero.brand}</span>
           </div>
 
