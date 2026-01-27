@@ -87,15 +87,16 @@ export const content: ContentConfig = {
       },
       {
         id: 2,
-        title: "Гриль-бар «Мясо»",
-        subtitle: "Системная работа",
+        title: "Panda Pub",
+        subtitle: "Запрос на узнаваемость и раскрутку",
         stats: {
-          invested: "Тариф «Волна»",
-          result: "Топ-3 Яндекс.Карт",
-          cpa: "Заполняемость 80%"
+          invested: "Тариф «Медиа-подписка»",
+          result: "+30% посетителей"
         },
         image: "/images/case_meat.jpg",
-        review: "Подняли карточку на Яндекс.Картах с 15 на 3 место. Вторники теперь полные."
+        videoEmbedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239428&hash=39444dd680ffd291",
+        instagramUrl: "https://www.instagram.com/olga_sobolove/reel/DRmm3AMiDih/",
+        review: ""
       }
     ]
   },
