@@ -29,8 +29,8 @@ export const FAQ: React.FC = () => {
             </button>
             
             <div 
-              className={`px-6 text-textSec text-sm leading-relaxed overflow-hidden transition-all duration-300 ease-in-out ${
-                openIndex === idx ? 'max-h-48 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'
+              className={`px-6 text-textSec text-sm leading-relaxed overflow-hidden transition-all duration-300 ease-in-out whitespace-pre-line ${
+                openIndex === idx ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'
               }`}
             >
               {item.a}
