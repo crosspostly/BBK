@@ -25,7 +25,7 @@ export const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <div className="flex items-center gap-3 font-display font-bold text-xl tracking-tighter cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            <img src="/logo.svg" alt="BBK Logo" className="h-10 w-10" />
+            <img src="/bbk-logo.svg" alt="BBK Logo" className="h-10 w-10" />
             <span className="text-white">ББК</span>
         </div>
         
