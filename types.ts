@@ -10,6 +10,8 @@ export interface CaseStudy {
     cpa?: string;
   };
   image: string;
+  videoEmbedUrl?: string;
+  instagramUrl?: string;
   review?: string;
 }
 

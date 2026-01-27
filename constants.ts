@@ -51,10 +51,10 @@ export const content: ContentConfig = {
     h2: "Мы снимаем так, что текут слюнки",
     subtitle: "Примеры наших работ. Реальные Reels, которые принесли гостей.",
     items: [
-        { id: 1, title: "Клип 1", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239263&hd=2" },
-        { id: 2, title: "Клип 2", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239417&hd=2" },
-        { id: 3, title: "Клип 3", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239427&hd=2" },
-        { id: 4, title: "Клип 4", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239428&hd=2" }
+        { id: 1, title: "Клип 1", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239417&hash=e90cd261d0799abe" },
+        { id: 2, title: "Клип 2", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239428&hash=39444dd680ffd291" },
+        { id: 3, title: "Клип 3", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239263&hash=5a31a29684bef1a8" },
+        { id: 4, title: "Клип 4", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239427&hash=1dd1ff41952db4b9" }
     ]
   },
   goals: {
@@ -74,16 +74,16 @@ export const content: ContentConfig = {
     items: [
       {
         id: 1,
-        title: "Кафе «Утро»",
-        subtitle: "Тест нового места",
+        title: "Ресторан «Корчма»",
+        subtitle: "Новый ресторан, запрос на узнаваемость",
         stats: {
           invested: "Тариф «Вспышка»",
-          result: "Охват 12 500 чел",
-          revenue: "+45% выручка",
-          roi: "+140 подписчиков"
+          result: "33 500 просмотров"
         },
         image: "/images/case_utro.jpg", 
-        review: "Мы не ожидали, что люди поедут специально ради круассана!"
+        videoEmbedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239425&hash=44685291aba88aa6",
+        instagramUrl: "https://www.instagram.com/olga_sobolove/reel/DT0OoznCFfk/",
+        review: ""
       },
       {
         id: 2,

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { content } from '../constants';
 import { Section } from './ui/Section';
-import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Play, Instagram } from 'lucide-react';
 
 export const Cases: React.FC = () => {
   const { cases } = content;
@@ -57,11 +57,25 @@ export const Cases: React.FC = () => {
             )}
           </div>
 
-          <blockquote className="border-l-2 border-primary pl-4 italic text-gray-300">
-            "{activeCase.review}"
-          </blockquote>
+          {activeCase.review && (
+            <blockquote className="border-l-2 border-primary pl-4 italic text-gray-300 mb-6">
+              "{activeCase.review}"
+            </blockquote>
+          )}
 
-          <div className="flex gap-4 mt-8">
+          {activeCase.instagramUrl && (
+            <a 
+              href={activeCase.instagramUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-pink-400 hover:text-pink-300 transition-colors mb-8 font-medium"
+            >
+              <Instagram size={20} />
+              Смотреть в Instagram
+            </a>
+          )}
+
+          <div className="flex gap-4 mt-auto">
             <button onClick={prev} className="p-3 rounded-full border border-white/10 hover:bg-white/10 transition">
               <ChevronLeft />
             </button>
@@ -72,17 +86,29 @@ export const Cases: React.FC = () => {
         </div>
 
         {/* Image/Video Area */}
-        <div className="md:w-1/2 relative min-h-[300px] md:min-h-full">
-            <img 
-              src={activeCase.image} 
-              alt={activeCase.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/40 flex items-center justify-center group cursor-pointer hover:bg-black/30 transition">
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
-                    <Play className="fill-white ml-1" />
-                </div>
-            </div>
+        <div className="md:w-1/2 relative min-h-[300px] md:min-h-full bg-black">
+            {activeCase.videoEmbedUrl ? (
+                <iframe 
+                    src={activeCase.videoEmbedUrl} 
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" 
+                    frameBorder="0" 
+                    allowFullScreen
+                />
+            ) : (
+                <>
+                    <img 
+                      src={activeCase.image} 
+                      alt={activeCase.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center group cursor-pointer hover:bg-black/30 transition">
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border border-white/20 group-hover:scale-110 transition-transform">
+                            <Play className="fill-white ml-1" />
+                        </div>
+                    </div>
+                </>
+            )}
         </div>
       </div>
     </Section>
