@@ -53,7 +53,8 @@ export const content: ContentConfig = {
     items: [
         { id: 1, title: "Клип 1", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239263&hd=2" },
         { id: 2, title: "Клип 2", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239417&hd=2" },
-        { id: 3, title: "Клип 3", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239427&hd=2" }
+        { id: 3, title: "Клип 3", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239427&hd=2" },
+        { id: 4, title: "Клип 4", embedUrl: "https://vk.com/video_ext.php?oid=19492879&id=456239428&hd=2" }
     ]
   },
   goals: {
