@@ -35,7 +35,7 @@ function App() {
         <Showcase />
         <FadeIn><Goals /></FadeIn>
         <div id="cases"><Cases /></div>
-        <SocialProof />
+        {/* <SocialProof /> */}
         <FadeIn><Comparison /></FadeIn>
         <div id="process"><Process /></div>
         {/* <FadeIn><Team /></FadeIn> */}
