@@ -1,61 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 import { content } from '../constants';
 import { FadeIn } from './ui/FadeIn';
 
 export const CTA: React.FC = () => {
-  const { cta, settings } = content;
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setLoading(true);
-
-    const formData = new FormData(e.currentTarget);
-    const data = {
-      name: formData.get('name'),
-      phone: formData.get('phone'),
-      social: formData.get('social') || 'Не указана',
-    };
-
-    // 1. Отправка в Telegram
-    const { botToken, chatId } = settings.notifications.telegram;
-    if (botToken && botToken !== 'YOUR_BOT_TOKEN') {
-      const message = `🚀 *Новая заявка ББК*\n\n👤 Имя: ${data.name}\n📞 Тел: ${data.phone}\n🔗 Соцсеть: ${data.social}`;
-      try {
-        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: chatId,
-            text: message,
-            parse_mode: 'Markdown',
-          }),
-        });
-      } catch (err) {
-        console.error('Telegram send error:', err);
-      }
-    }
-
-    // 2. Отправка на Email (shekhovpavel@gmail.com) через Formspree
-    try {
-      await fetch(`https://formspree.io/f/${settings.notifications.email}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          _subject: 'Новая заявка ББК',
-          ...data
-        }),
-      });
-    } catch (err) {
-      console.error('Email send error:', err);
-    }
-
-    setLoading(false);
-    setSubmitted(true);
-  };
+  const { cta } = content;
 
   return (
     <Section id="cta" className="relative">
@@ -79,50 +29,51 @@ export const CTA: React.FC = () => {
             </p>
         </FadeIn>
 
-        {submitted ? (
-           <FadeIn>
-               <div className="glass p-12 rounded-2xl border-success/50 text-center">
-                 <div className="text-4xl mb-4">🎉</div>
-                 <h3 className="text-2xl font-bold text-success mb-2">Заявка принята!</h3>
-                 <p className="text-textSec">Мы свяжемся с вами в течение 15 минут для уточнения деталей.</p>
-               </div>
-           </FadeIn>
-        ) : (
-          <FadeIn delay={200}>
-              <form onSubmit={handleSubmit} className="glass p-8 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-primary/20">
-                <div className="space-y-4 mb-8">
-                  <input 
-                    name="name"
-                    type="text" 
-                    placeholder="Ваше Имя" 
-                    className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                    required
-                  />
-                  <input 
-                    name="phone"
-                    type="tel" 
-                    placeholder="Телефон" 
-                    className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                    required
-                  />
+        <FadeIn delay={200}>
+            <form 
+              action="https://formsubmit.co/shekhovpavel@gmail.com" 
+              method="POST" 
+              className="glass p-8 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-primary/20"
+            >
+              {/* FormSubmit Configuration */}
+              <input type="hidden" name="_subject" value="🔥 Новая заявка: ББК Лендинг" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              {/* Redirect back to site after submission (optional, works better without specific URL if unknown deploy) */}
+              {/* <input type="hidden" name="_next" value="https://your-site.com/thanks" /> */}
 
-                  <input 
-                    name="social"
-                    type="text" 
-                    placeholder="Ссылка на соцсеть (необязательно)" 
-                    className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                  />
-                </div>
-                
-                <Button fullWidth type="submit" className="text-lg uppercase" disabled={loading}>
-                  {loading ? 'Отправка...' : cta.btnText}
-                </Button>
-                <p className="mt-4 text-xs text-textSec opacity-60">
-                  {cta.disclaimer}
-                </p>
-              </form>
-          </FadeIn>
-        )}
+              <div className="space-y-4 mb-8">
+                <input 
+                  name="name"
+                  type="text" 
+                  placeholder="Ваше Имя" 
+                  className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                  required
+                />
+                <input 
+                  name="phone"
+                  type="tel" 
+                  placeholder="Телефон" 
+                  className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                  required
+                />
+
+                <input 
+                  name="social"
+                  type="text" 
+                  placeholder="Ссылка на соцсеть (необязательно)" 
+                  className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                />
+              </div>
+              
+              <Button fullWidth type="submit" className="text-lg uppercase">
+                {cta.btnText}
+              </Button>
+              <p className="mt-4 text-xs text-textSec opacity-60">
+                {cta.disclaimer}
+              </p>
+            </form>
+        </FadeIn>
       </div>
     </Section>
   );
