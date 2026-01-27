@@ -1,25 +1,13 @@
-<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#FF4D00;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#FF8A00;stop-opacity:1" />
     </linearGradient>
-    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="4" result="blur"/>
-      <feFlood flood-color="#FF4D00" flood-opacity="0.5" result="glowColor"/>
-      <feComposite in="glowColor" in2="blur" operator="in" result="glow"/>
-      <feMerge>
-        <feMergeNode in="glow"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" 
-        font-family="system-ui, -apple-system, sans-serif" 
-        font-size="48" font-weight="900" 
-        fill="url(#logoGradient)"
-        filter="url(#glow)"
-        style="letter-spacing: -2px;">
-    ББК
-  </text>
+  <!-- Speech Bubble -->
+  <path d="M10 30 C10 18.95 18.95 10 30 10 C41.05 10 50 18.95 50 30 C50 41.05 41.05 50 30 50 C25.5 50 21.5 48.5 18 46 L10 50 L14 42 C11.5 38.5 10 34.5 10 30 Z" 
+        fill="url(#grad)" />
+  <!-- Play Triangle -->
+  <path d="M26 22 L40 30 L26 38 Z" fill="white" />
 </svg>

@@ -13,7 +13,10 @@ export const Footer: React.FC = () => {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
                     <div>
-                        <div className="font-display font-bold text-xl mb-2">ББК.</div>
+                        <div className="font-display font-bold text-xl mb-2 flex items-center gap-2 justify-center md:justify-start">
+                            <img src="/logo.svg" alt="Logo" className="h-6 w-6" />
+                            <span>ББК.</span>
+                        </div>
                         <p className="text-xs text-textSec opacity-50 max-w-xs">
                             {legal.name}<br/>
                             ИНН {legal.inn}
