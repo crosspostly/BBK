@@ -115,6 +115,10 @@ export interface ContentConfig {
     subtitle: string;
     items: Array<{ title: string; subtitle: string; desc: string; btn: string; icon: string }>;
   };
+  businessValues: {
+    h2: string;
+    items: Array<{ title: string; problem: string; solution: string; result: string }>;
+  };
   cases: {
     h2: string;
     items: CaseStudy[];

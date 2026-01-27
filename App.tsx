@@ -5,6 +5,7 @@ import { StatsStrip } from './components/StatsStrip';
 import { Context } from './components/Context';
 import { Technology } from './components/Technology';
 import { Goals } from './components/Goals';
+import { BusinessValues } from './components/BusinessValues';
 import { SocialProof } from './components/SocialProof';
 import { Comparison } from './components/Comparison';
 import { Process } from './components/Process';
@@ -31,11 +32,11 @@ function App() {
       <FadeIn><Context /></FadeIn>
       <FadeIn><Technology /></FadeIn>
       
-      <Suspense fallback={<div className="h-96 flex items-center justify-center text-textSec">Загрузка...</div>}>
-        <Showcase />
-        <FadeIn><Goals /></FadeIn>
-        <div id="cases"><Cases /></div>
-        {/* <SocialProof /> */}
+              <Suspense fallback={<div className="h-96 flex items-center justify-center text-textSec">Загрузка...</div>}>
+              <Showcase />
+              <FadeIn><Goals /></FadeIn>
+              <FadeIn><BusinessValues /></FadeIn>
+              <div id="cases"><Cases /></div>        {/* <SocialProof /> */}
         <FadeIn><Comparison /></FadeIn>
         <div id="process"><Process /></div>
         {/* <FadeIn><Team /></FadeIn> */}
