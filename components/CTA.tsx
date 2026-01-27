@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 import { content } from '../constants';
 import { FadeIn } from './ui/FadeIn';
 
 export const CTA: React.FC = () => {
-  const { cta } = content;
+  const { cta, settings } = content;
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const object = Object.fromEntries(formData.entries());
+    const json = JSON.stringify(object);
+
+    try {
+      const response = await fetch(`https://formsubmit.co/ajax/${settings.notifications.email}`, {
+        method: 'POST',
+        headers: { 
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: json
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
+  };
 
   return (
     <Section id="cta" className="relative">
@@ -30,49 +62,69 @@ export const CTA: React.FC = () => {
         </FadeIn>
 
         <FadeIn delay={200}>
-            <form 
-              action="https://formsubmit.co/shekhovpavel@gmail.com" 
-              method="POST" 
-              className="glass p-8 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-primary/20"
-            >
-              {/* FormSubmit Configuration */}
-              <input type="hidden" name="_subject" value="🔥 Новая заявка: ББК Лендинг" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input type="hidden" name="_template" value="table" />
-              {/* Redirect back to site after submission (optional, works better without specific URL if unknown deploy) */}
-              {/* <input type="hidden" name="_next" value="https://your-site.com/thanks" /> */}
+            {status === 'success' ? (
+                 <div className="glass p-8 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-success/20 animate-fade-in-up">
+                    <div className="text-6xl mb-4">✅</div>
+                    <h3 className="text-2xl font-bold text-white mb-2">Заявка отправлена!</h3>
+                    <p className="text-gray-300">Мы свяжемся с вами в ближайшее время для обсуждения деталей.</p>
+                    <Button 
+                        variant="outline" 
+                        className="mt-6"
+                        onClick={() => setStatus('idle')}
+                    >
+                        Отправить еще одну
+                    </Button>
+                 </div>
+            ) : (
+                <form 
+                  onSubmit={handleSubmit}
+                  className="glass p-8 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-primary/20"
+                >
+                  <input type="hidden" name="_subject" value="🔥 Новая заявка: ББК Лендинг" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_template" value="table" />
 
-              <div className="space-y-4 mb-8">
-                <input 
-                  name="name"
-                  type="text" 
-                  placeholder="Ваше Имя" 
-                  className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                  required
-                />
-                <input 
-                  name="phone"
-                  type="tel" 
-                  placeholder="Телефон" 
-                  className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                  required
-                />
+                  <div className="space-y-4 mb-8">
+                    <input 
+                      name="name"
+                      type="text" 
+                      placeholder="Ваше Имя" 
+                      className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                      required
+                    />
+                    <input 
+                      name="phone"
+                      type="tel" 
+                      placeholder="Телефон" 
+                      className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                      required
+                    />
 
-                <input 
-                  name="social"
-                  type="text" 
-                  placeholder="Ссылка на соцсеть (необязательно)" 
-                  className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
-                />
-              </div>
-              
-              <Button fullWidth type="submit" className="text-lg uppercase">
-                {cta.btnText}
-              </Button>
-              <p className="mt-4 text-xs text-textSec opacity-60">
-                {cta.disclaimer}
-              </p>
-            </form>
+                    <input 
+                      name="social"
+                      type="text" 
+                      placeholder="Ссылка на соцсеть (необязательно)" 
+                      className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
+                    />
+                  </div>
+                  
+                  {status === 'error' && (
+                      <p className="text-red-500 mb-4">Ошибка отправки. Попробуйте еще раз или напишите нам в Telegram.</p>
+                  )}
+
+                  <Button 
+                    fullWidth 
+                    type="submit" 
+                    className="text-lg uppercase"
+                    disabled={status === 'loading'}
+                  >
+                    {status === 'loading' ? 'Отправка...' : cta.btnText}
+                  </Button>
+                  <p className="mt-4 text-xs text-textSec opacity-60">
+                    {cta.disclaimer}
+                  </p>
+                </form>
+            )}
         </FadeIn>
       </div>
     </Section>
