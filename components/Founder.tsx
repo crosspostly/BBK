@@ -44,9 +44,6 @@ export const Founder: React.FC = () => {
                     </div>
 
                     <div className="mt-8 pt-8 border-t border-white/5 flex flex-col md:flex-row gap-8 items-center justify-center md:justify-start">
-                       {profile.signatureImage && (
-                           <img src={profile.signatureImage} alt="Signature" className="h-12 opacity-50 invert" />
-                       )}
                        
                        <div className="flex flex-col gap-3">
                            <div className="text-sm opacity-50 uppercase tracking-wider">Пишите лично:</div>

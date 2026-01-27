@@ -59,7 +59,7 @@ export interface FounderProfile {
     image: string;
     quote: string;
     text: string[];
-    signatureImage: string;
+    signatureImage?: string;
     contactEmail: string;
     instagramUrl?: string;
     telegramUrl?: string;
