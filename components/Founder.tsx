@@ -2,6 +2,7 @@ import React from 'react';
 import { content } from '../constants';
 import { Section } from './ui/Section';
 import { FadeIn } from './ui/FadeIn';
+import { Instagram, Send } from 'lucide-react';
 
 export const Founder: React.FC = () => {
   const { founder } = content;
@@ -36,7 +37,7 @@ export const Founder: React.FC = () => {
                         "{profile.quote}"
                     </div>
                     
-                    <div className="space-y-4 text-textSec leading-relaxed">
+                    <div className="space-y-4 text-textSec leading-relaxed mb-8">
                         {profile.text.map((paragraph, idx) => (
                             <p key={idx}>{paragraph}</p>
                         ))}
@@ -46,9 +47,25 @@ export const Founder: React.FC = () => {
                        {profile.signatureImage && (
                            <img src={profile.signatureImage} alt="Signature" className="h-12 opacity-50 invert" />
                        )}
-                       <div className="text-sm opacity-50">
-                            Пишите лично:<br/>
-                            <a href={`mailto:${profile.contactEmail}`} className="hover:text-primary transition-colors">{profile.contactEmail}</a>
+                       
+                       <div className="flex flex-col gap-3">
+                           <div className="text-sm opacity-50 uppercase tracking-wider">Пишите лично:</div>
+                           
+                           <div className="flex gap-4">
+                               {profile.telegramUrl && (
+                                   <a href={profile.telegramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-primary transition-colors">
+                                       <Send size={18} />
+                                       <span>Telegram</span>
+                                   </a>
+                               )}
+                               
+                               {profile.instagramUrl && (
+                                   <a href={profile.instagramUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white hover:text-pink-400 transition-colors">
+                                       <Instagram size={18} />
+                                       <span>Instagram</span>
+                                   </a>
+                               )}
+                           </div>
                        </div>
                     </div>
                 </FadeIn>

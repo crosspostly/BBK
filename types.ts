@@ -61,6 +61,8 @@ export interface FounderProfile {
     text: string[];
     signatureImage: string;
     contactEmail: string;
+    instagramUrl?: string;
+    telegramUrl?: string;
 }
 
 export interface LegalInfo {

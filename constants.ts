@@ -163,7 +163,9 @@ export const content: ContentConfig = {
         role: "Основатель «ББК» и главный продюсер",
         image: "/images/founder.jpg",
         signatureImage: "/images/signature.svg", 
-        contactEmail: "hello@banda42.ru",
+        contactEmail: "t.me/electromom",
+        telegramUrl: "https://t.me/electromom",
+        instagramUrl: "https://www.instagram.com/olga_sobolove/",
         quote: "Я лично отвечаю за качество каждого ролика.",
         text: [
             "В маркетинге ресторанов я уже 7 лет. Я видела, как сливаются бюджеты на таргет и как накручивают ботов псевдо-блогеры.",
@@ -239,8 +241,8 @@ export const content: ContentConfig = {
   },
   legal: {
       inn: "420500000000",
-      email: "hello@banda42.ru",
-      phone: "+7 (999) 000-00-00",
+      email: "t.me/electromom",
+      phone: "",
       name: "Соболева Ольга",
       policyText: `
         <h3 class="font-bold text-lg mb-2">Политика обработки персональных данных</h3>

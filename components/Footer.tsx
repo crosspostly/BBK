@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { content } from '../constants';
 import { LegalModal } from './LegalModal';
+import { Send } from 'lucide-react';
 
 export const Footer: React.FC = () => {
-  const { legal } = content;
+  const { legal, founder } = content;
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -20,8 +21,10 @@ export const Footer: React.FC = () => {
                     </div>
                     
                     <div className="flex flex-col gap-2 text-sm text-textSec">
-                        <a href={`mailto:${legal.email}`} className="hover:text-primary transition-colors">{legal.email}</a>
-                        <a href={`tel:${legal.phone}`} className="hover:text-primary transition-colors">{legal.phone}</a>
+                        <a href={founder.profile.telegramUrl || `https://${legal.email}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+                           <Send size={14} />
+                           {legal.email}
+                        </a>
                     </div>
 
                     <div className="flex flex-col gap-2 text-xs text-textSec opacity-50">

@@ -38,7 +38,7 @@ function App() {
         <SocialProof />
         <FadeIn><Comparison /></FadeIn>
         <div id="process"><Process /></div>
-        <FadeIn><Team /></FadeIn>
+        {/* <FadeIn><Team /></FadeIn> */}
         <Founder />
         <div id="tariffs"><Tariffs /></div>
         <FadeIn><Guarantees /></FadeIn>
