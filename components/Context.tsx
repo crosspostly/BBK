@@ -2,15 +2,9 @@ import React from 'react';
 import { content } from '../constants';
 import { Section } from './ui/Section';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 export const Context: React.FC = () => {
   const { context } = content;
-
-  const chartData = [
-    { name: 'Реклама', value: context.solution.stats.ads, color: '#1E1E24' },
-    { name: 'Блогеры', value: context.solution.stats.influencers, color: '#FF4D00' },
-  ];
 
   return (
     <Section className="bg-bg">
@@ -41,7 +35,7 @@ export const Context: React.FC = () => {
           </div>
         </div>
 
-        {/* Solution & Chart */}
+        {/* Solution & Stats */}
         <div className="flex flex-col gap-6">
             <div className="p-8 border-l-4 border-success/50 bg-success/5 rounded-r-2xl">
                 <h3 className="text-xl font-bold text-success mb-2 flex items-center gap-2">
@@ -56,36 +50,38 @@ export const Context: React.FC = () => {
                 <h3 className="text-xl font-bold mb-2">Edelman Trust Barometer</h3>
                 <p className="text-textSec text-sm mb-6">Уровень доверия аудитории к источникам</p>
                 
-                <div className="h-[200px] w-full">
-                    <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={chartData} layout="vertical" margin={{ left: 0, right: 40 }}>
-                        <XAxis type="number" hide />
-                        <YAxis 
-                        dataKey="name" 
-                        type="category" 
-                        tick={{ fill: '#9CA3AF', fontSize: 14 }} 
-                        width={80}
-                        axisLine={false}
-                        tickLine={false}
-                        />
-                        <Tooltip 
-                        cursor={{fill: 'transparent'}}
-                        contentStyle={{ backgroundColor: '#1E1E24', borderColor: '#333', color: '#fff' }}
-                        />
-                        <Bar dataKey="value" radius={[0, 4, 4, 0]} barSize={32}>
-                             <Cell fill="#3F3F46" />
-                             <Cell fill="#00E096" />
-                        </Bar>
-                    </BarChart>
-                    </ResponsiveContainer>
+                <div className="space-y-6 my-4">
+                  {/* Bar 1: Influencers */}
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-white font-bold">Блогеры / Рекомендации</span>
+                      <span className="text-success font-bold">{context.solution.stats.influencers}%</span>
+                    </div>
+                    <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
+                      <div 
+                        className="bg-success h-full rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${context.solution.stats.influencers}%` }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Bar 2: Ads */}
+                  <div>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-gray-400">Прямая реклама (Таргет)</span>
+                      <span className="text-gray-400">{context.solution.stats.ads}%</span>
+                    </div>
+                    <div className="w-full bg-white/5 rounded-full h-4 overflow-hidden">
+                      <div 
+                        className="bg-gray-600 h-full rounded-full transition-all duration-1000 ease-out"
+                        style={{ width: `${context.solution.stats.ads}%` }}
+                      />
+                    </div>
+                  </div>
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-white/10">
                     <p className="font-bold text-white mb-2">{context.solution.conclusion}</p>
-                    <div className="flex justify-between items-center text-sm">
-                        <span className="text-success font-bold">{context.solution.stats.influencers}% Доверие блогерам</span>
-                        <span className="text-gray-500">{context.solution.stats.ads}% Прямая реклама</span>
-                    </div>
                 </div>
             </div>
         </div>
