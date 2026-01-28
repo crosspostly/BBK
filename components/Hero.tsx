@@ -15,7 +15,7 @@ export const Hero: React.FC = () => {
       {/* Background with overlay */}
       <div className="absolute inset-0 z-0">
                  <img 
-                    src="/images/hero_bg.jpg" 
+                    src="/images/hero_bg.webp" 
                     alt="Restaurant ambiance" 
                     className="w-full h-full object-cover opacity-40 scale-105"
                   />        

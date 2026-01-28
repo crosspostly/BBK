@@ -55,7 +55,7 @@ export const CTA: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
          <img 
-            src="/images/cta_bg.jpg" 
+            src="/images/cta_bg.webp" 
             alt="Busy restaurant" 
             className="w-full h-full object-cover opacity-30"
           />
@@ -89,7 +89,7 @@ export const CTA: React.FC = () => {
             ) : (
                 <form 
                   onSubmit={handleSubmit}
-                  className="glass p-8 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-primary/20"
+                  className="glass p-6 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-primary/20"
                 >
                   <input type="hidden" name="_subject" value="🔥 Новая заявка: ББК Лендинг" />
                   <input type="hidden" name="_captcha" value="false" />
