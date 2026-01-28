@@ -6,13 +6,13 @@ import { articles as featuredArticles } from '../data/articles';
 import { seoArticles } from '../data/seo/articles_100';
 import { Calendar, Clock, ArrowLeft, CheckCircle2 } from 'lucide-react';
 
-// Маппинг типов картинок на качественные фото с Unsplash
+// Маппинг типов картинок на качественные фото с Pexels (Free to use, no watermarks)
 const imageMapping = {
-  interior: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80',
-  food: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&q=80',
-  people: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&q=80',
-  tech: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80',
-  marketing: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&q=80',
+  interior: 'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Restaurant interior
+  food: 'https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Plating food
+  people: 'https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Chef cooking
+  tech: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Meeting with laptop
+  marketing: 'https://images.pexels.com/photos/905163/pexels-photo-905163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2', // Marketing analytics
 };
 
 export const BlogPost: React.FC = () => {
@@ -32,8 +32,8 @@ export const BlogPost: React.FC = () => {
         date: '28 Января 2026', // Дата обновления для актуальности
         readTime: '5 мин',
         image: imageMapping[seoArticle.imageType] || imageMapping.marketing,
-        // Генерация контента для SEO-заглушки
-        content: `
+        // Используем реальный контент, если он есть, иначе — заглушку
+        content: seoArticle.content || `
           <p class="lead text-xl text-textMain mb-6">${seoArticle.description}</p>
           
           <h2>Почему это важно в 2026 году?</h2>
