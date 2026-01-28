@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/Button';
+import { Link } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -14,6 +15,11 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const scrollTo = (id: string) => {
+    // Если мы не на главной, сначала переходим на главную
+    if (window.location.pathname !== '/') {
+      window.location.href = '/#' + id;
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -24,12 +30,13 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <div className="flex items-center gap-3 font-display font-bold text-xl tracking-tighter cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+        <Link to="/" className="flex items-center gap-3 font-display font-bold text-xl tracking-tighter cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img src="/bbk-logo.svg" alt="BBK Logo" className="h-10 w-auto" />
             <span className="text-white">ББК</span>
-        </div>
+        </Link>
         
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-textSec">
+          <Link to="/blog" className="hover:text-white transition-colors">Блог</Link>
           <button onClick={() => scrollTo('cases')} className="hover:text-white transition-colors">Кейсы</button>
           <button onClick={() => scrollTo('process')} className="hover:text-white transition-colors">Процесс</button>
           <button onClick={() => scrollTo('tariffs')} className="hover:text-white transition-colors">Тарифы</button>
@@ -42,7 +49,7 @@ export const Navbar: React.FC = () => {
                 className="!py-2 !px-6 text-sm"
                 onClick={() => scrollTo('cta')}
              >
-                Начать
+                Заказать аудит
              </Button>
         </div>
       </div>

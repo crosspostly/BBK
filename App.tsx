@@ -4,7 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { BlogPost } from './pages/BlogPost';
-import ScrollToTop from './components/ScrollToTop';
+import { BlogIndex } from './pages/BlogIndex';
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         {/* Fallback for 404 - redirects to Home */}
         <Route path="*" element={<Home />} />
