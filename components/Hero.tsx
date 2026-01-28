@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
           </div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-[1.1] mb-6 drop-shadow-2xl">
-            {hero.h1}
+            SEO TEST: {hero.h1}
           </h1>
 
           <p className="text-xl md:text-2xl text-textSec mb-8 font-light max-w-2xl border-l-4 border-primary pl-6">
