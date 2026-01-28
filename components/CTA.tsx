@@ -3,17 +3,28 @@ import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 import { content } from '../constants';
 import { FadeIn } from './ui/FadeIn';
+import { LegalModal } from './LegalModal';
 
 export const CTA: React.FC = () => {
-  const { cta, settings } = content;
+  const { cta, settings, legal } = content;
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [agreed, setAgreed] = useState(true);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!agreed) return;
+    
     setStatus('loading');
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    
+    // Добавляем технические данные для доказательства согласия (ФЗ-152)
+    formData.append('consent_timestamp', new Date().toISOString());
+    formData.append('consent_url', window.location.href);
+    formData.append('policy_version', 'v1.0 (Jan 2026)');
+
     const object = Object.fromEntries(formData.entries());
     const json = JSON.stringify(object);
 
@@ -83,6 +94,7 @@ export const CTA: React.FC = () => {
                   <input type="hidden" name="_subject" value="🔥 Новая заявка: ББК Лендинг" />
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_template" value="table" />
+                  <input type="hidden" name="privacy_policy_agreed" value={agreed ? "yes" : "no"} />
 
                   <div className="space-y-4 mb-8">
                     <input 
@@ -107,6 +119,19 @@ export const CTA: React.FC = () => {
                       className="w-full bg-surface/50 border border-white/10 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary transition-colors"
                     />
                   </div>
+
+                  <div className="flex items-start gap-3 mb-8 text-left group cursor-pointer" onClick={() => setAgreed(!agreed)}>
+                    <div className={`mt-1 shrink-0 w-5 h-5 rounded border flex items-center justify-center transition-colors ${agreed ? 'bg-primary border-primary' : 'border-white/20 group-hover:border-primary'}`}>
+                      {agreed && (
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                    </div>
+                    <p className="text-xs text-textSec leading-tight">
+                      Я даю согласие на <button type="button" onClick={(e) => { e.stopPropagation(); setIsModalOpen(true); }} className="underline hover:text-white transition-colors">обработку персональных данных</button> и получение информационных и рекламных сообщений.
+                    </p>
+                  </div>
                   
                   {status === 'error' && (
                       <p className="text-red-500 mb-4">Ошибка отправки. Попробуйте еще раз или напишите нам в Telegram.</p>
@@ -116,7 +141,7 @@ export const CTA: React.FC = () => {
                     fullWidth 
                     type="submit" 
                     className="text-lg uppercase"
-                    disabled={status === 'loading'}
+                    disabled={status === 'loading' || !agreed}
                   >
                     {status === 'loading' ? 'Отправка...' : cta.btnText}
                   </Button>
@@ -127,6 +152,12 @@ export const CTA: React.FC = () => {
             )}
         </FadeIn>
       </div>
+
+      <LegalModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+          content={legal.policyText} 
+      />
     </Section>
   );
 };
