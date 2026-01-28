@@ -167,6 +167,14 @@ export interface ContentConfig {
     btnText: string;
     disclaimer: string;
   };
+  contacts: {
+    h2: string;
+    subtitle: string;
+    address: string;
+    telegram: string;
+    telegramUrl: string;
+    mapIframe: string;
+  };
   legal: LegalInfo;
   settings: {
     notifications: {

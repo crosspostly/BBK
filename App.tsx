@@ -20,6 +20,7 @@ const Tariffs = lazy(() => import('./components/Tariffs').then(module => ({ defa
 const Guarantees = lazy(() => import('./components/Guarantees').then(module => ({ default: module.Guarantees })));
 const FAQ = lazy(() => import('./components/FAQ').then(module => ({ default: module.FAQ })));
 const CTA = lazy(() => import('./components/CTA').then(module => ({ default: module.CTA })));
+const ContactMap = lazy(() => import('./components/ContactMap').then(module => ({ default: module.ContactMap })));
 const Footer = lazy(() => import('./components/Footer').then(module => ({ default: module.Footer })));
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
         <FadeIn><Guarantees /></FadeIn>
         <div id="faq"><FAQ /></div>
         <CTA />
+        <ContactMap />
         <Footer />
       </Suspense>
     </div>
