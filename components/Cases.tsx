@@ -93,7 +93,6 @@ export const Cases: React.FC = () => {
                     className="absolute inset-0 w-full h-full"
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" 
                     frameBorder="0" 
-                    allowFullScreen
                 />
             ) : (
                 <>

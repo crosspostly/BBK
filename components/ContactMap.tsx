@@ -62,9 +62,8 @@ export const ContactMap: React.FC = () => {
               width="100%"
               height="100%"
               frameBorder="0"
-              allowFullScreen={true}
-              className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
-              style={{ filter: 'invert(90%) hue-rotate(180deg) contrast(90%) grayscale(20%)' }} // Dark mode map hack
+              allow="fullscreen"
+              className="absolute inset-0 w-full h-full transition-all duration-500"
               title="Yandex Map"
             />
              {/* Overlay to catch interaction if needed or style fixes */}
