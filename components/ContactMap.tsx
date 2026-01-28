@@ -55,7 +55,7 @@ export const ContactMap: React.FC = () => {
         </FadeIn>
 
         {/* Map */}
-        <FadeIn delay={200} className="h-full min-h-[400px]">
+        <FadeIn delay={200} className="w-full h-[400px] md:h-[500px]">
           <div className="w-full h-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl relative bg-surface">
             <iframe
               src={contacts.mapIframe}
