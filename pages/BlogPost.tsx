@@ -85,9 +85,9 @@ export const BlogPost: React.FC = () => {
 
        <div className="max-w-3xl mx-auto">
           {/* Навигация */}
-          <Link to="/" className="inline-flex items-center gap-2 text-textSec hover:text-primary transition-colors mb-8 group">
+          <Link to="/blog" className="inline-flex items-center gap-2 text-textSec hover:text-primary transition-colors mb-8 group">
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-            Назад на главную
+            Назад в блог
           </Link>
 
           {/* Мета-инфо */}
