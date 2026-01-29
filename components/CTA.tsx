@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 import { content } from '../constants';
 import { FadeIn } from './ui/FadeIn';
-import { LegalModal } from './LegalModal';
 
 export const CTA: React.FC = () => {
   const { cta, settings, legal } = content;
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [agreed, setAgreed] = useState(true);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -129,7 +128,7 @@ export const CTA: React.FC = () => {
                       )}
                     </div>
                     <p className="text-xs text-textSec leading-tight">
-                      Я даю согласие на <button type="button" onClick={(e) => { e.stopPropagation(); setIsModalOpen(true); }} className="underline hover:text-white transition-colors">обработку персональных данных</button> и получение информационных и рекламных сообщений.
+                      Я даю согласие на <Link to="/privacy" className="underline hover:text-white transition-colors">обработку персональных данных</Link> и получение информационных и рекламных сообщений (ФЗ-152, ФЗ-38).
                     </p>
                   </div>
                   
@@ -152,12 +151,6 @@ export const CTA: React.FC = () => {
             )}
         </FadeIn>
       </div>
-
-      <LegalModal 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
-          content={legal.policyText} 
-      />
     </Section>
   );
 };

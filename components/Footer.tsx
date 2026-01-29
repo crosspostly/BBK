@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { content } from '../constants';
-import { LegalModal } from './LegalModal';
 import { Send } from 'lucide-react';
 
 import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   const { legal, founder } = content;
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -34,20 +32,14 @@ export const Footer: React.FC = () => {
                     </div>
 
                     <div className="flex flex-col gap-2 text-xs text-textSec opacity-50">
-                        <button onClick={() => setIsModalOpen(true)} className="hover:text-white transition-colors underline decoration-dotted">
+                        <Link to="/privacy" className="hover:text-white transition-colors underline decoration-dotted">
                             Политика конфиденциальности
-                        </button>
+                        </Link>
                         <span>© 2026 Все права защищены.</span>
                     </div>
                 </div>
             </div>
         </footer>
-
-        <LegalModal 
-            isOpen={isModalOpen} 
-            onClose={() => setIsModalOpen(false)} 
-            content={legal.policyText} 
-        />
     </>
   );
 };

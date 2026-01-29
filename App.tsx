@@ -6,6 +6,7 @@ import ScrollToTop from './components/ScrollToTop';
 import { Home } from './pages/Home';
 import { BlogPost } from './pages/BlogPost';
 import { BlogIndex } from './pages/BlogIndex';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
         {/* Fallback for 404 - redirects to Home */}
         <Route path="*" element={<Home />} />
       </Routes>
