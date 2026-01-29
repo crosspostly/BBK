@@ -43,16 +43,16 @@ export const Navbar: React.FC = () => {
           <button onClick={() => scrollTo('faq')} className="hover:text-white transition-colors">FAQ</button>
         </div>
 
-        <div className={`flex items-center gap-4 ${scrolled ? 'opacity-100' : 'opacity-0 md:opacity-100 transition-opacity'}`}>
-             <a href="tel:+79805911219" className="hidden lg:block text-sm font-bold text-white hover:text-primary transition-colors">
+        <div className={`flex items-center gap-3 md:gap-6 ${scrolled ? 'opacity-100' : 'opacity-100 transition-opacity'}`}>
+             <a href="tel:+79805911219" className="text-sm md:text-base font-bold text-white hover:text-primary transition-colors whitespace-nowrap">
                 8 980 591 12 19
              </a>
              <Button 
                 variant="primary" 
-                className="!py-2 !px-6 text-sm"
+                className="!py-2 !px-4 md:!px-6 text-xs md:text-sm uppercase tracking-wider"
                 onClick={() => scrollTo('cta')}
              >
-                Заказать аудит
+                <span className="hidden sm:inline">Заказать </span>аудит
              </Button>
         </div>
       </div>

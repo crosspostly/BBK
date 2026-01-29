@@ -51,8 +51,8 @@ export const content: ContentConfig = {
     h2: "Примеры рекламы ресторанов в Кемерово",
     subtitle: "Мы снимаем так, что текут слюнки. Реальные Reels, которые принесли гостей.",
     items: [
-        { id: 1, title: "Клип 1", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239417&hash=e90cd261d0799abe" },
-        { id: 2, title: "Клип 2", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239428&hash=39444dd680ffd291" },
+        { id: 1, title: "Обзор Корчма", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239425&hash=44685291aba88aa6" },
+        { id: 2, title: "Panda Pub", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239428&hash=39444dd680ffd291" },
         { id: 3, title: "Клип 3", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239263&hash=5a31a29684bef1a8" },
         { id: 4, title: "Клип 4", embedUrl: "https://vk.ru/video_ext.php?oid=19492879&id=456239427&hash=1dd1ff41952db4b9" }
     ]
