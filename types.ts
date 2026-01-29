@@ -174,6 +174,8 @@ export interface ContentConfig {
     telegram: string;
     telegramUrl: string;
     mapIframe: string;
+    phone: string;
+    name: string;
   };
   legal: LegalInfo;
   settings: {

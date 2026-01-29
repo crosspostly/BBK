@@ -841,6 +841,7 @@ export const seoArticles: SeoArticle[] = [
     category: 'niche',
     imageType: 'people'
   },
+  {
     slug: 'vegan-cafe-marketing',
     title: 'Веганское кафе в Сибири: миссия невыполнима?',
     description: 'Как продавать тофу там, где любят мясо. Маркетинг для ЗОЖ-проектов и этичных кафе.',

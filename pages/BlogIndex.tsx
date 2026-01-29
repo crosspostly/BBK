@@ -19,7 +19,12 @@ export const BlogIndex: React.FC = () => {
 
   // Combine and normalize articles
   const allArticles = [
-    ...featuredArticles.map(a => ({ ...a, type: 'featured' })),
+    ...featuredArticles.map(a => ({ 
+      ...a, 
+      type: 'featured', 
+      description: a.excerpt,
+      category: 'Кейс'
+    })),
     ...seoArticles.map(a => ({ 
       ...a, 
       type: 'seo', 
