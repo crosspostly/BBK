@@ -1,11 +1,11 @@
 import React from 'react';
 import { content } from '../constants';
-import { Send } from 'lucide-react';
+import { Send, Phone } from 'lucide-react';
 
 import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
-  const { legal, founder } = content;
+  const { legal, founder, contacts } = content;
 
   return (
     <>
@@ -25,6 +25,10 @@ export const Footer: React.FC = () => {
                     
                     <div className="flex flex-col gap-2 text-sm text-textSec">
                         <Link to="/blog" className="hover:text-primary transition-colors">База знаний (Блог)</Link>
+                        <a href={`tel:${contacts.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-primary transition-colors">
+                           <Phone size={14} />
+                           {contacts.phone}
+                        </a>
                         <a href={founder.profile.telegramUrl || `https://${legal.email}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
                            <Send size={14} />
                            {legal.email}

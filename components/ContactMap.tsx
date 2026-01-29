@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section } from './ui/Section';
 import { content } from '../constants';
-import { MapPin, Send } from 'lucide-react';
+import { MapPin, Send, Phone } from 'lucide-react';
 import { FadeIn } from './ui/FadeIn';
 
 export const ContactMap: React.FC = () => {
@@ -33,6 +33,21 @@ export const ContactMap: React.FC = () => {
                   <div className="text-lg font-bold">{contacts.address}</div>
                 </div>
               </div>
+
+              <a 
+                href={`tel:${contacts.phone.replace(/\s/g, '')}`}
+                className="flex items-center gap-4 group cursor-pointer"
+              >
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors shrink-0">
+                  <Phone size={24} />
+                </div>
+                <div>
+                  <div className="text-sm text-textSec">Телефон</div>
+                  <div className="text-lg font-bold group-hover:text-primary transition-colors">
+                    {contacts.phone}
+                  </div>
+                </div>
+              </a>
 
               <a 
                 href={contacts.telegramUrl} 
