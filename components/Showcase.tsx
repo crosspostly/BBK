@@ -29,7 +29,7 @@ export const Showcase: React.FC = () => {
                     title={item.title}
                     className="absolute inset-0 w-full h-full z-10"
                     frameBorder="0"
-                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture; clipboard-write" 
+                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture;" 
                     allowFullScreen
                 ></iframe>
                 
