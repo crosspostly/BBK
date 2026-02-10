@@ -39,7 +39,7 @@ export const HomeNN: React.FC = () => {
         <div id="tariffs"><Tariffs content={nnContent.tariffs} /></div>
         <FadeIn><Guarantees content={nnContent.guarantees} /></FadeIn>
         <div id="faq"><FAQ content={nnContent.faq} /></div>
-        <CTA content={nnContent.cta} />
+        <CTA content={{ cta: nnContent.cta, settings: nnContent.settings, legal: nnContent.legal }} />
         <ContactMap content={nnContent.contacts} />
       </Suspense>
     </>

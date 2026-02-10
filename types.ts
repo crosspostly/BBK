@@ -74,6 +74,27 @@ export interface LegalInfo {
     policyText: string; // Full HTML/Markdown text
 }
 
+export type HeroContent = ContentConfig['hero'];
+export type StatsStripContent = ContentConfig['statsStrip'];
+export type ContextContent = ContentConfig['context'];
+export type TechnologyContent = ContentConfig['technology'];
+export type ShowcaseContent = ContentConfig['showcase'];
+export type GoalsContent = ContentConfig['goals'];
+export type BusinessValuesContent = ContentConfig['businessValues'];
+export type CasesContent = ContentConfig['cases'];
+export type SocialProofContent = ContentConfig['socialProof'];
+export type ComparisonContent = ContentConfig['comparison'];
+export type ProcessContent = ContentConfig['process'];
+export type TeamContent = ContentConfig['team'];
+export type FounderContent = ContentConfig['founder'];
+export type TariffsContent = ContentConfig['tariffs'];
+export type GuaranteesContent = ContentConfig['guarantees'];
+export type FAQContent = ContentConfig['faq'];
+export type CTAContent = ContentConfig['cta'];
+export type ContactsContent = ContentConfig['contacts'];
+export type LegalContent = ContentConfig['legal'];
+export type SettingsContent = ContentConfig['settings'];
+
 export interface ContentConfig {
   hero: {
     city: string;
