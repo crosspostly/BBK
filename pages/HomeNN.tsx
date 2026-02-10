@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { Hero } from '../components/Hero';
 import { StatsStrip } from '../components/StatsStrip';
 import { FadeIn } from '../components/ui/FadeIn';
-import { content } from '../constants';
+import { content as nnContent } from '../constants_nn';
 
 // Lazy load heavy components
 const Context = lazy(() => import('../components/Context').then(module => ({ default: module.Context })));
@@ -20,27 +20,27 @@ const FAQ = lazy(() => import('../components/FAQ').then(module => ({ default: mo
 const CTA = lazy(() => import('../components/CTA').then(module => ({ default: module.CTA })));
 import { ContactMap } from '../components/ContactMap';
 
-export const Home: React.FC = () => {
+export const HomeNN: React.FC = () => {
   return (
     <>
-      <Hero content={content.hero} />
-      <FadeIn delay={200}><StatsStrip content={content.statsStrip} /></FadeIn>
+      <Hero content={nnContent.hero} />
+      <FadeIn delay={200}><StatsStrip content={nnContent.statsStrip} /></FadeIn>
       
       <Suspense fallback={<div className="h-96 flex items-center justify-center text-textSec">Загрузка...</div>}>
-        <FadeIn><Context content={content.context} /></FadeIn>
-        <FadeIn><Technology content={content.technology} /></FadeIn>
-        <Showcase content={content.showcase} />
-        <FadeIn><Goals content={content.goals} /></FadeIn>
-        <FadeIn><BusinessValues content={content.businessValues} /></FadeIn>
-        <div id="cases"><Cases content={content.cases} /></div>
-        <FadeIn><Comparison content={content.comparison} /></FadeIn>
-        <div id="process"><Process content={content.process} /></div>
-        <Founder content={content.founder} />
-        <div id="tariffs"><Tariffs content={content.tariffs} /></div>
-        <FadeIn><Guarantees content={content.guarantees} /></FadeIn>
-        <div id="faq"><FAQ content={content.faq} /></div>
-        <CTA content={{ cta: content.cta, settings: content.settings, legal: content.legal }} />
-        <ContactMap content={content.contacts} />
+        <FadeIn><Context content={nnContent.context} /></FadeIn>
+        <FadeIn><Technology content={nnContent.technology} /></FadeIn>
+        <Showcase content={nnContent.showcase} />
+        <FadeIn><Goals content={nnContent.goals} /></FadeIn>
+        <FadeIn><BusinessValues content={nnContent.businessValues} /></FadeIn>
+        <div id="cases"><Cases content={nnContent.cases} /></div>
+        <FadeIn><Comparison content={nnContent.comparison} /></FadeIn>
+        <div id="process"><Process content={nnContent.process} /></div>
+        <Founder content={nnContent.founder} />
+        <div id="tariffs"><Tariffs content={nnContent.tariffs} /></div>
+        <FadeIn><Guarantees content={nnContent.guarantees} /></FadeIn>
+        <div id="faq"><FAQ content={nnContent.faq} /></div>
+        <CTA content={nnContent.cta} />
+        <ContactMap content={nnContent.contacts} />
       </Suspense>
     </>
   );

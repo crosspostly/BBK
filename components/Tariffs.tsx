@@ -1,11 +1,16 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
 import { Check, Info } from 'lucide-react';
+import { TariffsContent } from '../types';
 
-export const Tariffs: React.FC = () => {
-  const { tariffs } = content;
+interface TariffsProps {
+  content?: TariffsContent;
+}
+
+export const Tariffs: React.FC<TariffsProps> = ({ content }) => {
+  const tariffs = content || defaultContent.tariffs;
 
   const scrollToCTA = () => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
 

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { Plus, Minus } from 'lucide-react';
+import { FAQContent } from '../types';
 
-export const FAQ: React.FC = () => {
-  const { faq } = content;
+interface FAQProps {
+  content?: FAQContent;
+}
+
+export const FAQ: React.FC<FAQProps> = ({ content }) => {
+  const faq = content || defaultContent.faq;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {

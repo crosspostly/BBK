@@ -1,11 +1,16 @@
 import React from 'react';
 import { Section } from './ui/Section';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { MapPin, Send, Phone } from 'lucide-react';
 import { FadeIn } from './ui/FadeIn';
+import { ContactsContent } from '../types';
 
-export const ContactMap: React.FC = () => {
-  const { contacts } = content;
+interface ContactMapProps {
+  content?: ContactsContent;
+}
+
+export const ContactMap: React.FC<ContactMapProps> = ({ content }) => {
+  const contacts = content || defaultContent.contacts;
 
   return (
     <Section id="contacts" className="relative overflow-hidden">

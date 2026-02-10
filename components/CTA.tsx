@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Section } from './ui/Section';
 import { Button } from './ui/Button';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { FadeIn } from './ui/FadeIn';
+import { CTAContent, SettingsContent, LegalContent } from '../types';
 
-export const CTA: React.FC = () => {
-  const { cta, settings, legal } = content;
+interface CTAProps {
+  content?: {
+    cta: CTAContent;
+    settings: SettingsContent;
+    legal: LegalContent;
+  };
+}
+
+export const CTA: React.FC<CTAProps> = ({ content }) => {
+  const { cta, settings, legal } = content || defaultContent;
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [agreed, setAgreed] = useState(true);
 

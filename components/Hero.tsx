@@ -1,10 +1,15 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Button } from './ui/Button';
 import { Check, ArrowDown } from 'lucide-react';
+import { HeroContent } from '../types';
 
-export const Hero: React.FC = () => {
-  const { hero } = content;
+interface HeroProps {
+  content?: HeroContent;
+}
+
+export const Hero: React.FC<HeroProps> = ({ content: heroContent }) => {
+  const hero = heroContent || defaultContent.hero;
 
   const scrollToCTA = () => {
     document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });

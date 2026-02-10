@@ -1,10 +1,15 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { ShieldCheck } from 'lucide-react';
+import { GuaranteesContent } from '../types';
 
-export const Guarantees: React.FC = () => {
-  const { guarantees } = content;
+interface GuaranteesProps {
+  content?: GuaranteesContent;
+}
+
+export const Guarantees: React.FC<GuaranteesProps> = ({ content }) => {
+  const guarantees = content || defaultContent.guarantees;
 
   return (
     <Section className="bg-surface/30">

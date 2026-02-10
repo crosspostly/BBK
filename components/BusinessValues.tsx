@@ -1,10 +1,15 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { FadeIn } from './ui/FadeIn';
+import { BusinessValuesContent } from '../types';
 
-export const BusinessValues: React.FC = () => {
-  const { businessValues } = content;
+interface BusinessValuesProps {
+  content?: BusinessValuesContent;
+}
+
+export const BusinessValues: React.FC<BusinessValuesProps> = ({ content }) => {
+  const businessValues = content || defaultContent.businessValues;
 
   return (
     <Section className="bg-bg">

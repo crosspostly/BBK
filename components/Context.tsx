@@ -1,10 +1,15 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { AlertCircle, CheckCircle2 } from 'lucide-react';
+import { ContextContent } from '../types';
 
-export const Context: React.FC = () => {
-  const { context } = content;
+interface ContextProps {
+  content?: ContextContent;
+}
+
+export const Context: React.FC<ContextProps> = ({ content }) => {
+  const context = content || defaultContent.context;
 
   return (
     <Section className="bg-bg">

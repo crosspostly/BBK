@@ -1,9 +1,14 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { TrendingUp, TrendingDown } from 'lucide-react';
+import { StatsStripContent } from '../types';
 
-export const StatsStrip: React.FC = () => {
-  const { statsStrip } = content;
+interface StatsStripProps {
+  content?: StatsStripContent;
+}
+
+export const StatsStrip: React.FC<StatsStripProps> = ({ content }) => {
+  const statsStrip = content || defaultContent.statsStrip;
 
   return (
     <div className="bg-surface border-y border-white/5 py-8 md:py-12 relative z-20">

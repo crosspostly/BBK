@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { ChevronLeft, ChevronRight, Play, Instagram } from 'lucide-react';
+import { CasesContent } from '../types';
 
-export const Cases: React.FC = () => {
-  const { cases } = content;
+interface CasesProps {
+  content?: CasesContent;
+}
+
+export const Cases: React.FC<CasesProps> = ({ content }) => {
+  const cases = content || defaultContent.cases;
   const [activeIdx, setActiveIdx] = useState(0);
 
   const next = () => setActiveIdx((prev) => (prev + 1) % cases.items.length);

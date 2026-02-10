@@ -1,9 +1,14 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
+import { ComparisonContent } from '../types';
 
-export const Comparison: React.FC = () => {
-  const { comparison } = content;
+interface ComparisonProps {
+  content?: ComparisonContent;
+}
+
+export const Comparison: React.FC<ComparisonProps> = ({ content }) => {
+  const comparison = content || defaultContent.comparison;
 
   return (
     <Section className="bg-bg">

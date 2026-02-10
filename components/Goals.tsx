@@ -1,10 +1,15 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { ArrowRight, Sparkles, Armchair, Percent, ShieldCheck, ThumbsUp, Users } from 'lucide-react';
+import { GoalsContent } from '../types';
 
-export const Goals: React.FC = () => {
-  const { goals } = content;
+interface GoalsProps {
+  content?: GoalsContent;
+}
+
+export const Goals: React.FC<GoalsProps> = ({ content }) => {
+  const goals = content || defaultContent.goals;
 
   const iconMap: Record<string, React.ReactNode> = {
     sparkles: <Sparkles size={24} />,

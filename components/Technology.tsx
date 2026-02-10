@@ -1,10 +1,15 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { Shield, Radio, MapPin } from 'lucide-react';
+import { TechnologyContent } from '../types';
 
-export const Technology: React.FC = () => {
-  const { technology } = content;
+interface TechnologyProps {
+  content?: TechnologyContent;
+}
+
+export const Technology: React.FC<TechnologyProps> = ({ content }) => {
+  const technology = content || defaultContent.technology;
 
   const icons = {
     shield: <Shield className="w-8 h-8 text-primary" />,

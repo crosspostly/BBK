@@ -1,9 +1,14 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
+import { ProcessContent } from '../types';
 
-export const Process: React.FC = () => {
-  const { process } = content;
+interface ProcessProps {
+  content?: ProcessContent;
+}
+
+export const Process: React.FC<ProcessProps> = ({ content }) => {
+  const process = content || defaultContent.process;
 
   return (
     <Section className="bg-surface/30">

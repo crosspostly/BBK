@@ -1,10 +1,15 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { FadeIn } from './ui/FadeIn';
+import { ShowcaseContent } from '../types';
 
-export const Showcase: React.FC = () => {
-  const { showcase } = content;
+interface ShowcaseProps {
+  content?: ShowcaseContent;
+}
+
+export const Showcase: React.FC<ShowcaseProps> = ({ content }) => {
+  const showcase = content || defaultContent.showcase;
 
   return (
     <Section className="bg-bg">

@@ -1,11 +1,16 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
 import { FadeIn } from './ui/FadeIn';
 import { Instagram, Send } from 'lucide-react';
+import { FounderContent } from '../types';
 
-export const Founder: React.FC = () => {
-  const { founder } = content;
+interface FounderProps {
+  content?: FounderContent;
+}
+
+export const Founder: React.FC<FounderProps> = ({ content }) => {
+  const founder = content || defaultContent.founder;
   const { profile } = founder;
 
   return (

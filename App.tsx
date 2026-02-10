@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import { Home } from './pages/Home';
+import { HomeNN } from './pages/HomeNN';
 import { BlogPost } from './pages/BlogPost';
 import { BlogIndex } from './pages/BlogIndex';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/nn" element={<HomeNN />} />
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
