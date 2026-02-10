@@ -1,4 +1,5 @@
 import React, { Suspense, lazy } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Hero } from '../components/Hero';
 import { StatsStrip } from '../components/StatsStrip';
 import { FadeIn } from '../components/ui/FadeIn';
@@ -21,8 +22,39 @@ const CTA = lazy(() => import('../components/CTA').then(module => ({ default: mo
 import { ContactMap } from '../components/ContactMap';
 
 export const Home: React.FC = () => {
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@type": "AdvertisingAgency",
+    "name": `ББК - Банда Блогеров ${content.hero.city}`,
+    "image": "/images/hero_bg.webp",
+    "description": `Продвижение ресторанов и кафе в ${content.hero.city} через микроблогеров. Организация рекламных кампаний под ключ.`,
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": content.contacts.address.replace('г. ', ''),
+      "addressCountry": "RU"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 55.354727, // Kemerovo latitude
+      "longitude": 86.087234 // Kemerovo longitude
+    },
+    "url": "https://bbk-alpha.vercel.app/",
+    "priceRange": "7900 - 39000 RUB",
+    "founder": {
+        "@type": "Person",
+        "name": content.founder.profile.name
+    }
+  };
+
   return (
     <>
+      <Helmet>
+        <title>Продвижение ресторанов и кафе в {content.hero.city} | Реклама у блогеров BBK</title>
+        <meta name="description" content={`Привлечем гостей в ваше заведение за 3 дня. База из 33+ локальных фуд-блогеров ${content.hero.city}. Оплата за результат, кейсы с ROI 400%. Бесплатный аудит.`} />
+        <script type="application/ld+json">
+          {JSON.stringify(schemaMarkup)}
+        </script>
+      </Helmet>
       <Hero content={content.hero} />
       <FadeIn delay={200}><StatsStrip content={content.statsStrip} /></FadeIn>
       
