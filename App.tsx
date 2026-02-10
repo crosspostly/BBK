@@ -15,7 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         {/* Redirect root to default Kemerovo restaurants page */} 
-        <Route path="/" element={<Navigate to="/page/kemerovo-restaurants" replace />} />
+        <Route path="/" element={<Navigate to="/page/kuzbass" replace />} />
         {/* Dynamic page renderer for all content-driven pages */} 
         <Route path="/page/:slug" element={<UniversalPage />} />
         
@@ -23,7 +23,7 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         {/* Fallback for 404 - redirects to the default page */} 
-        <Route path="*" element={<Navigate to="/page/kemerovo-restaurants" replace />} />
+        <Route path="*" element={<Navigate to="/page/kuzbass" replace />} />
       </Routes>
       <Footer />
     </div>
