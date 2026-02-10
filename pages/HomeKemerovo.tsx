@@ -38,7 +38,7 @@ export const Home: React.FC = () => {
       "latitude": 55.354727, // Kemerovo latitude
       "longitude": 86.087234 // Kemerovo longitude
     },
-    "url": "https://bbk-alpha.vercel.app/",
+    "url": "https://bbk-alpha.vercel.app/kuzbass",
     "priceRange": "7900 - 39000 RUB",
     "founder": {
         "@type": "Person",
