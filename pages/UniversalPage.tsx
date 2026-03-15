@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import { regions } from '../constants_universal';
 
 // --- UI Components ---
@@ -30,7 +30,7 @@ const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
         briefcase: '🛠️',
     };
 
-    if (!content) return null;
+    if (!content || !content.items) return null;
 
     return (
         <Section>
@@ -76,7 +76,7 @@ const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
                     <div className="w-full">
                         <div className="glass p-8 rounded-2xl">
                             <ul className="space-y-4">
-                                {content.items[activeTab]?.tasks.map((task: string, i: number) => (
+                                {content.items[activeTab]?.tasks?.map((task: string, i: number) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <span className="text-primary mt-1">✔</span>
                                         <span>{task}</span>
@@ -95,43 +95,57 @@ const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
 // --- The Main Universal Page Component ---
 export const UniversalPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
   
-  // Resolve which content to show. Default to kuzbass if not found.
-  // We strictly check the keys of the regions object.
-  const citySlug = (slug && regions[slug]) ? slug : 'kuzbass';
+  // 1. Определение города: приоритет - параметр маршрута (:slug)
+  // 2. Вторичный приоритет - путь в URL напрямую (/nn)
+  // 3. Дефолт - kuzbass
+  const citySlug = useMemo(() => {
+    if (slug && regions[slug]) return slug;
+    
+    // Пытаемся выцепить город из пути напрямую
+    const path = location.pathname.replace(/^\//, '');
+    if (path && regions[path]) return path;
+    
+    return 'kuzbass';
+  }, [slug, location.pathname]);
+
   const content = regions[citySlug];
+
+  // Если контент всё ещё не найден (крайний случай), показываем Кузбасс
+  const activeContent = content || regions.kuzbass;
 
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "AdvertisingAgency",
-    "name": `ББК - Банда Блогеров ${content.hero.city}`,
+    "name": `ББК - Банда Блогеров ${activeContent.hero.city}`,
     "image": "/images/hero_bg.webp",
-    "description": content.hero.description,
-    "address": { "@type": "PostalAddress", "addressLocality": content.hero.city, "addressCountry": "RU" },
+    "description": activeContent.hero.description,
+    "address": { "@type": "PostalAddress", "addressLocality": activeContent.hero.city, "addressCountry": "RU" },
     "url": `https://bbk-alpha.vercel.app/${citySlug}`,
   };
 
   return (
     <>
       <Helmet>
-        <title>{content.hero.h1} | BBK Agency</title>
-        <meta name="description" content={content.hero.description} />
+        <title>{activeContent.hero.h1} | BBK Agency</title>
+        <meta name="description" content={activeContent.hero.description} />
         <script type="application/ld+json">{JSON.stringify(schemaMarkup)}</script>
       </Helmet>
       
-      <Hero content={content.hero} />
-      <NichesBlock content={content.niches} />
+      <Hero content={activeContent.hero} />
+      <NichesBlock content={activeContent.niches} />
       
-      <FadeIn><Context content={content.context} /></FadeIn>
-      <FadeIn><Technology content={content.technology} /></FadeIn>
-      <Cases content={content.cases} />
-      <NicheSolutionsBlock content={content.nicheSolutions} />
-      <Tariffs content={content.tariffs} />
-      {citySlug === 'kuzbass' && <Founder content={content.founder} />}
-      <FAQ content={content.faq} />
-      <CTA content={{ cta: content.cta, settings: content.settings, legal: content.legal }} />
+      <FadeIn><Context content={activeContent.context} /></FadeIn>
+      <FadeIn><Technology content={activeContent.technology} /></FadeIn>
+      <Cases content={activeContent.cases} />
+      <NicheSolutionsBlock content={activeContent.nicheSolutions} />
+      <Tariffs content={activeContent.tariffs} />
+      {citySlug === 'kuzbass' && <Founder content={activeContent.founder} />}
+      <FAQ content={activeContent.faq} />
+      <CTA content={{ cta: activeContent.cta, settings: activeContent.settings, legal: activeContent.legal }} />
 
-      <ContactMap content={content.contacts} />
+      <ContactMap content={activeContent.contacts} />
     </>
   );
 };

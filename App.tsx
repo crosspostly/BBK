@@ -14,15 +14,17 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
+        {/* Явные маршруты для городов */}
         <Route path="/" element={<UniversalPage />} />
         <Route path="/nn" element={<UniversalPage />} />
         <Route path="/kuzbass" element={<UniversalPage />} />
         
+        {/* Остальные страницы */}
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
 
-        {/* Fallback for any other slug */}
+        {/* Запасной вариант для динамических слагов */}
         <Route path="/:slug" element={<UniversalPage />} />
       </Routes>
       <Footer />
