@@ -14,16 +14,18 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
-        {/* Redirect root to default Kemerovo restaurants page */} 
-        <Route path="/" element={<Navigate to="/page/kuzbass" replace />} />
-        {/* Dynamic page renderer for all content-driven pages */} 
-        <Route path="/page/:slug" element={<UniversalPage />} />
+        {/* Redirect root to default Kemerovo page */} 
+        <Route path="/" element={<Navigate to="/kuzbass" replace />} />
         
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
+
+        {/* Dynamic page renderer for city-specific pages */} 
+        <Route path="/:slug" element={<UniversalPage />} />
+        
         {/* Fallback for 404 - redirects to the default page */} 
-        <Route path="*" element={<Navigate to="/page/kuzbass" replace />} />
+        <Route path="*" element={<Navigate to="/kuzbass" replace />} />
       </Routes>
       <Footer />
     </div>

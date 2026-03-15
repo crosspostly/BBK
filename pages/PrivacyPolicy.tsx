@@ -1,7 +1,7 @@
 import React from 'react';
 import { Section } from '../components/ui/Section';
 import { FadeIn } from '../components/ui/FadeIn';
-import { content } from '../constants';
+import { content } from '../constants_universal';
 
 export const PrivacyPolicy: React.FC = () => {
   const { legal } = content;

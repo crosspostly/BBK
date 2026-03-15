@@ -15,9 +15,12 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const scrollTo = (id: string) => {
-    // Если мы не на главной, сначала переходим на главную
-    if (window.location.pathname !== '/') {
-      window.location.href = '/#' + id;
+    const cityPaths = ['/kuzbass', '/nn'];
+    const isCityPage = cityPaths.includes(window.location.pathname);
+    
+    // Если мы не на странице города и не на главной, переходим на дефолтную страницу
+    if (!isCityPage && window.location.pathname !== '/') {
+      window.location.href = '/kuzbass#' + id;
       return;
     }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

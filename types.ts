@@ -1,1 +1,220 @@
-export interface CaseStudy {\n  id: number;\n  title: string;\n  subtitle: string;\n  stats: {\n    invested: string;\n    roi?: string;\n    result: string;\n    revenue?: string;\n    cpa?: string;\n  };\n  image: string;\n  videoEmbedUrl?: string;\n  instagramUrl?: string;\n  review?: string;\n}\n\nexport interface Tariff {\n  id: number;\n  name: string;\n  tagline: string;\n  price: string;\n  features: string[];\n  isHit?: boolean;\n  btnText: string;\n}\n\nexport interface TeamMember {\n  id: number;\n  name: string;\n  role: string;\n  audience: string;\n  image: string;\n}\n\nexport interface FAQItem {\n  q: string;\n  a: string;\n}\n\nexport interface VideoItem {\n    id: number;\n    title: string;\n    embedUrl: string; // URL for iframe src (VK Video, YouTube Shorts embed)\n    thumbnail?: string;\n}\n\nexport interface ReviewScreenshot {\n    id: number;\n    author: string;\n    text: string; // Used if image not loaded or for SEO\n    platform: 'whatsapp' | 'telegram' | 'instagram';\n    image?: string; // Optional real screenshot URL\n}\n\nexport interface FounderProfile {\n    name: string;\n    role: string;\n    image: string;\n    quote: string;\n    text: string[];\n    signatureImage?: string;\n    contactEmail: string;\n    instagramUrl?: string;\n    telegramUrl?: string;\n}\n\nexport interface LegalInfo {\n    inn: string;\n    ogrnip?: string; // Optional for self-employed\n    email: string;\n    phone: string;\n    name: string;\n    policyText: string; // Full HTML/Markdown text\n}\n\nexport type HeroContent = ContentConfig['hero'];\nexport type StatsStripContent = ContentConfig['statsStrip'];\nexport type ContextContent = ContentConfig['context'];\nexport type TechnologyContent = ContentConfig['technology'];\nexport type ShowcaseContent = ContentConfig['showcase'];\nexport type GoalsContent = ContentConfig['goals'];\nexport type BusinessValuesContent = ContentConfig['businessValues'];\nexport type CasesContent = ContentConfig['cases'];\nexport type SocialProofContent = ContentConfig['socialProof'];\nexport type ComparisonContent = ContentConfig['comparison'];\nexport type ProcessContent = ContentConfig['process'];\nexport type TeamContent = ContentConfig['team'];\nexport type FounderContent = ContentConfig['founder'];\nexport type TariffsContent = ContentConfig['tariffs'];\nexport type GuaranteesContent = ContentConfig['guarantees'];\nexport type FAQContent = ContentConfig['faq'];\nexport type CTAContent = ContentConfig['cta'];\nexport type ContactsContent = ContentConfig['contacts'];\nexport type LegalContent = ContentConfig['legal'];\nexport type SettingsContent = ContentConfig['settings'];\n\nexport interface ContentConfig {\n  hero: {\n    city: string;\n    brand: string;\n    h1: string;\n    subtitle: string;\n    description: string;\n    benefits: string[];\n    btnText: string;\n  };\n  statsStrip: {\n    title: string;\n    items: Array<{ value: string; label: string; subLabel: string; color: string }>;\n  };\n  context: {\n    h2: string;\n    subH2: string;\n    problems: Array<{ title: string; desc: string }>;\n    solution: {\n        text: string;\n        stats: {\n            influencers: number;\n            ads: number;\n        };\n        conclusion: string;\n    }\n  };\n  technology: {\n    h2: string;\n    steps: Array<{ title: string; desc: string; icon: string }>;\n  };\n  showcase: {\n    h2: string;\n    subtitle: string;\n    items: VideoItem[];\n  };\n  goals: {\n    h2: string;\n    subtitle: string;\n    items: Array<{ title: string; subtitle: string; desc: string; btn: string; icon: string }>;\n  };\n  businessValues: {\n    h2: string;\n    items: Array<{ title: string; problem: string; solution: string; result: string }>;\n  };\n  cases: {\n    h2: string;\n    items: CaseStudy[];\n  };\n  socialProof: {\n    h2: string;\n    subtitle: string;\n    reviews: ReviewScreenshot[];\n  };\n  comparison: {\n    h2: string;\n    headers: string[];\n    rows: Array<{ param: string; target: string; self: string; band: string }>;\n  };\n  process: {\n    h2: string;\n    subtitle: string;\n    steps: Array<{ title: string; desc: string; note?: string }>;\n  };\n  team: {\n    h2: string;\n    subtitle: string;\n    members: TeamMember[];\n  };\n  founder: {\n    profile: FounderProfile;\n  };\n  tariffs: {\n    h2: string;\n    items: Tariff[];\n    depositInfo: {\n        title: string;\n        desc: string;\n    }\n  };\n  guarantees: {\n    h2: string;\n    items: Array<{ title: string; desc: string }>;\n  };\n  faq: {\n    items: FAQItem[];\n  };\n  cta: {\n    h2: string;\n    text: string;\n    btnText: string;\n    disclaimer: string;\n  };\n  contacts: {\n    h2: string;\n    subtitle: string;\n    address: string;\n    telegram: string;\n    telegramUrl: string;\n    mapIframe: string;\n    phone: string;\n    name: string;\n  };\n  legal: LegalInfo;\n  settings: {\n    notifications: {\n      email: string;\n      telegram: {\n        botToken: string;\n        chatId: string;\n      };\n    };\n  };\n}
+export interface CaseStudy {
+  id: number;
+  title: string;
+  subtitle: string;
+  stats: {
+    invested: string;
+    roi?: string;
+    result: string;
+    revenue?: string;
+    cpa?: string;
+  };
+  image: string;
+  videoEmbedUrl?: string;
+  instagramUrl?: string;
+  review?: string;
+}
+
+export interface Tariff {
+  id: number;
+  name: string;
+  tagline: string;
+  price: string;
+  features: string[];
+  isHit?: boolean;
+  btnText: string;
+}
+
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  audience: string;
+  image: string;
+}
+
+export interface FAQItem {
+  q: string;
+  a: string;
+}
+
+export interface VideoItem {
+    id: number;
+    title: string;
+    embedUrl: string; // URL for iframe src (VK Video, YouTube Shorts embed)
+    thumbnail?: string;
+}
+
+export interface ReviewScreenshot {
+    id: number;
+    author: string;
+    text: string; // Used if image not loaded or for SEO
+    platform: 'whatsapp' | 'telegram' | 'instagram';
+    image?: string; // Optional real screenshot URL
+}
+
+export interface FounderProfile {
+    name: string;
+    role: string;
+    image: string;
+    quote: string;
+    text: string[];
+    signatureImage?: string;
+    contactEmail: string;
+    instagramUrl?: string;
+    telegramUrl?: string;
+}
+
+export interface LegalInfo {
+    inn: string;
+    ogrnip?: string; // Optional for self-employed
+    email: string;
+    phone: string;
+    name: string;
+    policyText: string; // Full HTML/Markdown text
+}
+
+export type HeroContent = ContentConfig['hero'];
+export type StatsStripContent = ContentConfig['statsStrip'];
+export type ContextContent = ContentConfig['context'];
+export type TechnologyContent = ContentConfig['technology'];
+export type ShowcaseContent = ContentConfig['showcase'];
+export type GoalsContent = ContentConfig['goals'];
+export type BusinessValuesContent = ContentConfig['businessValues'];
+export type CasesContent = ContentConfig['cases'];
+export type SocialProofContent = ContentConfig['socialProof'];
+export type ComparisonContent = ContentConfig['comparison'];
+export type ProcessContent = ContentConfig['process'];
+export type TeamContent = ContentConfig['team'];
+export type FounderContent = ContentConfig['founder'];
+export type TariffsContent = ContentConfig['tariffs'];
+export type GuaranteesContent = ContentConfig['guarantees'];
+export type FAQContent = ContentConfig['faq'];
+export type CTAContent = ContentConfig['cta'];
+export type ContactsContent = ContentConfig['contacts'];
+export type LegalContent = ContentConfig['legal'];
+export type SettingsContent = ContentConfig['settings'];
+
+export interface ContentConfig {
+  hero: {
+    city: string;
+    brand: string;
+    h1: string;
+    subtitle: string;
+    description: string;
+    benefits: string[];
+    btnText: string;
+  };
+  niches: {
+    h2: string;
+    items: Array<{ icon: string; title: string }>;
+  };
+  nicheSolutions: {
+    h2: string;
+    items: Array<{ niche: string; tasks: string[] }>;
+  };
+  statsStrip: {
+    title: string;
+    items: Array<{ value: string; label: string; subLabel: string; color: string }>;
+  };
+  context: {
+    h2: string;
+    subH2: string;
+    problems: Array<{ title: string; desc: string }>;
+    solution?: {
+        text: string;
+        stats: {
+            influencers: number;
+            ads: number;
+        };
+        conclusion: string;
+    }
+  };
+  technology: {
+    h2: string;
+    steps: Array<{ title: string; desc: string; icon: string }>;
+  };
+  showcase: {
+    h2: string;
+    subtitle: string;
+    items: VideoItem[];
+  };
+  goals: {
+    h2: string;
+    subtitle: string;
+    items: Array<{ title: string; subtitle: string; desc: string; btn: string; icon: string }>;
+  };
+  businessValues: {
+    h2: string;
+    items: Array<{ title: string; problem: string; solution: string; result: string }>;
+  };
+  cases: {
+    h2: string;
+    subtitle?: string;
+    items: CaseStudy[];
+  };
+  socialProof: {
+    h2: string;
+    subtitle: string;
+    reviews: ReviewScreenshot[];
+  };
+  comparison: {
+    h2: string;
+    headers: string[];
+    rows: Array<{ param: string; target: string; self: string; band: string }>;
+  };
+  process: {
+    h2: string;
+    subtitle: string;
+    steps: Array<{ title: string; desc: string; note?: string }>;
+  };
+  team: {
+    h2: string;
+    subtitle: string;
+    members: TeamMember[];
+  };
+  founder: {
+    profile: FounderProfile;
+  };
+  tariffs: {
+    h2: string;
+    items: Tariff[];
+    depositInfo: {
+        title: string;
+        desc: string;
+    }
+  };
+  guarantees: {
+    h2: string;
+    items: Array<{ title: string; desc: string }>;
+  };
+  faq: {
+    items: FAQItem[];
+  };
+  cta: {
+    h2: string;
+    text: string;
+    btnText: string;
+    disclaimer: string;
+  };
+  contacts: {
+    h2: string;
+    subtitle: string;
+    address: string;
+    telegram: string;
+    telegramUrl: string;
+    mapIframe: string;
+    phone: string;
+    name: string;
+  };
+  legal: LegalInfo;
+  settings: {
+    notifications: {
+      email: string;
+      telegram: {
+        botToken: string;
+        chatId: string;
+      };
+    };
+  };
+}

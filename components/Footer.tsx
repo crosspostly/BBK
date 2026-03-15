@@ -1,5 +1,5 @@
 import React from 'react';
-import { content } from '../constants';
+import { content } from '../constants_universal';
 import { Send, Phone } from 'lucide-react';
 
 import { Link } from 'react-router-dom';

@@ -1,15 +1,6 @@
 import { ContentConfig } from './types';
 
-export const content: ContentConfig = {
-  hero: {
-    city: "КЕМЕРОВО",
-    brand: "БАНДА БЛОГЕРОВ КЕМЕРОВО",
-    h1: "Приводим клиентов в ваш бизнес в Кемерово через блогеров",
-    subtitle: "Отточенная на ресторанах система, которая работает для фитнеса, бьюти-сферы и сферы услуг.",
-    description: "Мы используем силу локального сообщества, чтобы создать доверие к вашему бренду. Вместо “слепой” рекламы мы рассказываем живые истории, которые привлекают лояльных клиентов.",
-    benefits: [], // Benefits are now part of a new 'niches' block
-    btnText: "Узнать подробнее"
-  },
+const baseContent: Partial<ContentConfig> = {
   niches: {
     h2: "С какими нишами мы работаем?",
     items: [
@@ -107,7 +98,6 @@ export const content: ContentConfig = {
     btnText: "Получить консультацию",
     disclaimer: "Это бесплатно и ни к чему не обязывает."
   },
-  // --- Остальные блоки остаются без изменений, т.к. они универсальны ---
   founder: {
     profile: {
         name: "Ольга Соболевская",
@@ -124,22 +114,12 @@ export const content: ContentConfig = {
         ]
     }
   },
-  contacts: {
-    h2: "Мы всегда на связи",
-    subtitle: "Работаем по всему Кемерово. Обсудим проект в удобном для вас мессенджере.",
-    address: "г. Кемерово",
-    telegram: "@electromom",
-    telegramUrl: "https://t.me/electromom",
-    phone: "+7 980 591 12 19",
-    name: "Ольга Соболевская",
-    mapIframe: "https://yandex.ru/map-widget/v1/?ll=86.087234%2C55.354727&z=13"
-  },
   legal: {
       inn: "420500000000",
       email: "t.me/electromom",
       phone: "+7 980 591 12 19",
       name: "Ольга Соболевская",
-      policyText: `<div class="space-y-4 text-sm text-textSec">...</div>`
+      policyText: ""
   },
   settings: {
     notifications: {
@@ -150,7 +130,6 @@ export const content: ContentConfig = {
       }
     }
   },
-  // Блоки ниже не используются напрямую на странице, но нужны для типов
   statsStrip: { title: "", items: [] },
   showcase: { h2: "", subtitle: "", items: [] },
   goals: { h2: "", subtitle: "", items: [] },
@@ -161,3 +140,52 @@ export const content: ContentConfig = {
   team: { h2: "", subtitle: "", members: [] },
   guarantees: { h2: "", items: [] }
 };
+
+export const regions: Record<string, ContentConfig> = {
+  kuzbass: {
+    ...baseContent,
+    hero: {
+      city: "КЕМЕРОВО",
+      brand: "БАНДА БЛОГЕРОВ КЕМЕРОВО",
+      h1: "Приводим клиентов в ваш бизнес в Кемерово через блогеров",
+      subtitle: "Отточенная на ресторанах система, которая работает для фитнеса, бьюти-сферы и сферы услуг.",
+      description: "Мы используем силу локального сообщества, чтобы создать доверие к вашему бренду. Вместо “слепой” рекламы мы рассказываем живые истории, которые привлекают лояльных клиентов.",
+      benefits: [],
+      btnText: "Узнать подробнее"
+    },
+    contacts: {
+      h2: "Мы всегда на связи",
+      subtitle: "Работаем по всему Кемерово. Обсудим проект в удобном для вас мессенджере.",
+      address: "г. Кемерово",
+      telegram: "@electromom",
+      telegramUrl: "https://t.me/electromom",
+      phone: "+7 980 591 12 19",
+      name: "Ольга Соболевская",
+      mapIframe: "https://yandex.ru/map-widget/v1/?ll=86.087234%2C55.354727&z=13"
+    }
+  } as ContentConfig,
+  nn: {
+    ...baseContent,
+    hero: {
+      city: "НИЖНИЙ НОВГОРОД",
+      brand: "БАНДА БЛОГЕРОВ НН",
+      h1: "Приводим клиентов в ваш бизнес в Нижнем Новгороде через блогеров",
+      subtitle: "Отточенная на ресторанах система, которая работает для фитнеса, бьюти-сферы и сферы услуг.",
+      description: "Мы используем силу локального сообщества, чтобы создать доверие к вашему бренду. Вместо “слепой” рекламы мы рассказываем живые истории, которые привлекают лояльных клиентов.",
+      benefits: [],
+      btnText: "Узнать подробнее"
+    },
+    contacts: {
+      h2: "Мы всегда на связи",
+      subtitle: "Работаем по всему Нижнему Новгороду. Обсудим проект в удобном для вас мессенджере.",
+      address: "г. Нижний Новгород",
+      telegram: "@daoqub",
+      telegramUrl: "https://t.me/daoqub",
+      phone: "+7 980 591 12 19",
+      name: "Ольга Соболевская",
+      mapIframe: "https://yandex.ru/map-widget/v1/?ll=44.006521%2C56.326797&z=13"
+    }
+  } as ContentConfig
+};
+
+export const content = regions.kuzbass;
