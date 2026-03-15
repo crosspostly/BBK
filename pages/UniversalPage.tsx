@@ -132,7 +132,7 @@ export const UniversalPage: React.FC = () => {
         <Cases content={content.cases} />
         <NicheSolutionsBlock content={content.nicheSolutions} />
         <Tariffs content={content.tariffs} />
-        <Founder content={content.founder} />
+        {citySlug === 'kuzbass' && <Founder content={content.founder} />}
         <FAQ content={content.faq} />
         <CTA content={{ cta: content.cta, settings: content.settings, legal: content.legal }} />
       </Suspense>

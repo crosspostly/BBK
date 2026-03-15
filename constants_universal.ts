@@ -182,7 +182,7 @@ export const regions: Record<string, ContentConfig> = {
       telegram: "@daoqub",
       telegramUrl: "https://t.me/daoqub",
       phone: "+7 980 591 12 19",
-      name: "Ольга Соболевская",
+      name: "Команда «ББК»",
       mapIframe: "https://yandex.ru/map-widget/v1/?ll=44.006521%2C56.326797&z=13"
     }
   } as ContentConfig
