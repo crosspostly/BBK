@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,17 +14,13 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
-        {/* Явные маршруты для городов */}
-        <Route path="/" element={<UniversalPage />} />
-        <Route path="/nn" element={<UniversalPage />} />
-        <Route path="/kuzbass" element={<UniversalPage />} />
+        <Route path="/" element={<Navigate to="/kuzbass" replace />} />
         
-        {/* Остальные страницы */}
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
 
-        {/* Запасной вариант для динамических слагов */}
+        {/* Dynamic city route */}
         <Route path="/:slug" element={<UniversalPage />} />
       </Routes>
       <Footer />

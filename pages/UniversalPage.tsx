@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import { regions } from '../constants_universal';
 
 // --- UI Components ---
@@ -95,25 +95,16 @@ const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
 // --- The Main Universal Page Component ---
 export const UniversalPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
-  const location = useLocation();
   
-  // 1. Определение города: приоритет - параметр маршрута (:slug)
-  // 2. Вторичный приоритет - путь в URL напрямую (/nn)
-  // 3. Дефолт - kuzbass
-  const citySlug = useMemo(() => {
-    if (slug && regions[slug]) return slug;
-    
-    // Пытаемся выцепить город из пути напрямую
-    const path = location.pathname.replace(/^\//, '');
-    if (path && regions[path]) return path;
-    
-    return 'kuzbass';
-  }, [slug, location.pathname]);
+  // Resolve which content to show.
+  const citySlug = slug && regions[slug] ? slug : null;
 
-  const content = regions[citySlug];
+  // Если слаг не найден в регионах, редиректим на дефолтный kuzbass
+  if (!citySlug) {
+      return <Navigate to="/kuzbass" replace />;
+  }
 
-  // Если контент всё ещё не найден (крайний случай), показываем Кузбасс
-  const activeContent = content || regions.kuzbass;
+  const activeContent = regions[citySlug];
 
   const schemaMarkup = {
     "@context": "https://schema.org",

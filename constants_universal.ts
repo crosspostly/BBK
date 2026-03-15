@@ -130,15 +130,15 @@ const baseContent: Partial<ContentConfig> = {
       }
     }
   },
-  statsStrip: { title: "", items: [] },
-  showcase: { h2: "", subtitle: "", items: [] },
-  goals: { h2: "", subtitle: "", items: [] },
-  businessValues: { h2: "", items: [] },
-  socialProof: { h2: "", subtitle: "", reviews: [] },
-  comparison: { h2: "", headers: [], rows: [] },
-  process: { h2: "", subtitle: "", steps: [] },
-  team: { h2: "", subtitle: "", members: [] },
-  guarantees: { h2: "", items: [] }
+  statsStrip: { title: "Результаты наших партнеров", items: [] },
+  showcase: { h2: "Примеры контента", subtitle: "", items: [] },
+  goals: { h2: "Задачи, которые мы решаем", subtitle: "", items: [] },
+  businessValues: { h2: "Ценности для бизнеса", items: [] },
+  socialProof: { h2: "Отзывы клиентов", subtitle: "", reviews: [] },
+  comparison: { h2: "Сравнение каналов", headers: [], rows: [] },
+  process: { h2: "Как мы работаем", subtitle: "", steps: [] },
+  team: { h2: "Наша команда", subtitle: "", members: [] },
+  guarantees: { h2: "Наши гарантии", items: [] }
 };
 
 export const regions: Record<string, ContentConfig> = {
@@ -150,7 +150,11 @@ export const regions: Record<string, ContentConfig> = {
       h1: "Приводим клиентов в ваш бизнес в Кемерово через блогеров",
       subtitle: "Отточенная на ресторанах система, которая работает для фитнеса, бьюти-сферы и сферы услуг.",
       description: "Мы используем силу локального сообщества, чтобы создать доверие к вашему бренду. Вместо “слепой” рекламы мы рассказываем живые истории, которые привлекают лояльных клиентов.",
-      benefits: [],
+      benefits: [
+        "📸 Визуальное притяжение: Эстетичные кадры",
+        "⚡️ Эффект присутствия: О вас узнают тысячи горожан",
+        "📍 Работа на репутацию: Отзывы на картах"
+      ],
       btnText: "Узнать подробнее"
     },
     contacts: {
@@ -172,7 +176,11 @@ export const regions: Record<string, ContentConfig> = {
       h1: "Приводим клиентов в ваш бизнес в Нижнем Новгороде через блогеров",
       subtitle: "Отточенная на ресторанах система, которая работает для фитнеса, бьюти-сферы и сферы услуг.",
       description: "Мы используем силу локального сообщества, чтобы создать доверие к вашему бренду. Вместо “слепой” рекламы мы рассказываем живые истории, которые привлекают лояльных клиентов.",
-      benefits: [],
+      benefits: [
+        "📸 Визуальное притяжение: Эстетичные кадры",
+        "⚡️ Эффект присутствия: О вас узнают тысячи горожан",
+        "📍 Работа на репутацию: Отзывы на картах"
+      ],
       btnText: "Узнать подробнее"
     },
     contacts: {
