@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { regions } from '../constants_universal';
 
 // --- UI Components ---
@@ -20,7 +20,6 @@ import { ContactMap } from '../components/ContactMap';
 
 // --- NEW Universal Components ---
 
-// 1. Niches Icons Block
 const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
     const iconMap: { [key: string]: string } = {
         utensils: '🍽️',
@@ -29,9 +28,7 @@ const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
         shoppingBag: '🛍️',
         briefcase: '🛠️',
     };
-
     if (!content || !content.items) return null;
-
     return (
         <Section>
             <FadeIn>
@@ -49,12 +46,9 @@ const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
     );
 };
 
-// 2. Niche Solutions Block (Tabs)
 const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
     const [activeTab, setActiveTab] = React.useState(0);
-
     if (!content || !content.items || content.items.length === 0) return null;
-
     return (
         <Section className="bg-surface/30">
             <FadeIn>
@@ -91,19 +85,11 @@ const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
     );
 };
 
-
-// --- The Main Universal Page Component ---
 export const UniversalPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   
-  // Resolve which content to show.
-  const citySlug = slug && regions[slug] ? slug : null;
-
-  // Если слаг не найден в регионах, редиректим на дефолтный kuzbass
-  if (!citySlug) {
-      return <Navigate to="/kuzbass" replace />;
-  }
-
+  // Приоритет: 1. slug из URL, 2. 'nn' по умолчанию (для корня /)
+  const citySlug = (slug && regions[slug]) ? slug : 'nn';
   const activeContent = regions[citySlug];
 
   const schemaMarkup = {
@@ -113,7 +99,7 @@ export const UniversalPage: React.FC = () => {
     "image": "/images/hero_bg.webp",
     "description": activeContent.hero.description,
     "address": { "@type": "PostalAddress", "addressLocality": activeContent.hero.city, "addressCountry": "RU" },
-    "url": `https://bbk-alpha.vercel.app/${citySlug}`,
+    "url": `https://bbk-alpha.vercel.app/${citySlug === 'nn' ? '' : citySlug}`,
   };
 
   return (

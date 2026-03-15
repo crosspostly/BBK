@@ -13,7 +13,7 @@ export const Footer: React.FC = () => {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
                     <div>
-                        <Link to="/kuzbass" className="font-display font-bold text-xl mb-2 flex items-center gap-2 justify-center md:justify-start">
+                        <Link to="/" className="font-display font-bold text-xl mb-2 flex items-center gap-2 justify-center md:justify-start">
                             <img src="/bbk-logo.svg" alt="Logo" className="h-6 w-auto" />
                             <span>ББК.</span>
                         </Link>

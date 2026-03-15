@@ -15,15 +15,22 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const scrollTo = (id: string) => {
-    const cityPaths = ['/kuzbass', '/nn'];
-    const isCityPage = cityPaths.includes(window.location.pathname);
+    const cityPaths = ['/', '/nn', '/kuzbass'];
+    const currentPath = window.location.pathname;
     
-    // Если мы не на странице города и не на главной, переходим на дефолтную страницу
-    if (!isCityPage && window.location.pathname !== '/') {
-      window.location.href = '/kuzbass#' + id;
+    // Если мы не на одной из страниц городов, переходим на главную (NN)
+    if (!cityPaths.includes(currentPath)) {
+      window.location.href = '/#' + id;
       return;
     }
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Если элемента нет на текущей странице (маловероятно), идем на главную
+      window.location.href = currentPath + '#' + id;
+    }
   };
 
   return (
@@ -33,7 +40,7 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-        <Link to="/kuzbass" className="flex items-center gap-3 font-display font-bold text-xl tracking-tighter cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+        <Link to="/" className="flex items-center gap-3 font-display font-bold text-xl tracking-tighter cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img src="/bbk-logo.svg" alt="BBK Logo" className="h-10 w-auto" />
             <span className="text-white">ББК</span>
         </Link>
