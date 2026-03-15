@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -14,18 +14,16 @@ function App() {
       <ScrollToTop />
       <Navbar />
       <Routes>
-        {/* Redirect root to default Kemerovo page */} 
-        <Route path="/" element={<Navigate to="/kuzbass" replace />} />
+        <Route path="/" element={<UniversalPage />} />
+        <Route path="/nn" element={<UniversalPage />} />
+        <Route path="/kuzbass" element={<UniversalPage />} />
         
         <Route path="/blog" element={<BlogIndex />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
 
-        {/* Dynamic page renderer for city-specific pages */} 
+        {/* Fallback for any other slug */}
         <Route path="/:slug" element={<UniversalPage />} />
-        
-        {/* Fallback for 404 - redirects to the default page */} 
-        <Route path="*" element={<Navigate to="/kuzbass" replace />} />
       </Routes>
       <Footer />
     </div>

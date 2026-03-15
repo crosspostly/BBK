@@ -1,6 +1,6 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { regions } from '../constants_universal';
 
 // --- UI Components ---
@@ -9,13 +9,13 @@ import { Section } from '../components/ui/Section';
 
 // --- Page Section Components ---
 import { Hero } from '../components/Hero';
-const Context = lazy(() => import('../components/Context').then(module => ({ default: module.Context })));
-const Technology = lazy(() => import('../components/Technology').then(module => ({ default: module.Technology })));
-const Cases = lazy(() => import('../components/Cases').then(module => ({ default: module.Cases })));
-const Tariffs = lazy(() => import('../components/Tariffs').then(module => ({ default: module.Tariffs })));
-const Founder = lazy(() => import('../components/Founder').then(module => ({ default: module.Founder })));
-const FAQ = lazy(() => import('../components/FAQ').then(module => ({ default: module.FAQ })));
-const CTA = lazy(() => import('../components/CTA').then(module => ({ default: module.CTA })));
+import { Context } from '../components/Context';
+import { Technology } from '../components/Technology';
+import { Cases } from '../components/Cases';
+import { Tariffs } from '../components/Tariffs';
+import { Founder } from '../components/Founder';
+import { FAQ } from '../components/FAQ';
+import { CTA } from '../components/CTA';
 import { ContactMap } from '../components/ContactMap';
 
 // --- NEW Universal Components ---
@@ -29,6 +29,8 @@ const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
         shoppingBag: '🛍️',
         briefcase: '🛠️',
     };
+
+    if (!content) return null;
 
     return (
         <Section>
@@ -51,6 +53,8 @@ const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
 const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
     const [activeTab, setActiveTab] = React.useState(0);
 
+    if (!content || !content.items || content.items.length === 0) return null;
+
     return (
         <Section className="bg-surface/30">
             <FadeIn>
@@ -72,7 +76,7 @@ const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
                     <div className="w-full">
                         <div className="glass p-8 rounded-2xl">
                             <ul className="space-y-4">
-                                {content.items[activeTab].tasks.map((task: string, i: number) => (
+                                {content.items[activeTab]?.tasks.map((task: string, i: number) => (
                                     <li key={i} className="flex items-start gap-3">
                                         <span className="text-primary mt-1">✔</span>
                                         <span>{task}</span>
@@ -92,17 +96,9 @@ const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
 export const UniversalPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   
-  // Default to kuzbass if slug is not provided or not found
-  const citySlug = slug && regions[slug] ? slug : null;
-  
-  if (!slug) {
-      return <Navigate to="/kuzbass" replace />;
-  }
-
-  if (!citySlug) {
-      return <Navigate to="/kuzbass" replace />;
-  }
-
+  // Resolve which content to show. Default to kuzbass if not found.
+  // We strictly check the keys of the regions object.
+  const citySlug = (slug && regions[slug]) ? slug : 'kuzbass';
   const content = regions[citySlug];
 
   const schemaMarkup = {
@@ -126,16 +122,14 @@ export const UniversalPage: React.FC = () => {
       <Hero content={content.hero} />
       <NichesBlock content={content.niches} />
       
-      <Suspense fallback={<div className="h-96" />}>
-        <FadeIn><Context content={content.context} /></FadeIn>
-        <FadeIn><Technology content={content.technology} /></FadeIn>
-        <Cases content={content.cases} />
-        <NicheSolutionsBlock content={content.nicheSolutions} />
-        <Tariffs content={content.tariffs} />
-        {citySlug === 'kuzbass' && <Founder content={content.founder} />}
-        <FAQ content={content.faq} />
-        <CTA content={{ cta: content.cta, settings: content.settings, legal: content.legal }} />
-      </Suspense>
+      <FadeIn><Context content={content.context} /></FadeIn>
+      <FadeIn><Technology content={content.technology} /></FadeIn>
+      <Cases content={content.cases} />
+      <NicheSolutionsBlock content={content.nicheSolutions} />
+      <Tariffs content={content.tariffs} />
+      {citySlug === 'kuzbass' && <Founder content={content.founder} />}
+      <FAQ content={content.faq} />
+      <CTA content={{ cta: content.cta, settings: content.settings, legal: content.legal }} />
 
       <ContactMap content={content.contacts} />
     </>
