@@ -23,23 +23,39 @@ import { Mechanics } from '../components/Mechanics';
 // --- NEW Universal Components ---
 
 const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
-    const iconMap: { [key: string]: string } = {
-        utensils: '🍽️',
-        dumbbell: '💪',
-        sparkles: '💅',
-        shoppingBag: '🛍️',
-        briefcase: '🛠️',
-    };
-    if (!content || !content.items) return null;
+    if (!content || !content.items || content.items.length === 0) return null;
     return (
-        <Section>
+        <Section className="bg-surface/30">
             <FadeIn>
-                <h2 className="text-center text-xl font-bold mb-12">{content.h2}</h2>
-                <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+                <h2 className="text-3xl md:text-5xl font-display font-bold text-center mb-16 uppercase tracking-tight leading-tight">
+                    {content.h2}
+                </h2>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                     {content.items.map((item: any) => (
-                        <div key={item.title} className="flex flex-col items-center gap-3 text-center">
-                            <div className="text-4xl">{iconMap[item.icon] || '❓'}</div>
-                            <span className="font-semibold text-sm">{item.title}</span>
+                        <div key={item.niche} className="glass p-8 md:p-12 rounded-3xl border border-white/5 hover:border-primary/30 transition-all group">
+                            <div className="flex flex-col md:flex-row gap-8 items-start">
+                                <div className="text-7xl md:text-8xl shrink-0 group-hover:scale-110 transition-transform duration-500">
+                                    {item.icon}
+                                </div>
+                                <div className="flex-1">
+                                    <h3 className="text-2xl md:text-3xl font-display font-bold mb-4 text-white uppercase tracking-tighter">
+                                        {item.niche}
+                                    </h3>
+                                    <p className="text-textSec mb-8 italic leading-relaxed text-lg">
+                                        {item.desc}
+                                    </p>
+                                    <ul className="space-y-4">
+                                        {item.tasks?.map((task: string, i: number) => (
+                                            <li key={i} className="flex items-center gap-3 text-sm md:text-base font-medium">
+                                                <span className="bg-primary/20 text-primary p-1 rounded-full">
+                                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                                </span>
+                                                <span>{task}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -48,49 +64,10 @@ const NichesBlock: React.FC<{ content: any }> = ({ content }) => {
     );
 };
 
-const NicheSolutionsBlock: React.FC<{ content: any }> = ({ content }) => {
-    const [activeTab, setActiveTab] = React.useState(0);
-    if (!content || !content.items || content.items.length === 0) return null;
-    return (
-        <Section className="bg-surface/30">
-            <FadeIn>
-                <h2 className="text-3xl md:text-5xl font-display font-bold text-center mb-12">{content.h2}</h2>
-                <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-                    <div className="flex md:flex-col overflow-x-auto pb-4 md:pb-0 -mx-4 px-4 no-scrollbar">
-                        {content.items.map((item: any, index: number) => (
-                            <button
-                                key={item.niche}
-                                onClick={() => setActiveTab(index)}
-                                className={`text-left text-lg font-bold p-4 rounded-lg whitespace-nowrap transition-colors duration-200 ${
-                                    activeTab === index ? 'bg-primary text-white' : 'text-textSec hover:bg-white/5'
-                                }`}
-                            >
-                                {item.niche}
-                            </button>
-                        ))}
-                    </div>
-                    <div className="w-full">
-                        <div className="glass p-8 rounded-2xl">
-                            <ul className="space-y-4">
-                                {content.items[activeTab]?.tasks?.map((task: string, i: number) => (
-                                    <li key={i} className="flex items-start gap-3">
-                                        <span className="text-primary mt-1">✔</span>
-                                        <span>{task}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </FadeIn>
-        </Section>
-    );
-};
-
+// Remove the old NicheSolutionsBlock and SWOT
 export const UniversalPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   
-  // Приоритет: 1. slug из URL, 2. 'nn' по умолчанию (для корня /)
   const citySlug = (slug && regions[slug]) ? slug : 'nn';
   const activeContent = regions[citySlug];
 
@@ -113,17 +90,17 @@ export const UniversalPage: React.FC = () => {
       </Helmet>
       
       <Hero content={activeContent.hero} />
-      <NichesBlock content={activeContent.niches} />
       
-      <FadeIn><Context content={activeContent.context} /></FadeIn>
+      <NichesBlock content={activeContent.nicheSolutions} />
+      
       <FadeIn><Technology content={activeContent.technology} /></FadeIn>
-      <SwotAnalysis />
+      
       <Mechanics />
-      <Cases content={activeContent.cases} />
-      <NicheSolutionsBlock content={activeContent.nicheSolutions} />
+      
       <Tariffs content={activeContent.tariffs} />
-      {citySlug === 'kuzbass' && <Founder content={activeContent.founder} />}
+      
       <FAQ content={activeContent.faq} />
+      
       <CTA content={{ cta: activeContent.cta, settings: activeContent.settings, legal: activeContent.legal }} />
 
       <ContactMap content={activeContent.contacts} />

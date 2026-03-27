@@ -1,47 +1,60 @@
 import React, { useState } from 'react';
-import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
-import { Plus, Minus } from 'lucide-react';
-import { FAQContent } from '../types';
+import { ChevronDown } from 'lucide-react';
+import { FaqContent } from '../types';
 
 interface FAQProps {
-  content?: FAQContent;
+  content: FaqContent;
 }
 
 export const FAQ: React.FC<FAQProps> = ({ content }) => {
-  const faq = content || defaultContent.faq;
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
 
   return (
     <Section className="bg-bg">
-      <h2 className="text-3xl md:text-5xl font-display font-bold mb-16 text-center">
-        Вопросы и ответы
-      </h2>
+      <div className="max-w-3xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 uppercase tracking-tighter">
+            ОТВЕТЫ НА <span className="text-primary">ВОПРОСЫ</span>
+          </h2>
+          <p className="text-textSec">
+            Снимаем возражения и объясняем, как работает наша лавина трафика.
+          </p>
+        </div>
 
-      <div className="max-w-3xl mx-auto space-y-4">
-        {faq.items.map((item, idx) => (
-          <div key={idx} className="glass rounded-xl overflow-hidden">
-            <button 
-              className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
-              onClick={() => toggle(idx)}
-            >
-              <span className="font-bold text-lg pr-8">{item.q}</span>
-              {openIndex === idx ? <Minus className="text-primary shrink-0" /> : <Plus className="text-gray-500 shrink-0" />}
-            </button>
-            
+        <div className="space-y-4">
+          {content.items.map((item, idx) => (
             <div 
-              className={`px-6 text-textSec text-sm leading-relaxed overflow-hidden transition-all duration-300 ease-in-out whitespace-pre-line ${
-                openIndex === idx ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 pb-0 opacity-0'
+              key={idx}
+              className={`glass rounded-2xl overflow-hidden border transition-all duration-300 ${
+                openIndex === idx ? 'border-primary/50 bg-primary/5' : 'border-white/5'
               }`}
             >
-              {item.a}
+              <button
+                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
+                className="w-full px-8 py-6 text-left flex justify-between items-center group"
+              >
+                <span className={`font-bold text-lg transition-colors ${openIndex === idx ? 'text-white' : 'text-textSec group-hover:text-white'}`}>
+                  {item.q}
+                </span>
+                <ChevronDown 
+                  className={`text-primary transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`} 
+                  size={24}
+                />
+              </button>
+              
+              <div 
+                className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                  openIndex === idx ? 'max-h-96' : 'max-h-0'
+                }`}
+              >
+                <div className="px-8 pb-8 text-textSec leading-relaxed border-t border-white/5 pt-6">
+                  {item.a}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </Section>
   );
