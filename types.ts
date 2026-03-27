@@ -23,6 +23,7 @@ export interface Tariff {
   features: string[];
   isHit?: boolean;
   btnText: string;
+  bonusFeatures?: string[];
 }
 
 export interface TeamMember {

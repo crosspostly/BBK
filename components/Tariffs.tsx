@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from './ui/Section';
-import { Check, Flame } from 'lucide-react';
+import { Check, Flame, Zap } from 'lucide-react';
 import { TariffsContent } from '../types';
 
 interface TariffsProps {
@@ -54,14 +54,29 @@ export const Tariffs: React.FC<TariffsProps> = ({ content }) => {
                 </div>
               </div>
 
-              <ul className="space-y-4 mb-10 flex-grow">
-                {tier.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-textSec leading-relaxed">
-                    <Check className="text-primary mt-1 shrink-0" size={18} />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="space-y-6 mb-10 flex-grow">
+                {/* Обычные фичи */}
+                <ul className="space-y-4">
+                  {tier.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-sm text-textSec leading-relaxed">
+                      <Check className="text-primary mt-1 shrink-0" size={18} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* БОНУСНЫЕ ФИЧИ */}
+                {tier.bonusFeatures && tier.bonusFeatures.length > 0 && (
+                  <ul className="space-y-4 pt-4 border-t border-white/10">
+                    {tier.bonusFeatures.map((bonus, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm font-bold text-success leading-relaxed">
+                        <Zap className="text-success mt-1 shrink-0" size={18} fill="currentColor" />
+                        <span>{bonus}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
 
               <a 
                 href="https://t.me/electromom"
