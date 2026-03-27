@@ -1,72 +1,52 @@
 import React from 'react';
-import { content as defaultContent } from '../constants';
-import { Button } from './ui/Button';
-import { Check, ArrowDown } from 'lucide-react';
-import { HeroContent } from '../types';
+import { FadeIn } from './ui/FadeIn';
+import { ContentConfig } from '../types';
 
 interface HeroProps {
-  content?: HeroContent;
+  content: ContentConfig['hero'];
 }
 
-export const Hero: React.FC<HeroProps> = ({ content: heroContent }) => {
-  const hero = heroContent || defaultContent.hero;
-
-  const scrollToCTA = () => {
-    document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
+export const Hero: React.FC<HeroProps> = ({ content }) => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with overlay */}
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 bg-bg">
+      {/* Background Decor */}
       <div className="absolute inset-0 z-0">
-                 <img 
-                    src="/images/hero_bg.webp" 
-                    alt="Restaurant ambiance" 
-                    className="w-full h-full object-cover opacity-40 scale-105"
-                  />        
-        <div className="absolute inset-0 bg-gradient-to-b from-bg/20 via-bg/60 to-bg" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bg via-transparent to-bg/40" />
-        <div className="absolute inset-0 bg-noise opacity-[0.15] brightness-50 mix-blend-overlay"></div>
-        <div className="absolute inset-0 bg-primary/5 mix-blend-color" />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-gold/10 rounded-full blur-[120px] animate-pulse"></div>
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-ruby/5 rounded-full blur-[120px]"></div>
+        <div className="absolute inset-0 opacity-20 bg-noise pointer-events-none"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-6 relative z-10 pt-20">
-        <div className="max-w-4xl">
-          <div className="flex items-center gap-2 mb-6 text-sm md:text-base font-bold tracking-widest text-textSec uppercase">
-            <span className="text-primary">📍</span>
-            <span>{hero.brand}</span>
+      <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
+        <FadeIn>
+          <div className="inline-block px-6 py-2 rounded-full border border-ruby/30 bg-ruby/10 text-ruby font-bold text-sm mb-10 tracking-widest uppercase ruby-glow">
+            {content.badge}
           </div>
-
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold text-white leading-[1.1] mb-6 drop-shadow-2xl">
-            {hero.h1}
+          
+          <h1 className="text-5xl md:text-8xl font-display font-black leading-tight mb-10 gold-gradient uppercase tracking-tighter">
+            {content.headline}
           </h1>
-
-          <p className="text-xl md:text-2xl text-textSec mb-8 font-light max-w-2xl border-l-4 border-primary pl-6">
-            {hero.subtitle}
+          
+          <p className="text-xl md:text-2xl text-zinc-400 max-w-4xl mx-auto mb-16 leading-relaxed font-medium">
+            {content.subheadline}
           </p>
 
-          <p className="text-lg text-gray-300 mb-8 max-w-2xl leading-relaxed">
-            {hero.description}
-          </p>
-
-          <div className="space-y-3 mb-10">
-            {hero.benefits.map((benefit, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                    <Check className="text-primary mt-1 min-w-[20px]" size={20} />
-                    <span className="text-gray-200">{benefit}</span>
-                </div>
-            ))}
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+            <a 
+              href="#audit" 
+              className="bg-gold hover:bg-gold-dark text-black font-display font-black px-12 py-6 rounded-xl text-xl transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(212,175,55,0.3)] uppercase tracking-tighter"
+            >
+              {content.ctaText}
+            </a>
+            
+            <div className="flex items-center gap-6 text-left border-l border-white/10 pl-8">
+              <div className="text-sm">
+                <div className="text-gold font-bold text-lg uppercase tracking-widest">Безотказная формула:</div>
+                <div className="text-zinc-500 italic">Блогеры + Карты + Сайт = Лавина трафика</div>
+              </div>
+            </div>
           </div>
-
-          <Button onClick={scrollToCTA}>
-            {hero.btnText}
-          </Button>
-        </div>
+        </FadeIn>
       </div>
-
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-white/30 hidden md:block">
-        <ArrowDown size={32} />
-      </div>
-    </div>
+    </section>
   );
 };

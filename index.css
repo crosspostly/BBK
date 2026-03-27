@@ -2,33 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #0F1115;
-  color: #FFFFFF;
-  font-family: 'Inter', sans-serif;
-  background-image: 
-    radial-gradient(circle at 0% 0%, rgba(255, 77, 0, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 100% 100%, rgba(0, 224, 150, 0.03) 0%, transparent 50%),
-    url('https://grainy-gradients.vercel.app/noise.svg');
-  background-attachment: fixed;
+@layer base {
+  :root {
+    --gold: #D4AF37;
+    --ruby: #991B1B;
+    --zinc-950: #09090b;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-100 font-sans selection:bg-yellow-600/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
 }
 
-.glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+@layer components {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .gold-gradient {
+    @apply bg-gradient-to-br from-[#D4AF37] via-[#F5E0A3] to-[#C5A059] bg-clip-text text-transparent;
+  }
+
+  .ruby-glow {
+    @apply shadow-[0_0_30px_rgba(153,27,27,0.3)];
+  }
 }
 
-.text-glow {
-  text-shadow: 0 0 20px rgba(255, 77, 0, 0.3);
-}
-
-/* Hide scrollbar for video grid but allow scroll */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
-
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

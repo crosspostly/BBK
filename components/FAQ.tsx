@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Section } from './ui/Section';
 import { ChevronDown } from 'lucide-react';
-import { FAQContent } from '../types';
+import { FAQItem } from '../types';
 
 interface FAQProps {
-  content: FAQContent;
+  content: FAQItem[];
 }
 
 export const FAQ: React.FC<FAQProps> = ({ content }) => {
@@ -12,44 +12,44 @@ export const FAQ: React.FC<FAQProps> = ({ content }) => {
 
   return (
     <Section className="bg-bg">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 uppercase tracking-tighter">
-            ОТВЕТЫ НА <span className="text-primary">ВОПРОСЫ</span>
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-display font-black mb-6 gold-gradient uppercase tracking-tighter">
+            ОТВЕТЫ НА <span className="text-white italic">ВОПРОСЫ</span>
           </h2>
-          <p className="text-textSec">
-            Снимаем возражения и объясняем, как работает наша лавина трафика.
+          <p className="text-zinc-500 text-lg">
+            Разбираем технические и юридические нюансы работы клуба.
           </p>
         </div>
 
-        <div className="space-y-4">
-          {content.items.map((item, idx) => (
+        <div className="space-y-6">
+          {content.map((item, idx) => (
             <div 
               key={idx}
-              className={`glass rounded-2xl overflow-hidden border transition-all duration-300 ${
-                openIndex === idx ? 'border-primary/50 bg-primary/5' : 'border-white/5'
+              className={`glass rounded-3xl overflow-hidden border transition-all duration-500 ${
+                openIndex === idx ? 'border-gold/40 bg-gold/5' : 'border-white/5 hover:border-white/10'
               }`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full px-8 py-6 text-left flex justify-between items-center group"
+                className="w-full px-10 py-8 text-left flex justify-between items-center group"
               >
-                <span className={`font-bold text-lg transition-colors ${openIndex === idx ? 'text-white' : 'text-textSec group-hover:text-white'}`}>
-                  {item.q}
+                <span className={`font-display font-bold text-xl transition-colors duration-300 ${openIndex === idx ? 'text-gold' : 'text-zinc-400 group-hover:text-white'}`}>
+                  {item.question}
                 </span>
                 <ChevronDown 
-                  className={`text-primary transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`} 
-                  size={24}
+                  className={`text-gold transition-transform duration-500 ${openIndex === idx ? 'rotate-180' : ''}`} 
+                  size={28}
                 />
               </button>
               
               <div 
-                className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                  openIndex === idx ? 'max-h-96' : 'max-h-0'
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  openIndex === idx ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-8 pb-8 text-textSec leading-relaxed border-t border-white/5 pt-6">
-                  {item.a}
+                <div className="px-10 pb-10 text-zinc-400 leading-relaxed text-lg border-t border-white/5 pt-8">
+                  {item.answer}
                 </div>
               </div>
             </div>

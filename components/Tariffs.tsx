@@ -1,94 +1,89 @@
 import React from 'react';
 import { Section } from './ui/Section';
-import { Check, Flame, Zap } from 'lucide-react';
-import { TariffsContent } from '../types';
+import { Check, Flame, Star } from 'lucide-react';
+import { ContentConfig, Tariff } from '../types';
+import { getDynamicDeadline } from '../constants_universal';
 
 interface TariffsProps {
-  content: TariffsContent;
+  content: Tariff[];
+  offer: ContentConfig['promoOffer'];
 }
 
-export const Tariffs: React.FC<TariffsProps> = ({ content }) => {
+export const Tariffs: React.FC<TariffsProps> = ({ content, offer }) => {
   return (
     <Section className="bg-bg" id="tariffs">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-6xl font-display font-bold mb-6 uppercase tracking-tighter">
-            {content.h2}
-          </h2>
-          
-          {/* FOMO BANNER */}
-          <div className="mt-8 inline-block glass border-primary/50 bg-primary/10 p-6 md:p-8 rounded-3xl animate-pulse">
-            <h3 className="text-primary text-xl md:text-2xl font-bold flex items-center justify-center gap-3 mb-2">
-              <Flame fill="currentColor" /> {content.depositInfo.title}
+        {/* PROMO BANNER */}
+        <div className="mb-24 relative overflow-hidden bg-ruby/5 border border-ruby/30 p-8 md:p-12 rounded-[3rem] ruby-glow">
+          <div className="absolute top-0 right-0 p-8 opacity-10">
+            <Flame size={120} />
+          </div>
+          <div className="relative z-10 text-center md:text-left">
+            <h3 className="text-3xl md:text-4xl font-display font-black text-white mb-6 uppercase tracking-tighter flex items-center gap-4 justify-center md:justify-start">
+              <span className="text-ruby"><Flame fill="currentColor" /></span> {offer.title}
             </h3>
-            <p className="text-white font-medium max-w-2xl mx-auto">
-              {content.depositInfo.desc}
+            <p className="text-zinc-300 text-xl md:text-2xl mb-8 font-medium">
+              {offer.deadlineText} <span className="text-ruby font-black underline decoration-ruby/50 underline-offset-8">{getDynamicDeadline()}!</span>
             </p>
+            <ul className="space-y-4">
+              {offer.bonuses.map((bonus, i) => (
+                <li key={i} className="flex items-center gap-4 text-zinc-400 text-lg">
+                  <span className="w-2 h-2 rounded-full bg-ruby"></span>
+                  {bonus}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-          {content.items.map((tier) => (
+          {content.map((tier) => (
             <div 
               key={tier.id}
-              className={`relative flex flex-col p-8 md:p-10 rounded-[2.5rem] border-2 transition-all duration-500 hover:-translate-y-2 ${
-                tier.isHit 
-                ? 'bg-primary/5 border-primary shadow-[0_0_50px_rgba(255,77,0,0.15)] scale-105 z-10' 
-                : 'bg-surface/30 border-white/5 hover:border-white/10'
+              className={`relative flex flex-col p-10 rounded-[3rem] border transition-all duration-500 hover:-translate-y-2 ${
+                tier.isPopular 
+                ? 'bg-gold/5 border-gold shadow-[0_0_60px_rgba(212,175,55,0.15)] scale-105 z-10' 
+                : 'bg-zinc-900/30 border-white/5 hover:border-white/10'
               }`}
             >
-              {tier.isHit && (
-                <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-black px-6 py-2 rounded-full uppercase tracking-widest">
-                  Самый популярный
+              {tier.isPopular && (
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gold text-black text-[10px] font-black px-8 py-2 rounded-full uppercase tracking-[0.3em] flex items-center gap-2">
+                  <Star size={12} fill="currentColor" /> Хит продаж
                 </div>
               )}
 
-              <div className="mb-8">
-                <h3 className="text-2xl font-display font-bold mb-2 uppercase">{tier.name}</h3>
-                <p className="text-textSec text-sm italic">{tier.tagline}</p>
+              <div className="mb-10">
+                <h3 className="text-2xl font-display font-bold mb-4 uppercase tracking-tight text-white">{tier.name}</h3>
+                <p className="text-zinc-500 text-sm italic leading-relaxed">{tier.description}</p>
               </div>
 
-              <div className="mb-8">
+              <div className="mb-10">
                 <div className="flex items-baseline gap-2">
-                  <span className="text-4xl md:text-5xl font-display font-black text-white">{tier.price}</span>
+                  <span className="text-4xl md:text-5xl font-display font-black text-gold">{tier.price}</span>
+                  <span className="text-zinc-600 text-sm font-bold uppercase tracking-widest">{tier.period}</span>
                 </div>
               </div>
 
-              <div className="space-y-6 mb-10 flex-grow">
-                {/* Обычные фичи */}
-                <ul className="space-y-4">
-                  {tier.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-textSec leading-relaxed">
-                      <Check className="text-primary mt-1 shrink-0" size={18} />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* БОНУСНЫЕ ФИЧИ */}
-                {tier.bonusFeatures && tier.bonusFeatures.length > 0 && (
-                  <ul className="space-y-4 pt-4 border-t border-white/10">
-                    {tier.bonusFeatures.map((bonus, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-sm font-bold text-success leading-relaxed">
-                        <Zap className="text-success mt-1 shrink-0" size={18} fill="currentColor" />
-                        <span>{bonus}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+              <ul className="space-y-5 mb-12 flex-grow">
+                {tier.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-4 text-sm text-zinc-400 leading-relaxed font-medium">
+                    <Check className="text-gold mt-1 shrink-0" size={18} />
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
 
               <a 
-                href="https://t.me/electromom"
+                href={`https://t.me/daoqub`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full py-5 rounded-2xl font-display font-bold text-center transition-all ${
-                  tier.isHit
-                  ? 'bg-primary text-white hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(255,77,0,0.4)]'
-                  : 'bg-white/5 text-white hover:bg-white/10'
+                className={`w-full py-6 rounded-2xl font-display font-black text-center transition-all uppercase tracking-widest text-sm ${
+                  tier.isPopular
+                  ? 'bg-gold text-black hover:bg-gold-light hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]'
+                  : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
                 }`}
               >
-                {tier.btnText}
+                {tier.buttonText}
               </a>
             </div>
           ))}

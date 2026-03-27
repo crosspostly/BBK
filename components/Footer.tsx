@@ -1,49 +1,63 @@
 import React from 'react';
-import { content } from '../constants_universal';
-import { Send, Phone } from 'lucide-react';
+import { FooterData } from '../types';
 
-import { Link } from 'react-router-dom';
+interface FooterProps {
+  content: FooterData;
+}
 
-export const Footer: React.FC = () => {
-  const { legal, founder, contacts } = content;
-
+export const Footer: React.FC<FooterProps> = ({ content }) => {
   return (
-    <>
-        <footer className="py-12 border-t border-white/5 bg-surface/20">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-                    <div>
-                        <Link to="/" className="font-display font-bold text-xl mb-2 flex items-center gap-2 justify-center md:justify-start">
-                            <img src="/bbk-logo.svg" alt="Logo" className="h-6 w-auto" />
-                            <span>ББК.</span>
-                        </Link>
-                        <p className="text-xs text-textSec opacity-50 max-w-xs">
-                            {legal.name}<br/>
-                            ИНН {legal.inn}
-                        </p>
-                    </div>
-                    
-                    <div className="flex flex-col gap-2 text-sm text-textSec">
-                        <Link to="/blog" className="hover:text-primary transition-colors">База знаний (Блог)</Link>
-                        <a href={`tel:${contacts.phone.replace(/\s/g, '')}`} className="flex items-center gap-2 hover:text-primary transition-colors">
-                           <Phone size={14} />
-                           {contacts.phone}
-                        </a>
-                        <a href={founder.profile.telegramUrl || `https://${legal.email}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
-                           <Send size={14} />
-                           {legal.email}
-                        </a>
-                    </div>
-
-                    <div className="flex flex-col gap-2 text-xs text-textSec opacity-50">
-                        <Link to="/privacy" className="hover:text-white transition-colors underline decoration-dotted">
-                            Политика конфиденциальности
-                        </Link>
-                        <span>© 2026 Все права защищены.</span>
-                    </div>
-                </div>
+    <footer className="bg-bg py-24 border-t border-white/5 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 bg-noise pointer-events-none"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+          <div className="space-y-8">
+            <div className="flex items-center gap-3">
+              <span className="bg-ruby text-white font-display font-black px-3 py-1.5 rounded text-lg tracking-tighter">КЛМ</span>
+              <span className="font-display font-bold tracking-widest text-sm uppercase text-zinc-300">Клуб Маркетинга</span>
             </div>
-        </footer>
-    </>
+            <p className="text-zinc-500 text-sm leading-relaxed font-medium">
+              Закрытое сообщество локальных инфлюенсеров и владельцев бизнеса. 
+              Системный трафик с гарантией качества и юридической чистотой.
+            </p>
+          </div>
+
+          <div>
+            <h4 className="font-display font-bold text-white mb-10 uppercase tracking-widest text-xs">Локация</h4>
+            <div className="text-zinc-400 text-sm font-medium">
+              {content.location}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-display font-bold text-white mb-10 uppercase tracking-widest text-xs">Связь</h4>
+            <ul className="space-y-4 text-sm text-zinc-400 font-medium">
+              <li className="hover:text-gold transition-colors tracking-widest">{content.telegram}</li>
+              <li className="hover:text-gold transition-colors tracking-widest">{content.phone}</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-display font-bold text-white mb-10 uppercase tracking-widest text-xs">Юридические данные</h4>
+            <ul className="space-y-3 text-xs text-zinc-600 font-medium leading-relaxed">
+              <li>{content.legal.name}</li>
+              <li>{content.legal.inn}</li>
+              <li className="italic">{content.legal.taxType}</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
+          <div className="text-[10px] text-zinc-700 uppercase tracking-[0.4em] font-black">
+            &copy; {new Date().getFullYear()} Клуб локального маркетинга. All rights reserved.
+          </div>
+          <div className="flex gap-10 text-[10px] text-zinc-700 uppercase tracking-[0.2em] font-black">
+            <a href="/privacy" className="hover:text-zinc-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-zinc-400 transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 };
