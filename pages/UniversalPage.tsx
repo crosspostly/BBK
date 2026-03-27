@@ -17,6 +17,8 @@ import { Founder } from '../components/Founder';
 import { FAQ } from '../components/FAQ';
 import { CTA } from '../components/CTA';
 import { ContactMap } from '../components/ContactMap';
+import { SwotAnalysis } from '../components/SwotAnalysis';
+import { Mechanics } from '../components/Mechanics';
 
 // --- NEW Universal Components ---
 
@@ -115,6 +117,8 @@ export const UniversalPage: React.FC = () => {
       
       <FadeIn><Context content={activeContent.context} /></FadeIn>
       <FadeIn><Technology content={activeContent.technology} /></FadeIn>
+      <SwotAnalysis />
+      <Mechanics />
       <Cases content={activeContent.cases} />
       <NicheSolutionsBlock content={activeContent.nicheSolutions} />
       <Tariffs content={activeContent.tariffs} />
