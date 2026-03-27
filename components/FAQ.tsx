@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Section } from './ui/Section';
 import { ChevronDown } from 'lucide-react';
-import { FaqContent } from '../types';
+import { FAQContent } from '../types';
 
 interface FAQProps {
-  content: FaqContent;
+  content: FAQContent;
 }
 
 export const FAQ: React.FC<FAQProps> = ({ content }) => {

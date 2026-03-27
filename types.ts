@@ -111,7 +111,7 @@ export interface ContentConfig {
   };
   nicheSolutions: {
     h2: string;
-    items: Array<{ niche: string; tasks: string[] }>;
+    items: Array<{ niche: string; tasks: string[]; icon?: string; desc?: string }>;
   };
   statsStrip: {
     title: string;
