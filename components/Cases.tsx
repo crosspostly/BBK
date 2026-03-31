@@ -18,7 +18,7 @@ export const Cases: React.FC<CasesProps> = ({ content }) => {
   const activeCase = cases.items[activeIdx];
 
   return (
-    <Section className="bg-bg">
+    <Section id="cases" className="bg-bg">
       <h2 className="text-3xl md:text-5xl font-display font-bold mb-12">
         {cases.h2}
       </h2>

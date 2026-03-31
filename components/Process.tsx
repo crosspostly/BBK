@@ -11,7 +11,7 @@ export const Process: React.FC<ProcessProps> = ({ content }) => {
   const process = content || defaultContent.process;
 
   return (
-    <Section className="bg-surface/30">
+    <Section id="process" className="bg-surface/30">
       <div className="mb-16">
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-4 max-w-2xl">
             {process.h2}

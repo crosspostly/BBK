@@ -99,7 +99,7 @@ export const CTA: React.FC<CTAProps> = ({ content }) => {
                   onSubmit={handleSubmit}
                   className="glass p-6 md:p-12 rounded-3xl max-w-lg mx-auto shadow-2xl border-primary/20"
                 >
-                  <input type="hidden" name="_subject" value="🔥 Новая заявка: ББК Лендинг" />
+                  <input type="hidden" name="_subject" value="🔥 Новая заявка: Клуб локального маркетинга" />
                   <input type="hidden" name="_captcha" value="false" />
                   <input type="hidden" name="_template" value="table" />
                   <input type="hidden" name="privacy_policy_agreed" value={agreed ? "yes" : "no"} />

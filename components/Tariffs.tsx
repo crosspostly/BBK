@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from './ui/Section';
-import { Check, Flame, Star } from 'lucide-react';
+import { Check, Flame, Star, Clock, Users } from 'lucide-react';
 import { ContentConfig, Tariff } from '../types';
 import { getDynamicDeadline } from '../constants_universal';
 
@@ -13,6 +13,17 @@ export const Tariffs: React.FC<TariffsProps> = ({ content, offer }) => {
   return (
     <Section className="bg-bg" id="tariffs">
       <div className="max-w-7xl mx-auto px-4">
+        {/* URGENCY BANNER */}
+        <div className="mb-8 text-center">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-ruby/20 border border-ruby/40 text-ruby font-bold text-sm mb-4">
+            <Clock className="w-4 h-4" />
+            <span>Осталось 3 места для новых клиентов в этом месяце</span>
+          </div>
+          <p className="text-zinc-500 text-sm">
+            Запуск кампании через 48 часов после аудита
+          </p>
+        </div>
+
         {/* PROMO BANNER */}
         <div className="mb-24 relative overflow-hidden bg-ruby/5 border border-ruby/30 p-8 md:p-12 rounded-[3rem] ruby-glow">
           <div className="absolute top-0 right-0 p-8 opacity-10">

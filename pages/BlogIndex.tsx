@@ -42,14 +42,14 @@ export const BlogIndex: React.FC = () => {
   return (
     <Section className="min-h-screen pt-32 pb-20">
       <Helmet>
-        <title>Блог ББК | Маркетинг общепита в Кемерово</title>
+        <title>Блог | Клуб локального маркетинга</title>
         <meta name="description" content="Полезные статьи, гайды и кейсы по продвижению ресторанов, кафе и доставок еды. Тренды 2026 года." />
       </Helmet>
 
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">
-            База знаний <span className="text-primary">ББК</span>
+            База знаний <span className="text-primary">Клуба локального маркетинга</span>
           </h1>
           <p className="text-textSec text-lg max-w-2xl mx-auto mb-8">
             Всё о маркетинге общепита: от настройки таргета до работы с негативом.

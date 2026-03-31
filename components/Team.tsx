@@ -1,9 +1,14 @@
 import React from 'react';
-import { content } from '../constants';
+import { content as defaultContent } from '../constants';
 import { Section } from './ui/Section';
+import { TeamContent } from '../types';
 
-export const Team: React.FC = () => {
-  const { team } = content;
+interface TeamProps {
+  content?: TeamContent;
+}
+
+export const Team: React.FC<TeamProps> = ({ content }) => {
+  const team = content || defaultContent.team;
 
   return (
     <Section className="bg-bg">
@@ -17,7 +22,7 @@ export const Team: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-        {team.members.map((member) => (
+        {team.members.map((member: any) => (
             <div key={member.id} className="group text-center">
                 <div className="relative mb-6 inline-block">
                     <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/10 group-hover:border-primary transition-colors duration-300 mx-auto">

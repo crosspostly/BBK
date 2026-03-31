@@ -52,7 +52,7 @@ export const SwotAnalysis: React.FC = () => {
         <FadeIn>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl font-display font-bold mb-6 uppercase">
-              SWOT-анализ <span className="text-primary">ББК</span>
+              SWOT-анализ <span className="text-primary">Клуба локального маркетинга</span>
             </h2>
             <p className="text-textSec text-xl max-w-2xl mx-auto">
               Честный взгляд на систему маркетинга нового поколения. 

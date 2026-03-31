@@ -47,7 +47,7 @@ export const BlogPost: React.FC = () => {
           </ul>
 
           <h2>Наше решение</h2>
-          <p>В ББК мы разработали уникальную методику работы именно с этой задачей. Мы не просто настраиваем рекламу, мы выстраиваем путь гостя от "увидел в телефоне" до "заказал столик".</p>
+          <p>В Клубе локального маркетинга мы разработали уникальную методику работы именно с этой задачей. Мы не просто настраиваем рекламу, мы выстраиваем путь гостя от "увидел в телефоне" до "заказал столик".</p>
           
           <div class="bg-surface/50 p-6 rounded-xl border border-white/5 my-8">
             <h3 class="text-xl font-bold mb-4 text-white">Что вы получите после аудита?</h3>
@@ -75,7 +75,7 @@ export const BlogPost: React.FC = () => {
   return (
     <Section className="min-h-screen pt-32 pb-20">
        <Helmet>
-         <title>{article.title} | Блог ББК</title>
+         <title>{article.title} | Клуб локального маркетинга</title>
          <meta name="description" content={article.description || article.excerpt} />
          {/* Open Graph для красивого шеринга в соцсетях */}
          <meta property="og:title" content={article.title} />

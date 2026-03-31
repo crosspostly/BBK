@@ -11,7 +11,7 @@ export const FAQ: React.FC<FAQProps> = ({ content }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <Section className="bg-bg">
+    <Section id="faq" className="bg-bg">
       <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-display font-black mb-6 gold-gradient uppercase tracking-tighter">
